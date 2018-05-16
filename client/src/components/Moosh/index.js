@@ -1,16 +1,11 @@
 // *******************************************************
-// Components Export File
+// Moosh Export File
 // -------------------------------------------------------
-// All Components can be imported from this file
+// All Mooshes from across the application
 // -------------------------------------------
-
-import * as Moosh_ from './Moosh';
 
 // *******************************************
 // Exports
 // -------------------------------------------
-export {default as Window} from './Window';
-export {default as Background} from './Background';
-export {default as Title} from './Title';
-export const Moosh = Moosh_;
+export {default as Home} from './Home';
 // --------------------------------

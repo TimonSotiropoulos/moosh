@@ -4,6 +4,7 @@
 // The is the index file to import all our base styles from
 // -------------------------------------------
 export {default as Fill} from './Fill.scss';
+export {default as Animation} from './Animation.scss';
 
 // *******************************************
 // Component Imports

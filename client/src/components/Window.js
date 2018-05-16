@@ -39,7 +39,7 @@ class Window extends Component {
 
     render() {
         return (
-            <svg style={{backgroundColor: 'green'}} xmlns="http://www.w3.org/2000/svg" version="1" width={Dimensions.APP_WIDTH} height={Dimensions.APP_HEIGHT} viewBox="0 0 2048 1536">
+            <svg style={{backgroundColor: 'black'}} xmlns="http://www.w3.org/2000/svg" version="1" width={Dimensions.APP_WIDTH} height={Dimensions.APP_HEIGHT} viewBox="0 0 2048 1536">
                 {this.props.children}
             </svg>
         );

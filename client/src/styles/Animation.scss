@@ -7,23 +7,24 @@
 // *******************************************
 // Style Implementation
 // -------------------------------------------
-.plum {
-    fill: #695585;
+@keyframes opacity-in {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
 }
-.lightPlum {
-    fill: #796690;
+
+@keyframes opacity-out {
+    100% { opacity: 0; }
 }
-.lavendar {
-    fill: #B0A3BD;
+
+.opacityIn {
+    opacity: 0;
+    animation: opacity-in 2s linear 0s 1 forwards;
 }
-.darkPurple {
-    fill: #52416B;
+
+.opacityOut {
+    opacity: 1;
+    animation: opacity-out 2s linear 1s 1 forwards;
 }
-.greyPurple {
-    fill: #978DA1;
-}
-.white {
-    fill: #fff;
-}
+
 
 // --------------------------------

@@ -15,7 +15,7 @@ import React, { Component } from 'react';
 // *******************************************
 // Component Imports
 // -------------------------------------------
-import { Window, Background } from '../components';
+import { Window, Background, Title, Moosh } from '../components';
 // --------------------------------
 
 // *******************************************
@@ -33,6 +33,8 @@ class Home extends Component {
         return (
             <Window>
                 <Background screen={Routes.Home} />
+                <Title yPos={180} />
+                <Moosh.Home />
             </Window>
         );
     }
