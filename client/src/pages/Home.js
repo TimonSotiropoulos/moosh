@@ -10,6 +10,7 @@
 // Module Imports
 // -------------------------------------------
 import React, { Component } from 'react';
+import { withRouter } from 'react-router';
 // --------------------------------
 
 // *******************************************
@@ -29,17 +30,23 @@ import { Routes } from '../constants';
 // Implementation
 // -------------------------------------------
 class Home extends Component {
+
+    navigateToIntro = () => {
+        const { history } = this.props;
+        history.push(Routes.Intro);
+    }
+
     render() {
         return (
             <Window>
                 <Background screen={Routes.Home} />
                 <Title yPos={180} />
-                <Button.GetStarted />
+                <Button.GetStarted onClick={this.navigateToIntro} />
                 <Moosh.Home />
             </Window>
         );
     }
 }
 
-export default Home;
+export default withRouter(Home);
 // --------------------------------

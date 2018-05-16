@@ -9,16 +9,13 @@
 // *******************************************
 // Module Imports
 // -------------------------------------------
-import React, { Component, Fragment } from 'react';
-// import { withRouter } from 'react-router'
-import { Route, Switch } from 'react-router-dom'
-// import { connect } from 'react-redux'
+import React, { Component } from 'react';
 // --------------------------------
 
 // *******************************************
-// Page Imports
+// Component Imports
 // -------------------------------------------
-import { Home, Intro } from '../pages';
+import { Window, Background, Button, Title, Moosh } from '../components';
 // --------------------------------
 
 // *******************************************
@@ -27,26 +24,19 @@ import { Home, Intro } from '../pages';
 import { Routes } from '../constants';
 // --------------------------------
 
+
 // *******************************************
 // Implementation
 // -------------------------------------------
-class App extends Component {
+class Intro extends Component {
     render() {
         return (
-            <Fragment>
-                <Switch>
-                    <Route exact path={Routes.Home} component={Home} />
-                    <Route exact path={Routes.Intro} component={Intro} />
-                    <Route exact path={Routes.Market} component={Home} />
-                    <Route exact path={Routes.Garden} component={Home} />
-                    <Route exact path={Routes.Kitchen} component={Home} />
-                    <Route exact path={Routes.Result} component={Home} />
-                    <Route exact path={Routes.Score} component={Home} />
-                </Switch>
-            </Fragment>
+            <Window>
+                <Background screen={Routes.Intro} />
+            </Window>
         );
     }
 }
 
-export default App;
+export default Intro;
 // --------------------------------
