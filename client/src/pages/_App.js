@@ -10,9 +10,9 @@
 // Module Imports
 // -------------------------------------------
 import React, { Component, Fragment } from 'react';
-import { withRouter } from 'react-router'
-import { Route, Switch, Redirect } from 'react-router-dom'
-import { connect } from 'react-redux'
+// import { withRouter } from 'react-router'
+import { Route, Switch } from 'react-router-dom'
+// import { connect } from 'react-redux'
 // --------------------------------
 
 // *******************************************
