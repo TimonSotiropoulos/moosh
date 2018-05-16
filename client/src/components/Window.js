@@ -18,6 +18,12 @@ import React, { Component } from 'react';
 // --------------------------------
 
 // *******************************************
+// Constant Imports
+// -------------------------------------------
+import { Dimensions } from '../constants';
+// --------------------------------
+
+// *******************************************
 // Utility Imports
 // -------------------------------------------
 
@@ -32,16 +38,12 @@ import React, { Component } from 'react';
 class Window extends Component {
 
     render() {
-
         return (
-            <div>
-                Hello World!
+            <svg style={{backgroundColor: 'green'}} xmlns="http://www.w3.org/2000/svg" version="1" width={Dimensions.APP_WIDTH} height={Dimensions.APP_HEIGHT} viewBox="0 0 2048 1536">
                 {this.props.children}
-            </div>
+            </svg>
         );
-
     }
-
 }
 
 export default Window;

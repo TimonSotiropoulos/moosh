@@ -8,10 +8,12 @@
 // Constant Imports
 // -------------------------------------------
 import * as Routes_ from './routes';
+import * as Dimensions_ from './dimensions';
 // --------------------------------
 
 // *******************************************
 // Exports
 // -------------------------------------------
 export const Routes = Routes_;
+export const Dimensions = Dimensions_;
 // --------------------------------

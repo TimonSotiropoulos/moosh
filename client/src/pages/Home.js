@@ -9,7 +9,19 @@
 // *******************************************
 // Module Imports
 // -------------------------------------------
-import React, { Component, Fragment } from 'react';
+import React, { Component } from 'react';
+// --------------------------------
+
+// *******************************************
+// Component Imports
+// -------------------------------------------
+import { Window, Background } from '../components';
+// --------------------------------
+
+// *******************************************
+// Constant Imports
+// -------------------------------------------
+import { Routes } from '../constants';
 // --------------------------------
 
 
@@ -19,9 +31,9 @@ import React, { Component, Fragment } from 'react';
 class Home extends Component {
     render() {
         return (
-            <Fragment>
-                This is the Home Page
-            </Fragment>
+            <Window>
+                <Background screen={Routes.Home} />
+            </Window>
         );
     }
 }
