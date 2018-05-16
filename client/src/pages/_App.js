@@ -9,25 +9,44 @@
 // *******************************************
 // Module Imports
 // -------------------------------------------
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 import { withRouter } from 'react-router'
 import { Route, Switch, Redirect } from 'react-router-dom'
 import { connect } from 'react-redux'
 // --------------------------------
 
+// *******************************************
+// Page Imports
+// -------------------------------------------
+import { Home } from '../pages';
+// --------------------------------
+
+// *******************************************
+// Constant Imports
+// -------------------------------------------
+import { Routes } from '../constants';
+// --------------------------------
+
+// *******************************************
+// Implementation
+// -------------------------------------------
 class App extends Component {
     render() {
         return (
-            <div className="App">
-                <header className="App-header">
-                    <h1 className="App-title">Welcome to React</h1>
-                </header>
-                <p className="App-intro">
-                    To get started, edit <code>src/App.js</code> and save to reload.
-                </p>
-            </div>
+            <Fragment>
+                <Switch>
+                    <Route exact path={Routes.Home} component={Home} />
+                    <Route exact path={Routes.Intro} component={Home} />
+                    <Route exact path={Routes.Market} component={Home} />
+                    <Route exact path={Routes.Garden} component={Home} />
+                    <Route exact path={Routes.Kitchen} component={Home} />
+                    <Route exact path={Routes.Result} component={Home} />
+                    <Route exact path={Routes.Score} component={Home} />
+                </Switch>
+            </Fragment>
         );
     }
 }
 
 export default App;
+// --------------------------------
