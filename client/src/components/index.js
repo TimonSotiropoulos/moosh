@@ -5,6 +5,7 @@
 // -------------------------------------------
 
 import * as Moosh_ from './Moosh';
+import * as Button_ from './Button';
 
 // *******************************************
 // Exports
@@ -12,5 +13,6 @@ import * as Moosh_ from './Moosh';
 export {default as Window} from './Window';
 export {default as Background} from './Background';
 export {default as Title} from './Title';
+export const Button = Button_;
 export const Moosh = Moosh_;
 // --------------------------------
