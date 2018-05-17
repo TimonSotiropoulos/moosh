@@ -83,7 +83,7 @@ class Intro extends Component {
 
         return (
             <Window>
-                <Background screen={Routes.Intro} />
+                <Background.Intro />
                 {this._renderScene()}
             </Window>
         );

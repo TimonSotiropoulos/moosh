@@ -37,9 +37,11 @@ class Home extends Component {
     }
 
     render() {
+        console.log("RENDERING HOME");
+        console.log(Background);
         return (
             <Window>
-                <Background screen={Routes.Home} />
+                <Background.Home />
                 <Title yPos={400} />
                 <Button.LetsMoosh onClick={this.navigateToIntro} />
                 <Moosh.Home />
