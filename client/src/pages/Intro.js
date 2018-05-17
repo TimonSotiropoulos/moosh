@@ -46,7 +46,7 @@ class Intro extends Component {
     _renderAgeQuestion = () => {
         return (
             <Fragment>
-                <Moosh.Home />
+                <Moosh.Intro />
             </Fragment>
         );
     }

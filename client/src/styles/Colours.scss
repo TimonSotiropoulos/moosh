@@ -1,0 +1,43 @@
+// *******************************************************
+// Colors Style Guide
+// -------------------------------------------------------
+// This file contains the different colors and their names
+// that are used across the application
+//
+// How To Use:
+// Import this file into your required SCSS file and use
+// the map to generate the required styling,
+//
+// First Color: The base color
+// Second Color: The highlight/hover for the base color
+// -------------------------------------------
+
+// *******************************************
+// Style Implementation
+// -------------------------------------------
+$colors: (
+    plum: #695585,
+    lightPlum: #796690,
+    lavendar: #B0A3BD,
+    darkPurple: #52416B,
+    purple: #944f90,
+    darkPurpleAlt: #584770,
+    greyPurple: #978DA1,
+    offWhite: #f8f9f4,
+    white: #fff,
+    grey: #cdc5d5,
+    transparent: transparent,
+    green: #05ab8c,
+    greenTwo: #008f76,
+    greenThree: #005b49,
+    greenFour: #55676f,
+    greenFive: #9cbf6e,
+    greenSix: #b6dad0,
+    lightBlack: #231f20,
+    pink: #e77c8d
+)
+
+:export {
+
+}
+// --------------------------------

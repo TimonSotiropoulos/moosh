@@ -5,31 +5,84 @@
 // -------------------------------------------
 
 // *******************************************
+// Import Statements
+// -------------------------------------------
+@import "./Colours";
+// --------------------------------
+
+// *******************************************
 // Style Implementation
 // -------------------------------------------
-.plum {
-    fill: #695585;
+
+@each $name, $hexcode in $colors {
+  .#{$name} {
+      fill: $hexcode;
+  }
 }
-.lightPlum {
-    fill: #796690;
+
+.none {
+    fill: none;
 }
-.lavendar {
-    fill: #B0A3BD;
-}
-.darkPurple {
-    fill: #52416B;
-}
-.greyPurple {
-    fill: #978DA1;
-}
-.white {
-    fill: #fff;
-}
-.grey {
-    fill: #cdc5d5;
-}
-.transparent {
-    fill: transparent;
-}
+
+// .plum {
+//     fill: #695585;
+// }
+// .lightPlum {
+//     fill: #796690;
+// }
+// .lavendar {
+//     fill: #B0A3BD;
+// }
+// .darkPurple {
+//     fill: #52416B;
+// }
+// .purple: {
+//     fill: #944f90;
+// }
+// .darkPurpleAlt {
+//     fill: #584770;
+// }
+// .greyPurple {
+//     fill: #978DA1;
+// }
+// .offWhite {
+//     fill: #f8f9f4;
+// }
+// .white {
+//     fill: #fff;
+// }
+// .grey {
+//     fill: #cdc5d5;
+// }
+// .transparent {
+//     fill: transparent;
+// }
+// .green {
+//     fill: #05ab8c;
+// }
+// .greenTwo {
+//     fill: #008f76;
+// }
+// .greenThree {
+//     fill: #005b49;
+// }
+// .greenFour {
+//     fill: #55676f;
+// }
+// .greenFive {
+//     fill: #9cbf6e;
+// }
+// .greenSix {
+//     fill: #b6dad0;
+// }
+// .lightBlack {
+//     fill: #231f20;
+// }
+// .pink {
+//     fill: #e77c8d
+// }
+// .none {
+//     fill: none;
+// }
 
 // --------------------------------
