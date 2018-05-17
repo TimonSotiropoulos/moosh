@@ -10,6 +10,7 @@
 import * as Moosh_ from './Moosh';
 import * as Button_ from './Button';
 import * as Background_ from './Background';
+import * as SpeechBubble_ from './SpeechBubble';
 // --------------------------------
 
 // *******************************************
@@ -20,4 +21,5 @@ export {default as Title} from './Title';
 export const Background = Background_;
 export const Button = Button_;
 export const Moosh = Moosh_;
+export const SpeechBubble = SpeechBubble_;
 // --------------------------------

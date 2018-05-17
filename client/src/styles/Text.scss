@@ -1,0 +1,27 @@
+// *******************************************************
+// Text SCSS File
+// -------------------------------------------------------
+// This file contains all our text styling for the sass components
+// -------------------------------------------
+
+// *******************************************
+// Style Implementation
+// -------------------------------------------
+
+.speechBubble {
+    font-family: Poppins;
+    font-size: 56px;
+    color: #58595B;
+    fill: #58595B;
+    stroke-width: 0px;
+}
+
+.speechBubbleError {
+    font-family: Poppins;
+    font-size: 56px;
+    color: #fff;
+    fill: #fff;
+    stroke-width: 0px;
+}
+
+// --------------------------------

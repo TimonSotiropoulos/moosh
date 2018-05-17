@@ -15,7 +15,7 @@ import React, { Component, Fragment } from 'react';
 // *******************************************
 // Component Imports
 // -------------------------------------------
-import { Window, Background, Button, Title, Moosh } from '../components';
+import { Window, Background, Button, Title, Moosh, SpeechBubble } from '../components';
 // --------------------------------
 
 // *******************************************
@@ -47,6 +47,7 @@ class Intro extends Component {
         return (
             <Fragment>
                 <Moosh.Intro />
+                <SpeechBubble.Hungry />
             </Fragment>
         );
     }
