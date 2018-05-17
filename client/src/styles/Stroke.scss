@@ -7,29 +7,9 @@
 // *******************************************
 // Style Implementation
 // -------------------------------------------
-.plum {
-    fill: #695585;
+@for $number from 0 through 100 {
+    .Width_#{$number} {
+        stroke-width: #{$number}px;
+    }
 }
-.lightPlum {
-    fill: #796690;
-}
-.lavendar {
-    fill: #B0A3BD;
-}
-.darkPurple {
-    fill: #52416B;
-}
-.greyPurple {
-    fill: #978DA1;
-}
-.white {
-    fill: #fff;
-}
-.grey {
-    fill: #cdc5d5;
-}
-.transparent {
-    fill: transparent;
-}
-
 // --------------------------------

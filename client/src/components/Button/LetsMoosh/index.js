@@ -71,7 +71,7 @@ class Button extends Component {
         const { onClick } = this.props;
         const x = (2048/2 - 250);
         return (
-            <svg x={x} y={725} viewbox='0 0 500 120'>
+            <svg x={x} y={950} viewbox='0 0 500 120'>
                 <defs>
                     <style>
                         {css}
@@ -80,7 +80,7 @@ class Button extends Component {
               <g class={"button"} onClick={onClick}>
                 <rect  rx="60" ry="60" x="0" y="0" width="500" height="120">
                 </rect>
-                <text class={"text"} x={40} y={78}>Get Started</text>
+                <text class={"text"} x={40} y={78}>Let's Moosh</text>
                 {this._renderArrow()}
               </g>
             </svg>

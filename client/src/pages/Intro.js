@@ -9,7 +9,7 @@
 // *******************************************
 // Module Imports
 // -------------------------------------------
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 // --------------------------------
 
 // *******************************************
@@ -29,10 +29,62 @@ import { Routes } from '../constants';
 // Implementation
 // -------------------------------------------
 class Intro extends Component {
+
+    constructor(props) {
+        super(props);
+        this.state = {
+            scene: 0
+        }
+    }
+
+    _goToNextScene = () => {
+        this.setState({
+            scene: this.state.scene++
+        });
+    }
+
+    _renderAgeQuestion = () => {
+        return (
+            <Fragment>
+                <Moosh.Home />
+            </Fragment>
+        );
+    }
+
+    _renderPostcodeQuestion = () => {
+        return (
+            <Fragment>
+                <Moosh.Home />
+            </Fragment>
+        );
+    }
+
+    _renderInfoScreen = () => {
+        return (
+            <Fragment>
+                <Moosh.Home />
+            </Fragment>
+        );
+    }
+
+    _renderScene = () => {
+        switch (this.state.scene) {
+            case 0:
+                return this._renderAgeQuestion();
+            case 1:
+                return this._renderPostcodeQuestion();
+            case 2:
+                return this._renderInfoScreen();
+
+        }
+    }
+
     render() {
+
         return (
             <Window>
                 <Background screen={Routes.Intro} />
+                {this._renderScene()}
             </Window>
         );
     }

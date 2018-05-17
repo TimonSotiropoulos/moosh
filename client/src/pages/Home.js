@@ -40,8 +40,8 @@ class Home extends Component {
         return (
             <Window>
                 <Background screen={Routes.Home} />
-                <Title yPos={180} />
-                <Button.GetStarted onClick={this.navigateToIntro} />
+                <Title yPos={400} />
+                <Button.LetsMoosh onClick={this.navigateToIntro} />
                 <Moosh.Home />
             </Window>
         );
