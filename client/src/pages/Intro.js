@@ -15,7 +15,7 @@ import React, { Component, Fragment } from 'react';
 // *******************************************
 // Component Imports
 // -------------------------------------------
-import { Window, Background, Button, Title, Moosh, SpeechBubble } from '../components';
+import { Window, Background, Dropdown, Button, Title, Moosh, SpeechBubble } from '../components';
 // --------------------------------
 
 // *******************************************
@@ -48,6 +48,7 @@ class Intro extends Component {
             <Fragment>
                 <Moosh.Intro />
                 <SpeechBubble.Hungry />
+                <Dropdown.Age />
                 <Button.Next onClick={this._goToNextScene}/>
             </Fragment>
         );
