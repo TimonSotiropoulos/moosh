@@ -39,7 +39,7 @@ class Intro extends Component {
 
     _goToNextScene = () => {
         this.setState({
-            scene: this.state.scene++
+            scene: this.state.scene + 1
         });
     }
 
@@ -48,6 +48,7 @@ class Intro extends Component {
             <Fragment>
                 <Moosh.Intro />
                 <SpeechBubble.Hungry />
+                <Button.Next onClick={this._goToNextScene}/>
             </Fragment>
         );
     }
@@ -56,6 +57,7 @@ class Intro extends Component {
         return (
             <Fragment>
                 <Moosh.Home />
+                <Button.Next onClick={this._goToNextScene}/>
             </Fragment>
         );
     }
@@ -64,6 +66,7 @@ class Intro extends Component {
         return (
             <Fragment>
                 <Moosh.Home />
+                <Button.Next onClick={this._goToNextScene}/>
             </Fragment>
         );
     }
@@ -76,7 +79,8 @@ class Intro extends Component {
                 return this._renderPostcodeQuestion();
             case 2:
                 return this._renderInfoScreen();
-
+            default:
+                return this._renderAgeQuestion();
         }
     }
 

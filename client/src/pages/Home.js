@@ -37,8 +37,6 @@ class Home extends Component {
     }
 
     render() {
-        console.log("RENDERING HOME");
-        console.log(Background);
         return (
             <Window>
                 <Background.Home />
