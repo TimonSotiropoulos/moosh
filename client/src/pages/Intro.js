@@ -10,6 +10,7 @@
 // Module Imports
 // -------------------------------------------
 import React, { Component, Fragment } from 'react';
+import { withRouter } from 'react-router';
 // --------------------------------
 
 // *******************************************
@@ -41,8 +42,10 @@ class Intro extends Component {
 
         this.state = {
             scene: 0,
-            validated: true
+            validated: true,
+            postcode: ""
         }
+        this.LAST_KEY_VALID = false;
     }
 
     updateValue = (key, value) => {
@@ -57,6 +60,12 @@ class Intro extends Component {
         });
     }
 
+    _goToMarket = () => {
+        // Create action to add data about user to the redux store
+        const { history } = this.props;
+        history.push(Routes.Market);
+    }
+
     _validateAgeQuestion = (age) => {
         if (this.state.age) {
             this._goToNextScene();
@@ -65,6 +74,24 @@ class Intro extends Component {
                 validated: false
             });
         }
+    }
+
+    _handleChange = (event) => {
+        if (this.LAST_KEY_VALID) {
+            this.setState({
+                postcode: event.target.value
+            });
+        }
+    }
+
+    _isKeyNumber = (event) => {
+        var charCode = (event.which) ? event.which : event.keyCode
+        if (charCode > 31 && (charCode < 48 || charCode > 57)) {;
+            this.LAST_KEY_VALID = false;
+            return false;
+        }
+        this.LAST_KEY_VALID = true;
+        return true;
     }
 
     _renderAgeQuestion = () => {
@@ -92,7 +119,18 @@ class Intro extends Component {
                 <foreignObject x={150} y={1180} width={600} height={50}>
                     <p class={[Text.footerText]}>My postcode is:</p>
                 </foreignObject>
-
+                <foreignObject x={600} y={1230} width={600} height={50}>
+                    <input
+                        inputMode={"numeric"}
+                        maxLength={4}
+                        value={this.state.postcode}
+                        className={[Text.formInput].join(" ")}
+                        style={{width: 225, height: 100, paddingLeft: 40, borderRadius: 50, backgroundColor: 'white'}}
+                        placeholder={""}
+                        onKeyDown={this._isKeyNumber}
+                        onChange={this._handleChange}
+                        type={"text"} />
+                </foreignObject>
                 <foreignObject x={150} y={1320} width={600} height={50} style={{cursor: 'pointer'}} onClick={this._goToNextScene}>
                     <p class={[Text.footerTextRed].join(" ")}>Oops, I'm not sure.</p>
                 </foreignObject>
@@ -104,8 +142,9 @@ class Intro extends Component {
     _renderInfoScreen = () => {
         return (
             <Fragment>
-                <Moosh.Home />
-                <Button.Next onClick={this._goToNextScene}/>
+                <Moosh.Hungry />
+                <SpeechBubble.Hungry />
+                <Button.FeedMoosh onClick={this._goToMarket}/>
             </Fragment>
         );
     }
@@ -134,5 +173,5 @@ class Intro extends Component {
     }
 }
 
-export default Intro;
+export default withRouter(Intro);
 // --------------------------------
