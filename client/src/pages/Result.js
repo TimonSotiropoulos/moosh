@@ -9,16 +9,14 @@
 // *******************************************
 // Module Imports
 // -------------------------------------------
-import React, { Component, Fragment } from 'react';
-// import { withRouter } from 'react-router'
-import { Route, Switch } from 'react-router-dom'
-// import { connect } from 'react-redux'
+import React, { Component } from 'react';
+import { withRouter } from 'react-router';
 // --------------------------------
 
 // *******************************************
-// Page Imports
+// Component Imports
 // -------------------------------------------
-import { Home, Intro, Market, Garden, Kitchen, Result, Score } from '../pages';
+import { Window, Background, Button, Title, Moosh } from '../components';
 // --------------------------------
 
 // *******************************************
@@ -27,26 +25,25 @@ import { Home, Intro, Market, Garden, Kitchen, Result, Score } from '../pages';
 import { Routes } from '../constants';
 // --------------------------------
 
+
 // *******************************************
 // Implementation
 // -------------------------------------------
-class App extends Component {
+class Result extends Component {
+
+    navigateToIntro = () => {
+        const { history } = this.props;
+        history.push(Routes.Intro);
+    }
+
     render() {
         return (
-            <Fragment>
-                <Switch>
-                    <Route exact path={Routes.Home} component={Home} />
-                    <Route exact path={Routes.Intro} component={Intro} />
-                    <Route exact path={Routes.Market} component={Market} />
-                    <Route exact path={Routes.Garden} component={Garden} />
-                    <Route exact path={Routes.Kitchen} component={Kitchen} />
-                    <Route exact path={Routes.Result} component={Result} />
-                    <Route exact path={Routes.Score} component={Score} />
-                </Switch>
-            </Fragment>
+            <Window>
+                <Background.Result />
+            </Window>
         );
     }
 }
 
-export default App;
+export default withRouter(Result);
 // --------------------------------
