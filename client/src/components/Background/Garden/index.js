@@ -1,14 +1,12 @@
 // *******************************************************
-// Pages Export File
+// Garden Export File
 // -------------------------------------------------------
-// All Pages can be imported by linking to this file
+// All Background nad Foreground for the Garden Screen
 // -------------------------------------------
 
 // *******************************************
 // Exports
 // -------------------------------------------
-export {default as Home} from './Home';
-export {default as Intro} from './Intro';
-export {default as Market} from './Market';
-export {default as Garden} from './Garden';
+export {default as Background} from './Background';
+export {default as Foreground} from './Foreground';
 // --------------------------------

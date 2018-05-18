@@ -29,7 +29,7 @@ import { Routes } from '../constants';
 // *******************************************
 // Implementation
 // -------------------------------------------
-class Market extends Component {
+class Garden extends Component {
 
     navigateToIntro = () => {
         const { history } = this.props;
@@ -39,11 +39,12 @@ class Market extends Component {
     render() {
         return (
             <Window>
-                <Background.Market />
+                <Background.Garden.Background />
+                <Background.Garden.Foreground />
             </Window>
         );
     }
 }
 
-export default withRouter(Market);
+export default withRouter(Garden);
 // --------------------------------

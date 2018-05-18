@@ -18,7 +18,7 @@ import { Route, Switch } from 'react-router-dom'
 // *******************************************
 // Page Imports
 // -------------------------------------------
-import { Home, Intro, Market } from '../pages';
+import { Home, Intro, Market, Garden } from '../pages';
 // --------------------------------
 
 // *******************************************
@@ -38,7 +38,7 @@ class App extends Component {
                     <Route exact path={Routes.Home} component={Home} />
                     <Route exact path={Routes.Intro} component={Intro} />
                     <Route exact path={Routes.Market} component={Market} />
-                    <Route exact path={Routes.Garden} component={Home} />
+                    <Route exact path={Routes.Garden} component={Garden} />
                     <Route exact path={Routes.Kitchen} component={Home} />
                     <Route exact path={Routes.Result} component={Home} />
                     <Route exact path={Routes.Score} component={Home} />
