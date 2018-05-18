@@ -41,6 +41,7 @@ class Market extends Component {
             <Window>
                 <Background.Market />
                 <Food.Eggs.Stock />
+                <Food.Cereal.Stock />
             </Window>
         );
     }
