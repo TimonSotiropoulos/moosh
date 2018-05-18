@@ -24,6 +24,12 @@ import { Window, Background, Dropdown, Button, Title, Moosh, SpeechBubble } from
 import { Routes } from '../constants';
 // --------------------------------
 
+// *******************************************
+// Style Imports
+// -------------------------------------------
+import { Text } from '../styles';
+// --------------------------------
+
 
 // *******************************************
 // Implementation
@@ -32,9 +38,17 @@ class Intro extends Component {
 
     constructor(props) {
         super(props);
+
         this.state = {
-            scene: 0
+            scene: 0,
+            validated: true
         }
+    }
+
+    updateValue = (key, value) => {
+        this.setState({
+            [key]: value
+        });
     }
 
     _goToNextScene = () => {
@@ -43,13 +57,29 @@ class Intro extends Component {
         });
     }
 
+    _validateAgeQuestion = (age) => {
+        if (this.state.age) {
+            this._goToNextScene();
+        } else {
+            this.setState({
+                validated: false
+            });
+        }
+    }
+
     _renderAgeQuestion = () => {
         return (
             <Fragment>
                 <Moosh.Intro />
-                <SpeechBubble.Hungry />
-                <Dropdown.Age />
-                <Button.Next onClick={this._goToNextScene}/>
+                {(this.state.validated) ? <SpeechBubble.Age /> : <SpeechBubble.AgeError />}
+                <foreignObject x={150} y={1250} width={400} height={50}>
+                    <p class={[Text.footerText]}>Hi Moosh, I'm</p>
+                </foreignObject>
+                <foreignObject x={800} y={1250} width={300} height={50}>
+                    <p class={[Text.footerText]}>years old.</p>
+                </foreignObject>
+                <Dropdown.Age updateValue={this.updateValue} error={!this.state.validated} inputKey={"age"} value={this.state.age} />
+                <Button.Next onClick={this._validateAgeQuestion}/>
             </Fragment>
         );
     }
