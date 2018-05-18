@@ -106,7 +106,7 @@ class Intro extends Component {
                     <p class={[Text.footerText]}>years old.</p>
                 </foreignObject>
                 <Dropdown.Age updateValue={this.updateValue} error={!this.state.validated} inputKey={"age"} value={this.state.age} />
-                <Button.Next onClick={this._goToNextScene}/>
+                <Button.Next onClick={this._validateAgeQuestion}/>
             </Fragment>
         );
     }
