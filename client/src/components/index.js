@@ -12,6 +12,7 @@ import * as Button_ from './Button';
 import * as Background_ from './Background';
 import * as SpeechBubble_ from './SpeechBubble';
 import * as Dropdown_ from './Dropdown';
+import * as Food_ from './Food';
 // --------------------------------
 
 // *******************************************
@@ -24,4 +25,5 @@ export const Button = Button_;
 export const Moosh = Moosh_;
 export const SpeechBubble = SpeechBubble_;
 export const Dropdown = Dropdown_;
+export const Food = Food_;
 // --------------------------------

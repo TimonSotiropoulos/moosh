@@ -16,6 +16,7 @@
 // Style Implementation
 // -------------------------------------------
 $colors: (
+    red: #ff0000,
     plum: #695585,
     lightPlum: #796690,
     lavendar: #B0A3BD,
@@ -36,7 +37,12 @@ $colors: (
     lightBlack: #231f20,
     pink: #e77c8d,
     lightRed: #fe6768,
-    lightRedOutline: #f15f64
+    lightRedOutline: #f15f64,
+    itemGreyA: #ebf0ef,
+    itemGreyB: #dce0df,
+    itemGreyC: #b8c2c2,
+    eggBrown: #f3b296,
+    eggBrownShade: #f3a275,
 )
 
 :export {

@@ -16,7 +16,7 @@ import { withRouter } from 'react-router';
 // *******************************************
 // Component Imports
 // -------------------------------------------
-import { Window, Background, Button, Title, Moosh } from '../components';
+import { Window, Background, Button, Title, Moosh, Food } from '../components';
 // --------------------------------
 
 // *******************************************
@@ -37,6 +37,7 @@ class Kitchen extends Component {
     }
 
     render() {
+        console.log(Food);
         return (
             <Window>
                 <Background.Kitchen />
