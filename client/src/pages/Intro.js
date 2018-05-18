@@ -79,7 +79,7 @@ class Intro extends Component {
                     <p class={[Text.footerText]}>years old.</p>
                 </foreignObject>
                 <Dropdown.Age updateValue={this.updateValue} error={!this.state.validated} inputKey={"age"} value={this.state.age} />
-                <Button.Next onClick={this._validateAgeQuestion}/>
+                <Button.Next onClick={this._goToNextScene}/>
             </Fragment>
         );
     }
@@ -87,7 +87,15 @@ class Intro extends Component {
     _renderPostcodeQuestion = () => {
         return (
             <Fragment>
-                <Moosh.Home />
+                <Moosh.Stare />
+                <SpeechBubble.Postcode />
+                <foreignObject x={150} y={1180} width={600} height={50}>
+                    <p class={[Text.footerText]}>My postcode is:</p>
+                </foreignObject>
+
+                <foreignObject x={150} y={1320} width={600} height={50} style={{cursor: 'pointer'}} onClick={this._goToNextScene}>
+                    <p class={[Text.footerTextRed].join(" ")}>Oops, I'm not sure.</p>
+                </foreignObject>
                 <Button.Next onClick={this._goToNextScene}/>
             </Fragment>
         );
