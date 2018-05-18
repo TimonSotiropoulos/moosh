@@ -12,4 +12,5 @@ export {default as Stroke} from './Stroke.scss';
 export {default as Text} from './Text.scss';
 export {default as Opacity} from './Opacity.scss';
 export {default as Animation} from './Animation.scss';
+export {default as Components} from './Components.scss';
 // --------------------------------

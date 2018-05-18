@@ -1,0 +1,33 @@
+// *******************************************************
+// Components SCSS File
+// -------------------------------------------------------
+// This file contains all our special component stylings
+// -------------------------------------------
+
+// *******************************************
+// Style Implementation
+// -------------------------------------------
+
+.button {
+    border: 6px;
+    fill: #FE6768;
+    stroke-width: 6px;
+    stroke: #F15F64;
+    cursor: pointer;
+    &:hover {
+        fill: #F15F64;
+    }
+}
+
+.buttonArrow {
+    fill: #fff;
+    stroke-width: 0px;
+}
+
+.buttonArrowOutline {
+    stroke: #F15F64;
+    fill: #F15F64;
+    stroke-width: 2px;
+}
+
+// --------------------------------
