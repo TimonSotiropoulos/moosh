@@ -15,6 +15,7 @@ import * as Soda_ from './Soda';
 import * as Tuna_ from './Tuna';
 import * as ChocoBar_ from './ChocoBar';
 import * as Cupcake_ from './Cupcake';
+import * as Chips_ from './Chips';
 // --------------------------------
 
 // *******************************************
@@ -28,4 +29,5 @@ export const Tuna = Tuna_;
 export const Rice = Rice_;
 export const ChocoBar = ChocoBar_;
 export const Cupcake = Cupcake_;
+export const Chips = Chips_;
 // --------------------------------
