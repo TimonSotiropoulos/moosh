@@ -23,6 +23,7 @@ import * as Tofu_ from './Tofu';
 import * as Steak_ from './Steak';
 import * as Bacon_ from './Bacon';
 import * as Milk_ from './Milk';
+import * as Yoghurt_ from './Yoghurt';
 // --------------------------------
 
 // *******************************************
@@ -44,4 +45,5 @@ export const Tofu = Tofu_;
 export const Steak = Steak_;
 export const Bacon = Bacon_;
 export const Milk = Milk_;
+export const Yoghurt = Yoghurt_;
 // --------------------------------
