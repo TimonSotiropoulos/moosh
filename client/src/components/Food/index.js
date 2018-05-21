@@ -24,6 +24,7 @@ import * as Steak_ from './Steak';
 import * as Bacon_ from './Bacon';
 import * as Milk_ from './Milk';
 import * as Yoghurt_ from './Yoghurt';
+import * as Cheese_ from './Cheese';
 // --------------------------------
 
 // *******************************************
@@ -46,4 +47,5 @@ export const Steak = Steak_;
 export const Bacon = Bacon_;
 export const Milk = Milk_;
 export const Yoghurt = Yoghurt_;
+export const Cheese = Cheese_;
 // --------------------------------
