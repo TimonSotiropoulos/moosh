@@ -42,6 +42,7 @@ class Market extends Component {
                 <Background.Market />
                 <Food.Eggs.Stock />
                 <Food.Cereal.Stock />
+                <Moosh.Market />
             </Window>
         );
     }
