@@ -28,6 +28,7 @@ import * as Cheese_ from './Cheese';
 import * as IceCream_ from './IceCream';
 import * as Apple_ from './Apple';
 import * as Orange_ from './Orange';
+import * as Tomato_ from './Tomato';
 // --------------------------------
 
 // *******************************************
@@ -54,4 +55,5 @@ export const Cheese = Cheese_;
 export const IceCream = IceCream_;
 export const Apple = Apple_;
 export const Orange = Orange_;
+export const Tomato = Tomato_;
 // --------------------------------

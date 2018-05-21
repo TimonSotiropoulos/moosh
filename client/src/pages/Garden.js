@@ -40,6 +40,7 @@ class Garden extends Component {
         return (
             <Window>
                 <Background.Garden.Background />
+                <Food.Tomato.Stock />
                 <Background.Garden.Foreground />
                 <Food.Apple.Stock />
                 <Food.Orange.Stock />
