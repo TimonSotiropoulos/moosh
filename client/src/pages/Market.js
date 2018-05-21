@@ -9,7 +9,7 @@
 // *******************************************
 // Module Imports
 // -------------------------------------------
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 import { withRouter } from 'react-router';
 // --------------------------------
 
@@ -31,9 +31,62 @@ import { Routes } from '../constants';
 // -------------------------------------------
 class Market extends Component {
 
+    constructor(props) {
+        super(props);
+
+        this.trolleyItems = [
+            {xPos: 1050, yPos: 1160},
+            {xPos: 1175, yPos: 1160},
+            {xPos: 1300, yPos: 1160},
+            {xPos: 1050, yPos: 1040},
+            {xPos: 1175, yPos: 1040},
+            {xPos: 1300, yPos: 1040},
+            {xPos: 1050, yPos: 920},
+            {xPos: 1175, yPos: 920},
+            {xPos: 1300, yPos: 920},
+            {xPos: 1175, yPos: 800}
+        ];
+
+        // {xPos: 1050, yPos: 1160},
+        // {xPos: 1175, yPos: 1160},
+        // {xPos: 1300, yPos: 1160},
+        // {xPos: 1050, yPos: 1035},
+        // {xPos: 1175, yPos: 1035},
+        // {xPos: 1300, yPos: 1035},
+        // {xPos: 1050, yPos: 910},
+        // {xPos: 1175, yPos: 910},
+        // {xPos: 1300, yPos: 910},
+        // {xPos: 1175, yPos: 785}
+
+    }
+
     navigateToIntro = () => {
         const { history } = this.props;
         history.push(Routes.Intro);
+    }
+
+    _renderTrolleyItems = () => {
+
+        const onClick = () => {
+            console.log("We are clickling that item fewl!");
+        }
+
+        const trolleyItems = this.trolleyItems.map((coords) => {
+            const index = Math.round(Math.random());
+            if (index === 0) {
+                return <Food.Eggs.Single xPos={coords.xPos} yPos={coords.yPos} onClick={onClick} />
+            } else {
+                return <Food.Cereal.Single xPos={coords.xPos} yPos={coords.yPos} onClick={onClick} />
+            }
+
+        })
+
+        return (
+            <Fragment>
+                {trolleyItems}
+            </Fragment>
+        );
+
     }
 
     render() {
@@ -43,6 +96,7 @@ class Market extends Component {
                 <Food.Eggs.Stock />
                 <Food.Cereal.Stock />
                 <Moosh.Market />
+                {this._renderTrolleyItems()}
                 <Trolley />
             </Window>
         );
