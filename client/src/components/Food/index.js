@@ -16,6 +16,7 @@ import * as Tuna_ from './Tuna';
 import * as ChocoBar_ from './ChocoBar';
 import * as Cupcake_ from './Cupcake';
 import * as Chips_ from './Chips';
+import * as Roll_ from './Roll';
 // --------------------------------
 
 // *******************************************
@@ -30,4 +31,5 @@ export const Rice = Rice_;
 export const ChocoBar = ChocoBar_;
 export const Cupcake = Cupcake_;
 export const Chips = Chips_;
+export const Roll = Roll_;
 // --------------------------------
