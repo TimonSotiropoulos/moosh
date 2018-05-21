@@ -37,8 +37,6 @@ class Stock extends Component {
         const { width, height, xPos, yPos, active } = this.props;
 
         const riceColorMain = (this.state.active) ? Fill.riceBlue : Fill.itemGreyC;
-        const RiceColorAlt = (this.state.active) ? Fill.tunaGrey : Fill.itemGreyA;
-        const tunaColorPrime = (this.state.active) ? Fill.tunaOffWhite : Fill.itemGreyB;
 
         return (
             <svg x={xPos} y={yPos} width={width} height={height}  viewBox="0 0 249 126" onClick={this.onClick}>
