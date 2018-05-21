@@ -13,4 +13,5 @@ export {default as Text} from './Text.scss';
 export {default as Opacity} from './Opacity.scss';
 export {default as Animation} from './Animation.scss';
 export {default as Components} from './Components.scss';
+export {default as MixBlend} from './MixBlend.scss';
 // --------------------------------

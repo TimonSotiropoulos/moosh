@@ -36,9 +36,6 @@ class Stock extends Component {
 
         const { width, height, xPos, yPos, active } = this.props;
 
-        const eggColorMain = (this.state.active) ? Fill.eggBrown : Fill.itemGreyA;
-        const eggColorAlt = (this.state.active) ? Fill.eggBrownShade : Fill.itemGreyB;
-
         const appleBrown = (this.state.active) ? Fill.appleBrown : Fill.itemGreyA;
         const appleRed = (this.state.active) ? Fill.appleRed : Fill.itemGreyC;
         const appleGreenA = (this.state.active) ? Fill.appleGreenA : Fill.itemGreyC;
