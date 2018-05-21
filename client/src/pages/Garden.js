@@ -47,6 +47,7 @@ class Garden extends Component {
                 <Food.Orange.Stock />
                 <Food.Potato.Stock />
                 <Food.Banana.Stock />
+                <Food.Cherry.Stock />
 
                 <Moosh.Market />
             </Window>

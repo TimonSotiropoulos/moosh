@@ -32,6 +32,7 @@ import * as Tomato_ from './Tomato';
 import * as Potato_ from './Potato';
 import * as Grape_ from './Grape';
 import * as Banana_ from './Banana';
+import * as Cherry_ from './Cherry';
 // --------------------------------
 
 // *******************************************
@@ -62,4 +63,5 @@ export const Tomato = Tomato_;
 export const Potato = Potato_;
 export const Grape = Grape_;
 export const Banana = Banana_;
+export const Cherry = Cherry_;
 // --------------------------------
