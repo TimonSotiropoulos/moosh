@@ -98,6 +98,7 @@ class Market extends Component {
                 <Food.Juice.Stock />
                 <Food.Soda.Stock />
                 <Food.Tuna.Stock />
+                <Food.Rice.Stock />
                 <Moosh.Market />
                 {this._renderTrolleyItems()}
                 <Trolley />
