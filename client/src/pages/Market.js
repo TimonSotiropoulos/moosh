@@ -16,7 +16,7 @@ import { withRouter } from 'react-router';
 // *******************************************
 // Component Imports
 // -------------------------------------------
-import { Window, Background, Button, Title, Food, Moosh, Trolley } from '../components';
+import { Window, Background, Button, Interface, Title, Food, Moosh, Trolley } from '../components';
 // --------------------------------
 
 // *******************************************
@@ -103,6 +103,7 @@ class Market extends Component {
                 <Moosh.Market />
                 {this._renderTrolleyItems()}
                 <Trolley />
+                <Interface />
             </Window>
         );
     }
