@@ -16,7 +16,7 @@ import { withRouter } from 'react-router';
 // *******************************************
 // Component Imports
 // -------------------------------------------
-import { Window, Background, Button, Title, Moosh, Food } from '../components';
+import { Window, Background, Button, Title, Blender, Moosh, Food } from '../components';
 // --------------------------------
 
 // *******************************************
@@ -41,6 +41,8 @@ class Kitchen extends Component {
         return (
             <Window>
                 <Background.Kitchen />
+                <Blender />
+                <Moosh.Market />
             </Window>
         );
     }

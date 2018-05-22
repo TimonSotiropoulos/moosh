@@ -46,18 +46,6 @@ class Market extends Component {
             {xPos: 1300, yPos: 920},
             {xPos: 1175, yPos: 800}
         ];
-
-        // {xPos: 1050, yPos: 1160},
-        // {xPos: 1175, yPos: 1160},
-        // {xPos: 1300, yPos: 1160},
-        // {xPos: 1050, yPos: 1035},
-        // {xPos: 1175, yPos: 1035},
-        // {xPos: 1300, yPos: 1035},
-        // {xPos: 1050, yPos: 910},
-        // {xPos: 1175, yPos: 910},
-        // {xPos: 1300, yPos: 910},
-        // {xPos: 1175, yPos: 785}
-
     }
 
     navigateToIntro = () => {

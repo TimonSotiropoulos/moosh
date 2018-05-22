@@ -22,6 +22,7 @@ import * as Food_ from './Food';
 export {default as Window} from './Window';
 export {default as Title} from './Title';
 export {default as Trolley} from './Trolley';
+export {default as Blender} from './Blender';
 export const Basket = Basket_;
 export const Background = Background_;
 export const Button = Button_;
