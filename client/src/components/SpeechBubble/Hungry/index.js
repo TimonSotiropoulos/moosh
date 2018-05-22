@@ -46,9 +46,18 @@ class Hungry extends Component {
             <g id="Layer_2" data-name="Layer 2">
                 <g id="text">
                     <path class={[Fill.white].join(" ")} d="M71.94,0A71.94,71.94,0,0,0,0,71.94V358.17A71.94,71.94,0,0,0,71.94,430.1h72.88V554L288.69,430.1H456.31a71.94,71.94,0,0,0,71.94-71.93V71.94A71.94,71.94,0,0,0,456.31,0Z"/>
-                    <foreignObject x={60} y={-20} width={width - 100} height={height - 50}>
-                        <p class={[Text.speechBubble]}>Sweeeeet! I’m super dooper hungry... Feed me!?</p>
-                    </foreignObject>
+                    <text x={50} y={110} className={Text.speechBubble}>
+                        Sweeeeet! I’m
+                    </text>
+                    <text x={50} y={190} className={Text.speechBubble}>
+                        super dooper
+                    </text>
+                    <text x={50} y={270} className={Text.speechBubble}>
+                        hungry... Feed
+                    </text>
+                    <text x={50} y={350} className={Text.speechBubble}>
+                        me!?
+                    </text>
                 </g>
             </g>
             </svg>

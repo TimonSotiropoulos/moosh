@@ -46,9 +46,15 @@ class Postcode extends Component {
             <g>
                 <g id="text">
                     <path class={[Fill.white].join(" ")} d="M71.94,0A71.94,71.94,0,0,0,0,71.94V295.13a71.94,71.94,0,0,0,71.94,71.93h97.9V490.93L303.7,367.07h77.57a71.94,71.94,0,0,0,71.94-71.93V71.94A71.94,71.94,0,0,0,381.27,0Z"/>
-                    <foreignObject x={60} y={-20} width={width - 100} height={height - 50}>
-                        <p class={[Text.speechBubble]}>Cool! What is your postcode?</p>
-                    </foreignObject>
+                    <text x={50} y={100} className={Text.speechBubble}>
+                        Cool! What
+                    </text>
+                    <text x={50} y={185} className={Text.speechBubble}>
+                        is your
+                    </text>
+                    <text x={50} y={270} className={Text.speechBubble}>
+                        postcode?
+                    </text>
                 </g>
             </g>
         </svg>

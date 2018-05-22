@@ -47,9 +47,15 @@ class AgeError extends Component {
                 <g id="text">
                     <path class={[Fill.lightRed].join(" ")} d="M183.24,311.64H71.94A68.62,68.62,0,0,1,3.4,243.1V71.94A68.62,68.62,0,0,1,71.94,3.4H461.32a68.62,68.62,0,0,1,68.54,68.54V243.1a68.62,68.62,0,0,1-68.54,68.54h-139L183.24,444Z"/>
                     <path class={[Fill.lightRedOutline].join(" ")} d="M461.32,6.79a65.22,65.22,0,0,1,65.14,65.15V243.1a65.22,65.22,0,0,1-65.14,65.14H321l-2,1.87-132.4,126V308.24H71.94A65.22,65.22,0,0,1,6.79,243.1V71.94A65.22,65.22,0,0,1,71.94,6.79H461.32m0-6.79H71.94A71.94,71.94,0,0,0,0,71.94V243.1A71.94,71.94,0,0,0,71.94,315H179.84V451.9L323.71,315h137.6a71.94,71.94,0,0,0,71.94-71.93V71.94A71.94,71.94,0,0,0,461.32,0Z"/>
-                    <foreignObject x={60} y={-20} width={width - 100} height={height - 50}>
-                        <p class={[Text.speechBubbleError]}>Oops! I need to know how old you are.</p>
-                    </foreignObject>
+                    <text x={50} y={95} className={Text.speechBubbleError}>
+                        Oops! I need to
+                    </text>
+                    <text x={50} y={175} className={Text.speechBubbleError}>
+                        know how old
+                    </text>
+                    <text x={50} y={255} className={Text.speechBubbleError}>
+                        you are.
+                    </text>
                 </g>
             </g>
         </svg>
