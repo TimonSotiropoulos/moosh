@@ -16,7 +16,7 @@ import { withRouter } from 'react-router';
 // *******************************************
 // Component Imports
 // -------------------------------------------
-import { Window, Background, Button, Title, Food, Moosh } from '../components';
+import { Window, Background, Button, Title, Food, Basket, Moosh } from '../components';
 // --------------------------------
 
 // *******************************************
@@ -53,7 +53,7 @@ class Garden extends Component {
                 <Food.Cherry.Stock />
                 <Food.Avocado.Stock />
                 <Food.Pineapple.Stock />
-
+                <Basket />
                 <Moosh.Market />
             </Window>
         );
