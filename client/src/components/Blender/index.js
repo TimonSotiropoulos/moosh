@@ -65,6 +65,38 @@ class Blender extends Component {
         );
     }
 
+    _renderBlenderContents = () => {
+
+        const blenderPoints = [
+            {xPos: 78, yPos: 225, width: 165},
+            {xPos: 78, yPos: 200, width: 165},
+            {xPos: 78, yPos: 175, width: 165},
+            {xPos: 78, yPos: 150, width: 165},
+            {xPos: 78, yPos: 125, width: 165},
+            {xPos: 77, yPos: 100, width: 175},
+            {xPos: 72, yPos: 75, width: 175},
+            {xPos: 68, yPos: 50, width: 185},
+            {xPos: 68, yPos: 25, width: 185},
+            {xPos: 68, yPos: 5, width: 195},
+        ];
+
+        const blenderElements = blenderPoints.map((data, index) => {
+            let color;
+            if (index % 2 === 0) {
+                color = Fill.green;
+            } else {
+                color = Fill.greenThree;
+            }
+            return <rect class={[color].join(" ")} x={data.xPos} y={data.yPos} width={data.width} height="25" rx="20" ry="0"/>;
+        });
+
+        return (
+            <Fragment>
+                {blenderElements}
+            </Fragment>
+        );
+    }
+
     render() {
         const { width, height, xPos, yPos } = this.props;
 
@@ -76,6 +108,7 @@ class Blender extends Component {
             <g>
                 <g id="Layer_2" data-name="Layer 2">
                     <g id="Layer_1-2" data-name="Layer 1">
+                        {this._renderBlenderContents()}
                         <path class={[Fill.blenderBlueA, Opacity._02].join(" ")} d="M94.94 237.75L67.37 0 256.56 0 228.98 237.75 94.94 237.75z"/>
                         <path class={[Fill.blenderBlueB].join(" ")} d="M89.84,193.78c-4.88-1.58-10.08-3.38-15.29-5.37-37.08-14.18-38.74-24.05-38.8-24.47L22.86,62.89a4.65,4.65,0,0,1,1.3-3.49,9,9,0,0,1,5.58-2.8L73.29,51,70.66,28.35,26.85,33.94A31.65,31.65,0,0,0,7,44.32,27.37,27.37,0,0,0,.21,65.78L13.1,166.83c2.06,16.16,19,29.8,53.3,42.91,9.41,3.6,18.67,6.58,26.32,8.84Z"/>
                         <path class={[Fill.blenderBlueC].join(" ")} d="M256.56 0L228.98 237.75 94.94 237.75 67.37 0 48.4 0 77.59 252.99 246.34 252.99 275.52 0 256.56 0z"/>
@@ -94,6 +127,7 @@ class Blender extends Component {
                         <rect class={[Fill.blenderBlueD].join(" ")} x="129.8" y="323.3" width="24.8" height="11.7" rx="2" ry="2"/>
                         <rect class={[Fill.blenderBlueD].join(" ")} x="169.2" y="323.2" width="24.8" height="11.7" rx="2" ry="2"/>
                         <rect class={[Fill.blenderBlueD].join(" ")} x="208.5" y="323.1" width="24.8" height="11.7" rx="2" ry="2"/>
+
                     </g>
                 </g>
             </g>
