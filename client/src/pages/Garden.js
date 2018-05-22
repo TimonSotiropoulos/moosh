@@ -42,6 +42,7 @@ class Garden extends Component {
                 <Background.Garden.Background />
                 <Food.Grape.Stock />
                 <Food.Tomato.Stock />
+                <Food.Broccoli.Stock />
                 <Background.Garden.Foreground />
                 <Food.Apple.Stock />
                 <Food.Orange.Stock />
@@ -50,6 +51,7 @@ class Garden extends Component {
                 <Food.Cherry.Stock />
                 <Food.Avocado.Stock />
                 <Food.Pineapple.Stock />
+
                 <Moosh.Market />
             </Window>
         );
