@@ -9,7 +9,7 @@
 // *******************************************
 // Module Imports
 // -------------------------------------------
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 import { withRouter } from 'react-router';
 // --------------------------------
 
@@ -31,9 +31,76 @@ import { Routes } from '../constants';
 // -------------------------------------------
 class Garden extends Component {
 
+    constructor(props) {
+        super(props);
+
+        this.basketItemsBack = [
+            {xPos: 935, yPos: 1085},
+            {xPos: 1040, yPos: 1085},
+            {xPos: 1145, yPos: 1085},
+            {xPos: 1260, yPos: 1085},
+            {xPos: 990, yPos: 975},
+            {xPos: 1095, yPos: 975},
+            {xPos: 1200, yPos: 975}
+        ];
+
+        this.basketItemsFront = [
+            {xPos: 990, yPos: 1298},
+            {xPos: 1095, yPos: 1298},
+            {xPos: 1200, yPos: 1298},
+        ];
+    }
+
     navigateToIntro = () => {
         const { history } = this.props;
         history.push(Routes.Intro);
+    }
+
+    _renderBackBasketItems = () => {
+
+        const onClick = () => {
+            console.log("We are clickling that item fewl!");
+        }
+
+        const basketItems = this.basketItemsBack.map((coords) => {
+            const index = Math.round(Math.random());
+            if (index === 0) {
+                return <Food.Apple.Single xPos={coords.xPos} yPos={coords.yPos} onClick={onClick} />
+            } else {
+                return <Food.Apple.Single xPos={coords.xPos} yPos={coords.yPos} onClick={onClick} />
+            }
+
+        })
+
+        return (
+            <Fragment>
+                {basketItems}
+            </Fragment>
+        );
+
+    }
+
+    _renderFrontBasketItems = () => {
+
+        const onClick = () => {
+            console.log("We are clickling that item fewl!");
+        }
+
+        const basketItems = this.basketItemsFront.map((coords) => {
+            const index = Math.round(Math.random());
+            if (index === 0) {
+                return <Food.Apple.Single xPos={coords.xPos} yPos={coords.yPos} onClick={onClick} />
+            } else {
+                return <Food.Apple.Single xPos={coords.xPos} yPos={coords.yPos} onClick={onClick} />
+            }
+
+        })
+
+        return (
+            <Fragment>
+                {basketItems}
+            </Fragment>
+        );
     }
 
     render() {
@@ -53,7 +120,11 @@ class Garden extends Component {
                 <Food.Cherry.Stock />
                 <Food.Avocado.Stock />
                 <Food.Pineapple.Stock />
-                <Basket />
+                <Food.Apple.Single />
+                <Basket.Handle />
+                {this._renderBackBasketItems()}
+                <Basket.Main />
+                {this._renderFrontBasketItems()}
                 <Moosh.Market />
             </Window>
         );

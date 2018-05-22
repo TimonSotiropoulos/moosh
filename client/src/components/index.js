@@ -9,6 +9,7 @@
 // -------------------------------------------
 import * as Moosh_ from './Moosh';
 import * as Button_ from './Button';
+import * as Basket_ from './Basket';
 import * as Background_ from './Background';
 import * as SpeechBubble_ from './SpeechBubble';
 import * as Dropdown_ from './Dropdown';
@@ -21,7 +22,7 @@ import * as Food_ from './Food';
 export {default as Window} from './Window';
 export {default as Title} from './Title';
 export {default as Trolley} from './Trolley';
-export {default as Basket} from './Basket';
+export const Basket = Basket_;
 export const Background = Background_;
 export const Button = Button_;
 export const Moosh = Moosh_;
