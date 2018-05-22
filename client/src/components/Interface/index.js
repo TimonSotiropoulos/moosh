@@ -50,6 +50,7 @@ class Interface extends Component {
         const { currentRoute } = this.props;
         return (
             <Fragment>
+                <Button.Undo />
                 <Counter value={this.props.counter} />
                 <Link link={Routes.Garden} active={currentRoute === Routes.Garden} onClick={this.navigateToLink} />
                 <Link link={Routes.Kitchen} active={currentRoute === Routes.Kitchen} onClick={this.navigateToLink} />

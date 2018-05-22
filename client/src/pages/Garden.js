@@ -120,7 +120,6 @@ class Garden extends Component {
                 <Food.Cherry.Stock />
                 <Food.Avocado.Stock />
                 <Food.Pineapple.Stock />
-                <Food.Apple.Single />
                 <Basket.Handle />
                 {this._renderBackBasketItems()}
                 <Basket.Main />
