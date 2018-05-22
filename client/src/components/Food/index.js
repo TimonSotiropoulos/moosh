@@ -38,6 +38,7 @@ import * as Pineapple_ from './Pineapple';
 import * as Broccoli_ from './Broccoli';
 import * as Carrot_ from './Carrot';
 import * as Lettuce_ from './Lettuce';
+import * as Water_ from './Water';
 // --------------------------------
 
 // *******************************************
@@ -74,4 +75,5 @@ export const Pineapple = Pineapple_;
 export const Broccoli = Broccoli_;
 export const Carrot = Carrot_;
 export const Lettuce = Lettuce_;
+export const Water = Water_;
 // --------------------------------
