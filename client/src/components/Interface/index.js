@@ -15,6 +15,7 @@ import React, { Component, Fragment } from 'react';
 // -------------------------------------------
 import Counter from './Counter';
 import Link from './Link';
+import * as Button from '../Button';
 // --------------------------------
 
 // *******************************************
@@ -35,6 +36,16 @@ class Interface extends Component {
         this.props.navigateToLink(route);
     }
 
+    _renderNextButton = () => {
+        const { currentRoute } = this.props;
+        switch (currentRoute) {
+            case Routes.Kitchen:
+                return (<Button.KitchenFeedMoosh />)
+            default:
+                return (<Button.ToKitchen />)
+        }
+    }
+
     render() {
         const { currentRoute } = this.props;
         return (
@@ -43,6 +54,7 @@ class Interface extends Component {
                 <Link link={Routes.Garden} active={currentRoute === Routes.Garden} onClick={this.navigateToLink} />
                 <Link link={Routes.Kitchen} active={currentRoute === Routes.Kitchen} onClick={this.navigateToLink} />
                 <Link link={Routes.Market} active={currentRoute === Routes.Market} onClick={this.navigateToLink} />
+                {this._renderNextButton()}
             </Fragment>
         );
     }
