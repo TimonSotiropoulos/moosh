@@ -16,7 +16,7 @@ import { withRouter } from 'react-router';
 // *******************************************
 // Component Imports
 // -------------------------------------------
-import { Window, Background, Button, Title, Blender, Moosh, Food } from '../components';
+import { Window, Background, Button, Title, Interface, Blender, Moosh, Food } from '../components';
 // --------------------------------
 
 // *******************************************
@@ -61,9 +61,9 @@ class Kitchen extends Component {
 
     }
 
-    navigateToIntro = () => {
+    navigateToLink = (route) => {
         const { history } = this.props;
-        history.push(Routes.Intro);
+        history.push(route);
     }
 
     _renderKitchenItems = () => {
@@ -99,6 +99,7 @@ class Kitchen extends Component {
                 <Food.Water.Single />
                 <Blender />
                 <Moosh.Market />
+                <Interface currentRoute={Routes.Kitchen} navigateToLink={this.navigateToLink} />
             </Window>
         );
     }

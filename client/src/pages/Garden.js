@@ -16,7 +16,7 @@ import { withRouter } from 'react-router';
 // *******************************************
 // Component Imports
 // -------------------------------------------
-import { Window, Background, Button, Title, Food, Basket, Moosh } from '../components';
+import { Window, Background, Button, Title, Interface, Food, Basket, Moosh } from '../components';
 // --------------------------------
 
 // *******************************************
@@ -51,9 +51,9 @@ class Garden extends Component {
         ];
     }
 
-    navigateToIntro = () => {
+    navigateToLink = (route) => {
         const { history } = this.props;
-        history.push(Routes.Intro);
+        history.push(route);
     }
 
     _renderBackBasketItems = () => {
@@ -126,6 +126,7 @@ class Garden extends Component {
                 <Basket.Main />
                 {this._renderFrontBasketItems()}
                 <Moosh.Market />
+                <Interface currentRoute={Routes.Garden} navigateToLink={this.navigateToLink} />
             </Window>
         );
     }

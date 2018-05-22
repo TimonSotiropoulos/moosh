@@ -30,4 +30,16 @@
     stroke-width: 2px;
 }
 
+.link {
+    cursor: pointer;
+    fill: #fe6768;
+    &:hover {
+        fill: #f15f64;
+    }
+}
+
+.linkActive {
+    fill: #77b9db;
+}
+
 // --------------------------------

@@ -48,9 +48,9 @@ class Market extends Component {
         ];
     }
 
-    navigateToIntro = () => {
+    navigateToLink = (route) => {
         const { history } = this.props;
-        history.push(Routes.Intro);
+        history.push(route);
     }
 
     _renderTrolleyItems = () => {
@@ -103,7 +103,7 @@ class Market extends Component {
                 <Moosh.Market />
                 {this._renderTrolleyItems()}
                 <Trolley />
-                <Interface />
+                <Interface currentRoute={Routes.Market} navigateToLink={this.navigateToLink} />
             </Window>
         );
     }
