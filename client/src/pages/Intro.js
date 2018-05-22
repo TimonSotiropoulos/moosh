@@ -99,12 +99,12 @@ class Intro extends Component {
             <Fragment>
                 <Moosh.Intro />
                 {(this.state.validated) ? <SpeechBubble.Age /> : <SpeechBubble.AgeError />}
-                <foreignObject x={150} y={1250} width={400} height={50}>
-                    <p class={[Text.footerText]}>Hi Moosh, I'm</p>
-                </foreignObject>
-                <foreignObject x={800} y={1250} width={300} height={50}>
-                    <p class={[Text.footerText]}>years old.</p>
-                </foreignObject>
+                <text x={150} y={1370} className={[Text.footerText].join(" ")}>
+                    Hi Moosh, I'm
+                </text>
+                <text x={800} y={1370} className={[Text.footerText].join(" ")}>
+                    years old.
+                </text>
                 <Dropdown.Age updateValue={this.updateValue} error={!this.state.validated} inputKey={"age"} value={this.state.age} />
                 <Button.Next onClick={this._validateAgeQuestion}/>
             </Fragment>
@@ -116,10 +116,10 @@ class Intro extends Component {
             <Fragment>
                 <Moosh.Stare />
                 <SpeechBubble.Postcode />
-                <foreignObject x={150} y={1180} width={600} height={50}>
-                    <p class={[Text.footerText]}>My postcode is:</p>
-                </foreignObject>
-                <foreignObject x={600} y={1230} width={600} height={50}>
+                <text x={150} y={1295} className={[Text.footerText].join(" ")}>
+                    My postcode is:
+                </text>
+                <foreignObject x={600} y={1230} width={600} height={100}>
                     <input
                         inputMode={"numeric"}
                         maxLength={4}
@@ -131,9 +131,9 @@ class Intro extends Component {
                         onChange={this._handleChange}
                         type={"text"} />
                 </foreignObject>
-                <foreignObject x={150} y={1320} width={600} height={50} style={{cursor: 'pointer'}} onClick={this._goToNextScene}>
-                    <p class={[Text.footerTextRed].join(" ")}>Oops, I'm not sure.</p>
-                </foreignObject>
+                <text x={150} y={1450} className={[Text.footerTextRed].join(" ")} style={{cursor: 'pointer'}} onClick={this._goToNextScene}>
+                    Oops, I'm not sure.
+                </text>
                 <Button.Next onClick={this._goToNextScene}/>
             </Fragment>
         );
