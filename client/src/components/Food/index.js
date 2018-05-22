@@ -37,6 +37,7 @@ import * as Avocado_ from './Avocado';
 import * as Pineapple_ from './Pineapple';
 import * as Broccoli_ from './Broccoli';
 import * as Carrot_ from './Carrot';
+import * as Lettuce_ from './Lettuce';
 // --------------------------------
 
 // *******************************************
@@ -72,4 +73,5 @@ export const Avocado = Avocado_;
 export const Pineapple = Pineapple_;
 export const Broccoli = Broccoli_;
 export const Carrot = Carrot_;
+export const Lettuce = Lettuce_;
 // --------------------------------

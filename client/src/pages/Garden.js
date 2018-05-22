@@ -44,6 +44,7 @@ class Garden extends Component {
                 <Food.Tomato.Stock />
                 <Food.Broccoli.Stock />
                 <Food.Carrot.Stock />
+                <Food.Lettuce.Stock />
                 <Background.Garden.Foreground />
                 <Food.Apple.Stock />
                 <Food.Orange.Stock />
