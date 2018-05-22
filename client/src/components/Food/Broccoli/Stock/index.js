@@ -36,12 +36,6 @@ class Stock extends Component {
 
         const { width, height, xPos, yPos, active } = this.props;
 
-        const pineappleGreenA = (this.state.active) ? Fill.pineappleGreenA : Fill.itemGreyC;
-        const pineappleGreenB = (this.state.active) ? Fill.pineappleGreenB : Fill.itemGreyB;
-        const pineappleYellowA = (this.state.active) ? Fill.pineappleYellowA : Fill.itemGreyB;
-        const pineappleBrownA = (this.state.active) ? Fill.pineappleBrownA : Fill.itemGreyB;
-        const pineappleBrownB = (this.state.active) ? Fill.pineappleBrownB : Fill.itemGreyB;
-
         const broccoliGreenA = (this.state.active) ? Fill.broccoliGreenA : Fill.itemGreyA;
         const broccoliGreenB = (this.state.active) ? Fill.broccoliGreenB : Fill.itemGreyB;
         const broccoliGreenC = (this.state.active) ? Fill.broccoliGreenC : Fill.itemGreyC;
@@ -50,15 +44,10 @@ class Stock extends Component {
             <svg x={1787} y={1257} width={250} height={120}  viewBox="0 0 250 120" onClick={this.onClick}>
                 <rect x="0" y="0" width="250" height="120" className={[Fill.transparent].join(" ")}></rect>
                 <svg xmlns="http://www.w3.org/2000/svg" width={220} height={98} x={20} y={20} viewBox="0 0 220.1 98.1">
-                <defs>
-                    <style>
-                        {`.cls-1{isolation:isolate}.cls-2{fill:#aacb64}.cls-3{mix-blend-mode:multiply}.cls-4{fill:#e3e6d9}.cls-5{fill:#4d935c}.cls-6{opacity:.34}`}
-                    </style>
-                </defs>
                 <title>
                     Broccoli
                 </title>
-                <g class="cls-1">
+                <g>
                     <g id="Layer_2" data-name="Layer 2">
                         <g id="Layer_1-2" data-name="Layer 1">
                             <path class={[broccoliGreenA].join(" ")} d="M53.09,26.49l-38.75,19c12.08,5.19,27,14.43,27,27.17v25.5H64.82V72.63c0-12.74,14.94-22,27-27.17ZM41.35,49.64,35.63,45l5.72-3.86Zm23.47,0V41.17L70.53,45Z"/>

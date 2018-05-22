@@ -36,6 +36,7 @@ import * as Cherry_ from './Cherry';
 import * as Avocado_ from './Avocado';
 import * as Pineapple_ from './Pineapple';
 import * as Broccoli_ from './Broccoli';
+import * as Carrot_ from './Carrot';
 // --------------------------------
 
 // *******************************************
@@ -70,4 +71,5 @@ export const Cherry = Cherry_;
 export const Avocado = Avocado_;
 export const Pineapple = Pineapple_;
 export const Broccoli = Broccoli_;
+export const Carrot = Carrot_;
 // --------------------------------
