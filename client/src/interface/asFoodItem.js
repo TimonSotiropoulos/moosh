@@ -44,6 +44,9 @@ const asFoodItem = (WrappedComponent) => {
                             this.props.addItemToTrolley(itemKey);
                         }
                         break;
+                    case FOOD.TARGETS.BLENDER:
+                        this.props.addItemToBlender(itemKey);
+                        break;
                     default:
                         console.log("No action found...");
                         break;
@@ -91,6 +94,7 @@ const asFoodItem = (WrappedComponent) => {
         removeItemFromBasket: ACTIONS.BASKET.removeItemFromBasket,
         addItemToTrolley: ACTIONS.TROLLEY.addItemToTrolley,
         removeItemFromTrolley: ACTIONS.TROLLEY.removeItemFromTrolley,
+        addItemToBlender: ACTIONS.BLENDER.addItemToBlender
     })(FoodItemManager);
 }
 

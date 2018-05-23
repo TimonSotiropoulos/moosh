@@ -75,7 +75,9 @@ class Kitchen extends Component {
             const coords = this.shelfSpaces[index];
             const props = {
                 xPos: coords.xPos,
-                yPos: coords.yPos
+                yPos: coords.yPos,
+                actionType: FOOD.ADD_ITEM,
+                target: FOOD.TARGETS.BLENDER
             }
             return FOOD.GET_ELEMENT(itemKey, props);
         });
@@ -89,14 +91,16 @@ class Kitchen extends Component {
     }
 
     render() {
+        const { blender } = this.props;
         return (
             <Window>
                 <Background.Kitchen />
                 {this._renderKitchenItems()}
-                <Food.Water.Single />
-                <Blender />
+
+                <Blender items={blender.items} />
                 <Moosh.Market />
-                <Interface currentRoute={Routes.Kitchen} navigateToLink={this.navigateToLink} />
+                <Food.Water.Single itemKey={FOOD.KEYS.WATER} actionType={FOOD.ADD_ITEM} target={FOOD.TARGETS.BLENDER} />
+                <Interface currentRoute={Routes.Kitchen} counter={blender.items.length} navigateToLink={this.navigateToLink} />
             </Window>
         );
     }
@@ -105,7 +109,8 @@ class Kitchen extends Component {
 const mapStateToProps = (state) => {
     return {
         trolley: state.trolley,
-        basket: state.basket
+        basket: state.basket,
+        blender: state.blender
     };
 }
 

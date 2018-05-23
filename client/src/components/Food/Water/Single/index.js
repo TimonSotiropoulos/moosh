@@ -29,7 +29,7 @@ class Single extends Component {
         const { width, height, xPos, yPos, active, onClick } = this.props;
 
         return (
-            <svg xmlns="http://www.w3.org/2000/svg" x={1725} y={525} width={230} height={164} viewBox="0 0 230.4 164.7">
+            <svg xmlns="http://www.w3.org/2000/svg" x={1725} y={525} width={230} height={164} viewBox="0 0 230.4 164.7" onClick={onClick}>
                 <title>
                     Single_Water
                 </title>

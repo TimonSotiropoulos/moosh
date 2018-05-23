@@ -1,9 +1,6 @@
 // *******************************************************
-// Window
+// Blender - index.js
 // -------------------------------------------------------
-// This is a root SVG Container for the each page of the
-// game to sit within
-// -------------------------------------------
 
 // *******************************************
 // Module Imports
@@ -12,21 +9,9 @@ import React, { Component, Fragment } from 'react';
 // --------------------------------
 
 // *******************************************
-// Component Imports
-// -------------------------------------------
-
-// --------------------------------
-
-// *******************************************
 // Constant Imports
 // -------------------------------------------
-import { Dimensions } from '../../constants';
-// --------------------------------
-
-// *******************************************
-// Utility Imports
-// -------------------------------------------
-
+import { FOOD } from '../../constants';
 // --------------------------------
 
 // *******************************************
@@ -36,6 +21,23 @@ import { Fill, MixBlend, Opacity } from '../../styles';
 // --------------------------------
 
 class Blender extends Component {
+
+    constructor(props) {
+        super(props);
+
+        this.blenderPoints = [
+            {xPos: 78, yPos: 225, width: 165},
+            {xPos: 78, yPos: 200, width: 165},
+            {xPos: 78, yPos: 175, width: 165},
+            {xPos: 78, yPos: 150, width: 165},
+            {xPos: 78, yPos: 125, width: 165},
+            {xPos: 77, yPos: 100, width: 175},
+            {xPos: 72, yPos: 75, width: 175},
+            {xPos: 68, yPos: 50, width: 185},
+            {xPos: 68, yPos: 25, width: 185},
+            {xPos: 68, yPos: 5, width: 195},
+        ];
+    }
 
     _renderBlenderOffButton = () => {
         return { colorA: Fill.blenderBlueD, colorB: Fill.blenderBlueC, colorC: Fill.blenderBlackB };
@@ -66,29 +68,15 @@ class Blender extends Component {
     }
 
     _renderBlenderContents = () => {
+        
+        const { items } = this.props;
+        const blenderSegments = (items.length > 10) ? items.slice(0, 10) : items;
 
-        const blenderPoints = [
-            {xPos: 78, yPos: 225, width: 165},
-            {xPos: 78, yPos: 200, width: 165},
-            {xPos: 78, yPos: 175, width: 165},
-            {xPos: 78, yPos: 150, width: 165},
-            {xPos: 78, yPos: 125, width: 165},
-            {xPos: 77, yPos: 100, width: 175},
-            {xPos: 72, yPos: 75, width: 175},
-            {xPos: 68, yPos: 50, width: 185},
-            {xPos: 68, yPos: 25, width: 185},
-            {xPos: 68, yPos: 5, width: 195},
-        ];
-
-        const blenderElements = blenderPoints.map((data, index) => {
-            let color;
-            if (index % 2 === 0) {
-                color = Fill.green;
-            } else {
-                color = Fill.greenThree;
-            }
-            return <rect class={[color].join(" ")} x={data.xPos} y={data.yPos} width={data.width} height="25" rx="20" ry="0"/>;
-        });
+        const blenderElements = blenderSegments.map((itemKey, index) => {
+            const coords = this.blenderPoints[index];
+            const color = FOOD.BLENDER_COLORS[itemKey];
+            return <rect class={[color].join(" ")} x={coords.xPos} y={coords.yPos} width={coords.width} height="25" rx="20" ry="0"/>;
+        })
 
         return (
             <Fragment>
@@ -140,7 +128,8 @@ Blender.defaultProps = {
     xPos: 0,
     yPos: 0,
     width: 306,
-    height: 467
+    height: 467,
+    items: []
 }
 
 export default Blender;

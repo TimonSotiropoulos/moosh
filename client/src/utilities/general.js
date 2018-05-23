@@ -95,6 +95,18 @@ export const removeItemFromArray = (array, value) => {
     return startOfArray.concat(endOfArray);
 }
 
+/**
+ * @function removeFinalItemFromArray
+ * Removes the last item in the array and returns a new instance of the array
+ * @returns {Array} Array - A new array with the provided value removed
+ */
+export const removeFinalItemFromArray = (array) => {
+    if (array.length > 0) {
+        return array.splice(-1, 1)
+    }
+    return array;
+}
+
 
 /**
  * @function searchArrayInArrayForItem

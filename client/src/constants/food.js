@@ -9,6 +9,7 @@
 // -------------------------------------------
 import React, { Component } from 'react';
 import { Food } from '../components';
+import { Fill } from '../styles';
 // ----------------------------------
 
 // *******************************************
@@ -118,6 +119,41 @@ export const GET_ELEMENT = (itemKey, props) => {
         default:
             return <Food.Yoghurt.Single itemKey={itemKey} {...props} />;
     }
+}
+
+export const BLENDER_COLORS = {
+    APPLE: Fill.appleRed,
+    AVOCADO: Fill.avocadoGreenA,
+    BACON: Fill.baconPinkD,
+    BANANA: Fill.bananaYellowA,
+    BREAD: Fill.breadBrown,
+    BROCCOLI: Fill.broccoliGreenC,
+    CARROT: Fill.carrotOrangeB,
+    CEREAL: Fill.cerealBrown,
+    CHEESE: Fill.cheeseYellowB,
+    CHERRY: Fill.cherryRedA,
+    CHIPS: Fill.chipsLightBrown,
+    CHOCOBAR: Fill.chocoBarBrownA,
+    CUPCAKE: Fill.cupcakePinkB,
+    EGGS: Fill.eggBrown,
+    GRAPE: Fill.grapePurpleA,
+    ICECREAM: Fill.iceCreamGreenA,
+    JUICE: Fill.juiceOrange,
+    LETTUCE: Fill.lettuceGreenB,
+    MILK: Fill.milkWhite,
+    ORANGE: Fill.orangeA,
+    PASTA: Fill.pastaYellowA,
+    PINEAPPLE: Fill.pineappleYellowA,
+    POTATO: Fill.potatoBrownE,
+    RICE: Fill.riceGrey,
+    ROLL: Fill.rollBrown,
+    SODA: Fill.sodaBrown,
+    STEAK: Fill.steakBrownA,
+    TOFU: Fill.tofuGreyB,
+    TOMATO: Fill.tomatoRedB,
+    TUNA: Fill.tunaGrey,
+    WATER: Fill.waterBlueD,
+    YOGHURT: Fill.yoghurtGreyB,
 }
 
 export const ADD_ITEM = "ADD_ITEM";

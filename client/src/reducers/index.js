@@ -16,11 +16,13 @@ import { routerReducer } from 'react-router-redux';
 // Reducer Imports
 // -------------------------------------------
 import basket from './basket';
+import blender from './blender';
 import trolley from './trolley';
 // --------------------------------
 
 export default combineReducers({
   router: routerReducer,
   basket,
+  blender,
   trolley
 });
