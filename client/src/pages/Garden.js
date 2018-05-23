@@ -22,7 +22,7 @@ import { Window, Background, Button, Title, Interface, Food, Basket, Moosh } fro
 // *******************************************
 // Constant Imports
 // -------------------------------------------
-import { Routes } from '../constants';
+import { Routes, FOOD } from '../constants';
 // --------------------------------
 
 
@@ -63,9 +63,15 @@ class Garden extends Component {
         }
 
         const basketItems = this.basketItemsBack.map((coords) => {
-            return <Food.Tuna.Single xPos={coords.xPos} yPos={coords.yPos} onClick={onClick} />
+            const props = {
+                xPos: coords.xPos,
+                yPos: coords.yPos,
+                onClick: onClick
+            }
+            return FOOD.GET_ELEMENT(FOOD.KEYS.ORANGE, props);
 
         })
+        console.log(basketItems);
 
         return (
             <Fragment>
