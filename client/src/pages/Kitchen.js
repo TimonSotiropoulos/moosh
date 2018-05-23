@@ -66,6 +66,11 @@ class Kitchen extends Component {
         history.push(route);
     }
 
+    createReport = () => {
+        const { blender, createReportFromFood } = this.props;
+        createReportFromFood(blender.items);
+    }
+
     _renderKitchenItems = () => {
 
         const { trolley, basket } = this.props;
@@ -80,7 +85,7 @@ class Kitchen extends Component {
                 actionType: FOOD.ADD_ITEM,
                 target: FOOD.TARGETS.BLENDER
             }
-            return FOOD.GET_ELEMENT(itemKey, props);
+            return Food.GET_ELEMENT(itemKey, props);
         });
 
         return (
@@ -97,11 +102,15 @@ class Kitchen extends Component {
             <Window>
                 <Background.Kitchen />
                 {this._renderKitchenItems()}
-
                 <Blender items={blender.items} />
                 <Moosh.Market />
                 <Food.Water.Single itemKey={FOOD.KEYS.WATER} actionType={FOOD.ADD_ITEM} target={FOOD.TARGETS.BLENDER} />
-                <Interface currentRoute={Routes.Kitchen} undoClick={removeItemFromBlender} counter={blender.items.length} navigateToLink={this.navigateToLink} />
+                <Interface
+                    currentRoute={Routes.Kitchen}
+                    undoClick={removeItemFromBlender}
+                    counter={blender.items.length}
+                    navigateToLink={this.navigateToLink}
+                    nextButtonClick={this.createReport} />
             </Window>
         );
     }
@@ -116,6 +125,7 @@ const mapStateToProps = (state) => {
 }
 
 export default withRouter(connect(mapStateToProps, {
-    removeItemFromBlender: ACTIONS.BLENDER.removeItemFromBlender
+    removeItemFromBlender: ACTIONS.BLENDER.removeItemFromBlender,
+    createReportFromFood: ACTIONS.REPORT.createReportFromFood
 })(Kitchen));
 // --------------------------------

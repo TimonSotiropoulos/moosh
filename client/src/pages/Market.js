@@ -70,7 +70,7 @@ class Market extends Component {
                 actionType: FOOD.REMOVE_ITEM,
                 target: FOOD.TARGETS.TROLLEY,
             }
-            return FOOD.GET_ELEMENT(itemKey, props);
+            return Food.GET_ELEMENT(itemKey, props);
         });
 
         return (
@@ -112,7 +112,7 @@ class Market extends Component {
                     currentRoute={Routes.Market}
                     undoClick={removeLastItemFromTrolley}
                     counter={trolley.items.length}
-                    navigateToLink={this.navigateToLink} 
+                    navigateToLink={this.navigateToLink}
                     nextButtonClick={this.navToGarden} />
             </Window>
         );

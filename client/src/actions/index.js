@@ -9,7 +9,9 @@
 import * as TROLLEY from './trolley';
 import * as BASKET from './basket';
 import * as BLENDER from './blender';
+import * as REPORT from './report';
 // --------------------------------
+
 const createAsyncAction = (KEY) => {
     return {
         [KEY]: {
@@ -29,13 +31,15 @@ const TYPES = {
     REMOVE_LAST_ITEM_FROM_BASKET: "REMOVE_LAST_ITEM_FROM_BASKET",
     ADD_ITEM_TO_BLENDER: "ADD_ITEM_TO_BLENDER",
     REMOVE_ITEM_FROM_BLENDER: "REMOVE_ITEM_FROM_BLENDER",
+    CREATE_REPORT: "CREATE_REPORT"
 }
 
 const ACTIONS = {
     TYPES,
     TROLLEY,
     BASKET,
-    BLENDER
+    BLENDER,
+    REPORT
 }
 
 export default ACTIONS;

@@ -76,7 +76,7 @@ class Garden extends Component {
                 actionType: FOOD.REMOVE_ITEM,
                 target: FOOD.TARGETS.BASKET,
             }
-            return FOOD.GET_ELEMENT(itemKey, props);
+            return Food.GET_ELEMENT(itemKey, props);
         });
 
         return (
@@ -101,7 +101,7 @@ class Garden extends Component {
                 actionType: FOOD.REMOVE_ITEM,
                 target: FOOD.TARGETS.BASKET,
             }
-            return FOOD.GET_ELEMENT(itemKey, props);
+            return Food.GET_ELEMENT(itemKey, props);
         });
 
         return (

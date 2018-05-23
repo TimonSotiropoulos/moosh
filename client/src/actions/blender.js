@@ -24,4 +24,8 @@ export const removeItemFromBlender = (itemKey) => {
         itemKey
     };
 }
+
+const someFunc = () => {
+    console.log("Whatever");
+}
 // --------------------------------

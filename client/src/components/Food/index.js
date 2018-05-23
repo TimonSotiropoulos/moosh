@@ -3,6 +3,8 @@
 // -------------------------------------------------------
 // All the Food Items from across the app
 // -------------------------------------------
+import React from 'react';
+import { FOOD } from '../../constants';
 
 // *******************************************
 // Component Imports
@@ -76,4 +78,77 @@ export const Tomato = Tomato_;
 export const Tuna = Tuna_;
 export const Water = Water_;
 export const Yoghurt = Yoghurt_;
+
+export const GET_ELEMENT = (itemKey, props) => {
+    switch (itemKey) {
+        case FOOD.KEYS.APPLE:
+            return <Apple.Single itemKey={itemKey} {...props} />;
+        case FOOD.KEYS.AVOCADO:
+            return <Avocado.Single itemKey={itemKey} {...props} />;
+        case FOOD.KEYS.BACON:
+            return <Bacon.Single itemKey={itemKey} {...props} />;
+        case FOOD.KEYS.BANANA:
+            return <Banana.Single itemKey={itemKey} {...props} />;
+        case FOOD.KEYS.BREAD:
+            return <Bread.Single itemKey={itemKey} {...props} />;
+        case FOOD.KEYS.BROCCOLI:
+            return <Broccoli.Single itemKey={itemKey} {...props} />;
+        case FOOD.KEYS.CARROT:
+            return <Carrot.Single itemKey={itemKey} {...props} />;
+        case FOOD.KEYS.CEREAL:
+            return <Cereal.Single itemKey={itemKey} {...props} />;
+        case FOOD.KEYS.CHEESE:
+            return <Cheese.Single itemKey={itemKey} {...props} />;
+        case FOOD.KEYS.CHERRY:
+            return <Cherry.Single itemKey={itemKey} {...props} />;
+        case FOOD.KEYS.CHIPS:
+            return <Chips.Single itemKey={itemKey} {...props} />;
+        case FOOD.KEYS.CHOCOBAR:
+            return <ChocoBar.Single itemKey={itemKey} {...props} />;
+        case FOOD.KEYS.CUPCAKE:
+            return <Cupcake.Single itemKey={itemKey} {...props} />;
+        case FOOD.KEYS.EGGS:
+            return <Eggs.Single itemKey={itemKey} {...props} />;
+        case FOOD.KEYS.GRAPE:
+            return <Grape.Single itemKey={itemKey} {...props} />;
+        case FOOD.KEYS.ICECREAM:
+            return <IceCream.Single itemKey={itemKey} {...props} />;
+        case FOOD.KEYS.JUICE:
+            return <Juice.Single itemKey={itemKey} {...props} />;
+        case FOOD.KEYS.LETTUCE:
+            return <Lettuce.Single itemKey={itemKey} {...props} />;
+        case FOOD.KEYS.MILK:
+            return <Milk.Single itemKey={itemKey} {...props} />;
+        case FOOD.KEYS.ORANGE:
+            return <Orange.Single itemKey={itemKey} {...props} />;
+        case FOOD.KEYS.PASTA:
+            return <Pasta.Single itemKey={itemKey} {...props} />;
+        case FOOD.KEYS.PINEAPPLE:
+            return <Pineapple.Single itemKey={itemKey} {...props} />;
+        case FOOD.KEYS.POTATO:
+            return <Potato.Single itemKey={itemKey} {...props} />;
+        case FOOD.KEYS.RICE:
+            return <Rice.Single itemKey={itemKey} {...props} />;
+        case FOOD.KEYS.ROLL:
+            return <Roll.Single itemKey={itemKey} {...props} />;
+        case FOOD.KEYS.SODA:
+            return <Soda.Single itemKey={itemKey} {...props} />;
+        case FOOD.KEYS.STEAK:
+            return <Steak.Single itemKey={itemKey} {...props} />;
+        case FOOD.KEYS.TOFU:
+            return <Tofu.Single itemKey={itemKey} {...props} />;
+        case FOOD.KEYS.TOMATO:
+            return <Tomato.Single itemKey={itemKey} {...props} />;
+        case FOOD.KEYS.TUNA:
+            return <Tuna.Single itemKey={itemKey} {...props} />;
+        case FOOD.KEYS.WATER:
+            return <Water.Single itemKey={itemKey} {...props} />;
+        case FOOD.KEYS.YOGHURT:
+            return <Yoghurt.Single itemKey={itemKey} {...props} />;
+        default:
+            return <Yoghurt.Single itemKey={itemKey} {...props} />;
+    }
+}
+
+
 // --------------------------------

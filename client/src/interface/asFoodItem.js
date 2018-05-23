@@ -13,6 +13,7 @@ import { connect } from 'react-redux';
 // Imports
 // -------------------------------------------
 import ACTIONS from '../actions';
+
 import { FOOD } from '../constants';
 import * as UTILS from '../utilities';
 // --------------------------------
@@ -88,6 +89,9 @@ const asFoodItem = (WrappedComponent) => {
             [FOOD.TARGETS.BASKET]: state.basket
         };
     }
+
+    console.log("What is this?");
+    console.log(ACTIONS);
 
     return connect(mapStateToProps, {
         addItemToBasket: ACTIONS.BASKET.addItemToBasket,
