@@ -25,7 +25,6 @@ import { Window, Background, Button, Title, Moosh } from '../components';
 import { Routes } from '../constants';
 // --------------------------------
 
-
 // *******************************************
 // Implementation
 // -------------------------------------------
@@ -40,6 +39,8 @@ class Result extends Component {
         return (
             <Window>
                 <Background.Result />
+                <Button.WhatTheFood />
+                <Moosh.Sleep />
             </Window>
         );
     }

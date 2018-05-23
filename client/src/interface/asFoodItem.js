@@ -90,9 +90,6 @@ const asFoodItem = (WrappedComponent) => {
         };
     }
 
-    console.log("What is this?");
-    console.log(ACTIONS);
-
     return connect(mapStateToProps, {
         addItemToBasket: ACTIONS.BASKET.addItemToBasket,
         removeLastItemFromBasket: ACTIONS.BASKET.removeLastItemFromBasket,

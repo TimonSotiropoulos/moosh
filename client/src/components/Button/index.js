@@ -13,4 +13,5 @@ export {default as FeedMoosh} from './FeedMoosh';
 export {default as Undo} from './Undo';
 export {default as ToKitchen} from './ToKitchen';
 export {default as KitchenFeedMoosh} from './KitchenFeedMoosh';
+export {default as WhatTheFood} from './WhatTheFood';
 // --------------------------------
