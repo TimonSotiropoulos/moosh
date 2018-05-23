@@ -5,7 +5,7 @@
 // -------------------------------------------
 
 // *******************************************
-// Exports
+// Component Imports
 // -------------------------------------------
 import * as Eggs_ from './Eggs';
 import * as Cereal_ from './Cereal';
@@ -44,36 +44,36 @@ import * as Water_ from './Water';
 // *******************************************
 // Exports
 // -------------------------------------------
-export const Eggs = Eggs_;
-export const Cereal = Cereal_;
-export const Juice = Juice_;
-export const Soda = Soda_;
-export const Tuna = Tuna_;
-export const Rice = Rice_;
-export const ChocoBar = ChocoBar_;
-export const Cupcake = Cupcake_;
-export const Chips = Chips_;
-export const Roll = Roll_;
-export const Pasta = Pasta_;
-export const Bread = Bread_;
-export const Tofu = Tofu_;
-export const Steak = Steak_;
-export const Bacon = Bacon_;
-export const Milk = Milk_;
-export const Yoghurt = Yoghurt_;
-export const Cheese = Cheese_;
-export const IceCream = IceCream_;
 export const Apple = Apple_;
-export const Orange = Orange_;
-export const Tomato = Tomato_;
-export const Potato = Potato_;
-export const Grape = Grape_;
-export const Banana = Banana_;
-export const Cherry = Cherry_;
 export const Avocado = Avocado_;
-export const Pineapple = Pineapple_;
+export const Bacon = Bacon_;
+export const Banana = Banana_;
+export const Bread = Bread_;
 export const Broccoli = Broccoli_;
 export const Carrot = Carrot_;
+export const Cereal = Cereal_;
+export const Cheese = Cheese_;
+export const Cherry = Cherry_;
+export const Chips = Chips_;
+export const ChocoBar = ChocoBar_;
+export const Cupcake = Cupcake_;
+export const Eggs = Eggs_;
+export const Grape = Grape_;
+export const IceCream = IceCream_;
+export const Juice = Juice_;
 export const Lettuce = Lettuce_;
+export const Milk = Milk_;
+export const Orange = Orange_;
+export const Pasta = Pasta_;
+export const Pineapple = Pineapple_;
+export const Potato = Potato_;
+export const Rice = Rice_;
+export const Roll = Roll_;
+export const Soda = Soda_;
+export const Steak = Steak_;
+export const Tofu = Tofu_;
+export const Tomato = Tomato_;
+export const Tuna = Tuna_;
 export const Water = Water_;
+export const Yoghurt = Yoghurt_;
 // --------------------------------

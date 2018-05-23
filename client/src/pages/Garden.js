@@ -58,9 +58,7 @@ class Garden extends Component {
 
     _renderBackBasketItems = () => {
 
-        const onClick = () => {
-            console.log("We are clickling that item fewl!");
-        }
+        
 
         const basketItems = this.basketItemsBack.map((coords) => {
             const props = {
@@ -105,10 +103,12 @@ class Garden extends Component {
     }
 
     render() {
+        console.log("DOING A RENDER");
+        // console.log(<Food.Grape.Stock />);
         return (
             <Window>
                 <Background.Garden.Background />
-                <Food.Grape.Stock />
+                <Food.Grape.Stock itemKey={FOOD.KEYS.GRAPE} actionType={FOOD.ADD_ITEM} target={FOOD.TARGETS.BASKET} />
                 <Food.Tomato.Stock />
                 <Food.Broccoli.Stock />
                 <Food.Carrot.Stock />

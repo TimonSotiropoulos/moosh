@@ -119,4 +119,14 @@ export const GET_ELEMENT = (itemKey, props) => {
             return <Food.Yoghurt.Single {...props} />;
     }
 }
+
+export const ADD_ITEM = "ADD_ITEM";
+export const REMOVE_ITEM = "REMOVE_ITEM";
+
+export const TARGETS = {
+    TROLLEY: "TROLLEY",
+    BASKET: "BASKET",
+    BLENDER: "BLENDER",
+}
+
 // ----------------------------------

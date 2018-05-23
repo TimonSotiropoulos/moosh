@@ -1,27 +1,15 @@
 // *******************************************************
-// Basket Actions
+// Interface Exports File
 // -------------------------------------------------------
 
 // *******************************************
-// Action Type Imports
+// Component Imports
 // -------------------------------------------
-import ACTIONS from './index';
+import asFoodItem_ from './asFoodItem';
 // --------------------------------
 
 // *******************************************
-// Action Definitions
+// Exports
 // -------------------------------------------
-export const addItemToBasket = (itemKey) => {
-    return {
-        type: ACTIONS.TYPES.ADD_ITEM_TO_BASKET,
-        itemKey
-    };
-}
-
-export const removeItemFromBasket = (itemKey) => {
-    return {
-        type: ACTIONS.TYPES.REMOVE_ITEM_FROM_BASKET,
-        itemKey
-    };
-}
+export const asFoodItem = asFoodItem_;
 // --------------------------------
