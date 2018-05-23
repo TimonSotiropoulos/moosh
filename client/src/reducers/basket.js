@@ -39,6 +39,10 @@ export default (state = initialState, action) => {
             } else {
                 return state;
             }
+        case ACTIONS.TYPES.REMOVE_LAST_ITEM_FROM_BASKET:
+            return {
+                items: UTILS.GENERAL.removeFinalItemFromArray(state.items)
+            }
         default:
             return state
     }

@@ -23,6 +23,7 @@ import { Window, Background, Button, Interface, Title, Food, Moosh, Trolley } fr
 // *******************************************
 // Constant Imports
 // -------------------------------------------
+import ACTIONS from '../actions';
 import { Routes, FOOD } from '../constants';
 // --------------------------------
 
@@ -77,7 +78,7 @@ class Market extends Component {
     }
 
     render() {
-        const { trolley } = this.props;
+        const { trolley, removeLastItemFromTrolley } = this.props;
         return (
             <Window>
                 <Background.Market />
@@ -103,7 +104,7 @@ class Market extends Component {
                 <Moosh.Market />
                 {this._renderTrolleyItems()}
                 <Trolley />
-                <Interface currentRoute={Routes.Market} counter={trolley.items.length} navigateToLink={this.navigateToLink} />
+                <Interface currentRoute={Routes.Market} undoClick={removeLastItemFromTrolley} counter={trolley.items.length} navigateToLink={this.navigateToLink} />
             </Window>
         );
     }
@@ -115,5 +116,7 @@ const mapStateToProps = (state) => {
     };
 }
 
-export default withRouter(connect(mapStateToProps, null)(Market));
+export default withRouter(connect(mapStateToProps, {
+    removeLastItemFromTrolley: ACTIONS.TROLLEY.removeLastItemFromTrolley
+})(Market));
 // --------------------------------

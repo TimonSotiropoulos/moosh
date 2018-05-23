@@ -27,8 +27,11 @@ class Counter extends Component {
         if (value === 7) {
             return 39;
         }
-        if (value >= 10) {
+        if (value >= 10 && value <= 19) {
             return 33
+        }
+        if (value >= 20) {
+            return 30
         }
         return 37;
     }

@@ -24,4 +24,10 @@ export const removeItemFromBasket = (itemKey) => {
         itemKey
     };
 }
+
+export const removeLastItemFromBasket = () => {
+    return {
+        type: ACTIONS.TYPES.REMOVE_LAST_ITEM_FROM_BASKET
+    };
+}
 // --------------------------------

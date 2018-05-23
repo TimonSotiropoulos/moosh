@@ -101,10 +101,16 @@ export const removeItemFromArray = (array, value) => {
  * @returns {Array} Array - A new array with the provided value removed
  */
 export const removeFinalItemFromArray = (array) => {
-    if (array.length > 0) {
-        return array.splice(-1, 1)
+    if (array.length > 1) {
+        const newArrayLength = array.length - 1;
+        return [].concat(array.splice(0, newArrayLength));
     }
-    return array;
+    if (array.length === 1) {
+        return [];
+    }
+    if (array.length === 0) {
+        return [];
+    }
 }
 
 

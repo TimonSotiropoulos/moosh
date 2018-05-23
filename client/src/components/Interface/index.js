@@ -47,10 +47,10 @@ class Interface extends Component {
     }
 
     render() {
-        const { currentRoute } = this.props;
+        const { currentRoute, undoClick } = this.props;
         return (
             <Fragment>
-                <Button.Undo />
+                <Button.Undo onClick={undoClick} />
                 <Counter value={this.props.counter} />
                 <Link link={Routes.Garden} active={currentRoute === Routes.Garden} onClick={this.navigateToLink} />
                 <Link link={Routes.Kitchen} active={currentRoute === Routes.Kitchen} onClick={this.navigateToLink} />
@@ -65,10 +65,7 @@ Interface.defaultProps = {
     curretnRoute: Routes.Garden,
     counter: 10,
     navigateToLink: (route) => { console.log("Calling Default Interface Navigate To Link: " + route); },
-    // xPos: 0,
-    // yPos: 0,
-    // width: 1314.33,
-    // height: 468
+    undoClick: () => {console.log("Default Undo Click");}
 }
 
 export default Interface;

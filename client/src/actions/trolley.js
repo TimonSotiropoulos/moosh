@@ -26,4 +26,10 @@ export const removeItemFromTrolley = (itemKey) => {
         itemKey
     };
 }
+
+export const removeLastItemFromTrolley = () => {
+    return {
+        type: ACTIONS.TYPES.REMOVE_LAST_ITEM_FROM_TROLLEY
+    };
+}
 // --------------------------------

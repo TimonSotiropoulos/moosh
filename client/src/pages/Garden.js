@@ -23,9 +23,9 @@ import { Window, Background, Button, Title, Interface, Food, Basket, Moosh } fro
 // *******************************************
 // Constant Imports
 // -------------------------------------------
+import ACTIONS from '../actions';
 import { Routes, FOOD } from '../constants';
 // --------------------------------
-
 
 // *******************************************
 // Implementation
@@ -108,7 +108,7 @@ class Garden extends Component {
     }
 
     render() {
-        const { basket } = this.props;
+        const { basket, removeLastItemFromBasket } = this.props;
         return (
             <Window>
                 <Background.Garden.Background />
@@ -130,7 +130,7 @@ class Garden extends Component {
                 <Basket.Main />
                 {this._renderFrontBasketItems()}
                 <Moosh.Market />
-                <Interface currentRoute={Routes.Garden} counter={basket.items.length} navigateToLink={this.navigateToLink} />
+                <Interface currentRoute={Routes.Garden} undoClick={removeLastItemFromBasket} counter={basket.items.length} navigateToLink={this.navigateToLink} />
             </Window>
         );
     }
@@ -142,5 +142,7 @@ const mapStateToProps = (state) => {
     };
 }
 
-export default withRouter(connect(mapStateToProps, null)(Garden));
+export default withRouter(connect(mapStateToProps, {
+    removeLastItemFromBasket: ACTIONS.BASKET.removeLastItemFromBasket
+})(Garden));
 // --------------------------------

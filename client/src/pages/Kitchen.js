@@ -23,6 +23,7 @@ import { Window, Background, Button, Title, Interface, Blender, Moosh, Food } fr
 // *******************************************
 // Constant Imports
 // -------------------------------------------
+import ACTIONS from '../actions';
 import { Routes, FOOD } from '../constants';
 import * as UTILS from '../utilities';
 // --------------------------------
@@ -91,7 +92,7 @@ class Kitchen extends Component {
     }
 
     render() {
-        const { blender } = this.props;
+        const { blender, removeItemFromBlender } = this.props;
         return (
             <Window>
                 <Background.Kitchen />
@@ -100,7 +101,7 @@ class Kitchen extends Component {
                 <Blender items={blender.items} />
                 <Moosh.Market />
                 <Food.Water.Single itemKey={FOOD.KEYS.WATER} actionType={FOOD.ADD_ITEM} target={FOOD.TARGETS.BLENDER} />
-                <Interface currentRoute={Routes.Kitchen} counter={blender.items.length} navigateToLink={this.navigateToLink} />
+                <Interface currentRoute={Routes.Kitchen} undoClick={removeItemFromBlender} counter={blender.items.length} navigateToLink={this.navigateToLink} />
             </Window>
         );
     }
@@ -114,5 +115,7 @@ const mapStateToProps = (state) => {
     };
 }
 
-export default withRouter(connect(mapStateToProps, null)(Kitchen));
+export default withRouter(connect(mapStateToProps, {
+    removeItemFromBlender: ACTIONS.BLENDER.removeItemFromBlender
+})(Kitchen));
 // --------------------------------

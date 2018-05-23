@@ -30,6 +30,10 @@ export default (state = initialState, action) => {
             return {
                 items: UTILS.GENERAL.removeItemFromArray(state.items, action.itemKey)
             }
+        case ACTIONS.TYPES.REMOVE_LAST_ITEM_FROM_TROLLEY:
+            return {
+                items: UTILS.GENERAL.removeFinalItemFromArray(state.items)
+            }
         default:
             return state
     }
