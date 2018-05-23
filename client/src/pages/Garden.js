@@ -63,12 +63,7 @@ class Garden extends Component {
         }
 
         const basketItems = this.basketItemsBack.map((coords) => {
-            const index = Math.round(Math.random());
-            if (index === 0) {
-                return <Food.Apple.Single xPos={coords.xPos} yPos={coords.yPos} onClick={onClick} />
-            } else {
-                return <Food.Apple.Single xPos={coords.xPos} yPos={coords.yPos} onClick={onClick} />
-            }
+            return <Food.Avocado.Single xPos={coords.xPos} yPos={coords.yPos} onClick={onClick} />
 
         })
 
