@@ -57,6 +57,10 @@ class Garden extends Component {
         history.push(route);
     }
 
+    navToKitchen = () => {
+        this.navigateToLink(Routes.Kitchen);
+    }
+
     _renderBackBasketItems = () => {
 
         const { basket } = this.props;
@@ -130,7 +134,12 @@ class Garden extends Component {
                 <Basket.Main />
                 {this._renderFrontBasketItems()}
                 <Moosh.Market />
-                <Interface currentRoute={Routes.Garden} undoClick={removeLastItemFromBasket} counter={basket.items.length} navigateToLink={this.navigateToLink} />
+                <Interface
+                    currentRoute={Routes.Garden}
+                    undoClick={removeLastItemFromBasket}
+                    counter={basket.items.length}
+                    navigateToLink={this.navigateToLink}
+                    nextButtonClick={this.navToKitchen}  />
             </Window>
         );
     }

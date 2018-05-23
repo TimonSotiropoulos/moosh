@@ -37,12 +37,12 @@ class Interface extends Component {
     }
 
     _renderNextButton = () => {
-        const { currentRoute } = this.props;
+        const { currentRoute, nextButtonClick } = this.props;
         switch (currentRoute) {
             case Routes.Kitchen:
-                return (<Button.KitchenFeedMoosh />)
+                return (<Button.KitchenFeedMoosh onClick={nextButtonClick} />)
             default:
-                return (<Button.ToKitchen />)
+                return (<Button.ToKitchen onClick={nextButtonClick} />)
         }
     }
 
@@ -65,7 +65,8 @@ Interface.defaultProps = {
     curretnRoute: Routes.Garden,
     counter: 10,
     navigateToLink: (route) => { console.log("Calling Default Interface Navigate To Link: " + route); },
-    undoClick: () => {console.log("Default Undo Click");}
+    undoClick: () => {console.log("Default Undo Click");},
+    nextButtonClick: () => {console.log("Default Next Button Click");}
 }
 
 export default Interface;

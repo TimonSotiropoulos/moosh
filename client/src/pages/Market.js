@@ -55,6 +55,10 @@ class Market extends Component {
         history.push(route);
     }
 
+    navToGarden = () => {
+        this.navigateToLink(Routes.Garden);
+    }
+
     _renderTrolleyItems = () => {
 
         const { trolley } = this.props;
@@ -104,7 +108,12 @@ class Market extends Component {
                 <Moosh.Market />
                 {this._renderTrolleyItems()}
                 <Trolley />
-                <Interface currentRoute={Routes.Market} undoClick={removeLastItemFromTrolley} counter={trolley.items.length} navigateToLink={this.navigateToLink} />
+                <Interface
+                    currentRoute={Routes.Market}
+                    undoClick={removeLastItemFromTrolley}
+                    counter={trolley.items.length}
+                    navigateToLink={this.navigateToLink} 
+                    nextButtonClick={this.navToGarden} />
             </Window>
         );
     }
