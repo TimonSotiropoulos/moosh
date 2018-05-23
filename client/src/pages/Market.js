@@ -62,9 +62,9 @@ class Market extends Component {
         const trolleyItems = this.trolleyItems.map((coords) => {
             const index = Math.round(Math.random());
             if (index === 0) {
-                return <Food.Eggs.Single xPos={coords.xPos} yPos={coords.yPos} onClick={onClick} />
+                return <Food.Soda.Single xPos={coords.xPos} yPos={coords.yPos} onClick={onClick} />
             } else {
-                return <Food.Cereal.Single xPos={coords.xPos} yPos={coords.yPos} onClick={onClick} />
+                return <Food.Tofu.Single xPos={coords.xPos} yPos={coords.yPos} onClick={onClick} />
             }
 
         })
