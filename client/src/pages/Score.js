@@ -16,7 +16,7 @@ import { withRouter } from 'react-router';
 // *******************************************
 // Component Imports
 // -------------------------------------------
-import { Window, Background, Button, Title, Moosh } from '../components';
+import { Window, Background, Button, Title, Text, Moosh } from '../components';
 // --------------------------------
 
 // *******************************************
@@ -39,7 +39,8 @@ class Score extends Component {
     render() {
         return (
             <Window>
-                <Background.Garden.Background />
+                <Background.Score />
+                <Text />
             </Window>
         );
     }
