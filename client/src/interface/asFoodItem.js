@@ -35,12 +35,12 @@ const asFoodItem = (WrappedComponent) => {
             if (actionType === FOOD.ADD_ITEM) {
                 switch (target) {
                     case FOOD.TARGETS.BASKET:
-                        if (UTILS.GENERAL.itemIsNotInArray(this.props[target].items, itemKey)) {
+                        if (UTILS.GENERAL.itemIsNotInArray(this.props[target].items, itemKey) && this.props[target].items.length < 10) {
                             this.props.addItemToBasket(itemKey);
                         }
                         break;
                     case FOOD.TARGETS.TROLLEY:
-                        if (UTILS.GENERAL.itemIsNotInArray(this.props[target].items, itemKey)) {
+                        if (UTILS.GENERAL.itemIsNotInArray(this.props[target].items, itemKey) && this.props[target].items.length < 10) {
                             this.props.addItemToTrolley(itemKey);
                         }
                         break;
@@ -71,7 +71,8 @@ const asFoodItem = (WrappedComponent) => {
         }
 
         render () {
-            const itemIsNotInArray = UTILS.GENERAL.itemIsNotInArray(this.props[this.props.target].items, this.props.itemKey);
+
+            const itemIsNotInArray = (this.props[this.props.target]) ? UTILS.GENERAL.itemIsNotInArray(this.props[this.props.target].items, this.props.itemKey) : true;
             return (
                 <WrappedComponent active={itemIsNotInArray} onClick={this.onClick} {...this.props} />
             );

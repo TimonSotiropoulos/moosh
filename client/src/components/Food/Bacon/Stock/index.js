@@ -11,6 +11,12 @@ import React, { Component } from 'react';
 // --------------------------------
 
 // *******************************************
+// Interface Imports
+// -------------------------------------------
+import { asFoodItem } from '../../../../interface';
+// --------------------------------
+
+// *******************************************
 // Style Imports
 // -------------------------------------------
 import { Fill, Text } from '../../../../styles';
@@ -36,13 +42,13 @@ class Stock extends Component {
 
         const { width, height, xPos, yPos, active } = this.props;
 
-        const baconBrownA = (this.state.active) ? Fill.baconBrownA : Fill.itemGreyA;
-        const baconBrownB = (this.state.active) ? Fill.baconBrownB : Fill.itemGreyB;
-        const baconPinkA = (this.state.active) ? Fill.baconPinkA : Fill.itemGreyC;
-        const baconPinkB = (this.state.active) ? Fill.baconPinkB : Fill.itemGreyA;
-        const baconPinkC = (this.state.active) ? Fill.baconPinkC : Fill.itemGreyB;
-        const baconPinkD = (this.state.active) ? Fill.baconPinkD : Fill.itemGreyC;
-        const baconPinkE = (this.state.active) ? Fill.baconPinkE : Fill.itemGreyA;
+        const baconBrownA = (this.props.active) ? Fill.baconBrownA : Fill.itemGreyA;
+        const baconBrownB = (this.props.active) ? Fill.baconBrownB : Fill.itemGreyB;
+        const baconPinkA = (this.props.active) ? Fill.baconPinkA : Fill.itemGreyC;
+        const baconPinkB = (this.props.active) ? Fill.baconPinkB : Fill.itemGreyA;
+        const baconPinkC = (this.props.active) ? Fill.baconPinkC : Fill.itemGreyB;
+        const baconPinkD = (this.props.active) ? Fill.baconPinkD : Fill.itemGreyC;
+        const baconPinkE = (this.props.active) ? Fill.baconPinkE : Fill.itemGreyA;
 
         return (
             <svg x={xPos} y={yPos} width={width} height={height}  viewBox="0 0 249 126" onClick={this.onClick}>
@@ -140,4 +146,4 @@ Stock.defaultProps = {
     onClick: null
 }
 
-export default Stock;
+export default asFoodItem(Stock);

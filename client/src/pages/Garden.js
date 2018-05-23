@@ -10,6 +10,7 @@
 // Module Imports
 // -------------------------------------------
 import React, { Component, Fragment } from 'react';
+import { connect } from 'react-redux';
 import { withRouter } from 'react-router';
 // --------------------------------
 
@@ -58,18 +59,19 @@ class Garden extends Component {
 
     _renderBackBasketItems = () => {
 
-        
+        const { basket } = this.props;
 
-        const basketItems = this.basketItemsBack.map((coords) => {
+        const basketItems = basket.items.map((itemKey, index) => {
+            if (index > 6) {
+                return null;
+            }
+            const coords = this.basketItemsBack[index];
             const props = {
                 xPos: coords.xPos,
-                yPos: coords.yPos,
-                onClick: onClick
+                yPos: coords.yPos
             }
-            return FOOD.GET_ELEMENT(FOOD.KEYS.ORANGE, props);
-
-        })
-        console.log(basketItems);
+            return FOOD.GET_ELEMENT(itemKey, props);
+        });
 
         return (
             <Fragment>
@@ -81,19 +83,18 @@ class Garden extends Component {
 
     _renderFrontBasketItems = () => {
 
-        const onClick = () => {
-            console.log("We are clickling that item fewl!");
-        }
-
-        const basketItems = this.basketItemsFront.map((coords) => {
-            const index = Math.round(Math.random());
-            if (index === 0) {
-                return <Food.Apple.Single xPos={coords.xPos} yPos={coords.yPos} onClick={onClick} />
-            } else {
-                return <Food.Apple.Single xPos={coords.xPos} yPos={coords.yPos} onClick={onClick} />
+        const { basket } = this.props;
+        const basketItems = basket.items.map((itemKey, index) => {
+            if (index < 7) {
+                return null;
             }
-
-        })
+            const coords = this.basketItemsFront[index - 7];
+            const props = {
+                xPos: coords.xPos,
+                yPos: coords.yPos
+            }
+            return FOOD.GET_ELEMENT(itemKey, props);
+        });
 
         return (
             <Fragment>
@@ -103,34 +104,39 @@ class Garden extends Component {
     }
 
     render() {
-        console.log("DOING A RENDER");
-        // console.log(<Food.Grape.Stock />);
+        const { basket } = this.props;
         return (
             <Window>
                 <Background.Garden.Background />
                 <Food.Grape.Stock itemKey={FOOD.KEYS.GRAPE} actionType={FOOD.ADD_ITEM} target={FOOD.TARGETS.BASKET} />
-                <Food.Tomato.Stock />
-                <Food.Broccoli.Stock />
-                <Food.Carrot.Stock />
-                <Food.Lettuce.Stock />
+                <Food.Tomato.Stock itemKey={FOOD.KEYS.TOMATO} actionType={FOOD.ADD_ITEM} target={FOOD.TARGETS.BASKET} />
+                <Food.Broccoli.Stock itemKey={FOOD.KEYS.BROCCOLI} actionType={FOOD.ADD_ITEM} target={FOOD.TARGETS.BASKET} />
+                <Food.Carrot.Stock itemKey={FOOD.KEYS.CARROT} actionType={FOOD.ADD_ITEM} target={FOOD.TARGETS.BASKET} />
+                <Food.Lettuce.Stock itemKey={FOOD.KEYS.LETTUCE} actionType={FOOD.ADD_ITEM} target={FOOD.TARGETS.BASKET} />
                 <Background.Garden.Foreground />
-                <Food.Apple.Stock />
-                <Food.Orange.Stock />
-                <Food.Potato.Stock />
-                <Food.Banana.Stock />
-                <Food.Cherry.Stock />
-                <Food.Avocado.Stock />
-                <Food.Pineapple.Stock />
+                <Food.Apple.Stock itemKey={FOOD.KEYS.APPLE} actionType={FOOD.ADD_ITEM} target={FOOD.TARGETS.BASKET} />
+                <Food.Orange.Stock itemKey={FOOD.KEYS.ORANGE} actionType={FOOD.ADD_ITEM} target={FOOD.TARGETS.BASKET} />
+                <Food.Potato.Stock itemKey={FOOD.KEYS.POTATO} actionType={FOOD.ADD_ITEM} target={FOOD.TARGETS.BASKET} />
+                <Food.Banana.Stock itemKey={FOOD.KEYS.BANANA} actionType={FOOD.ADD_ITEM} target={FOOD.TARGETS.BASKET} />
+                <Food.Cherry.Stock itemKey={FOOD.KEYS.CHERRY} actionType={FOOD.ADD_ITEM} target={FOOD.TARGETS.BASKET} />
+                <Food.Avocado.Stock itemKey={FOOD.KEYS.AVOCADO} actionType={FOOD.ADD_ITEM} target={FOOD.TARGETS.BASKET} />
+                <Food.Pineapple.Stock itemKey={FOOD.KEYS.PINEAPPLE} actionType={FOOD.ADD_ITEM} target={FOOD.TARGETS.BASKET} />
                 <Basket.Handle />
                 {this._renderBackBasketItems()}
                 <Basket.Main />
                 {this._renderFrontBasketItems()}
                 <Moosh.Market />
-                <Interface currentRoute={Routes.Garden} navigateToLink={this.navigateToLink} />
+                <Interface currentRoute={Routes.Garden} counter={basket.items.length} navigateToLink={this.navigateToLink} />
             </Window>
         );
     }
 }
 
-export default withRouter(Garden);
+const mapStateToProps = (state) => {
+    return {
+        basket: state.basket
+    };
+}
+
+export default withRouter(connect(mapStateToProps, null)(Garden));
 // --------------------------------

@@ -14,7 +14,6 @@ import React, { Component } from 'react';
 // Interface Imports
 // -------------------------------------------
 import { asFoodItem } from '../../../../interface';
-
 // --------------------------------
 
 // *******************************************

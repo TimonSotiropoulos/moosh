@@ -28,6 +28,18 @@ export const swapArrayElements = (arr, indexA, indexB) => {
 };
 
 /**
+ * @function combineArrays
+ * Swaps two elements inside an array
+ * @param array - Initial Array containing the elements to swap
+ * @param indexA - position of first array item
+ * @param indexB - position of secont array item
+ * @return array with elements swapped
+ */
+export const combineArrays = (arrayA, arrayB) => {
+    return arrayA.concat(arrayB);
+};
+
+/**
  * @function itemIsInArray
  * Looks for the given item inside an array
  * @returns {Boolean} Boolean - A True or False reponse

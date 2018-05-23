@@ -11,6 +11,12 @@ import React, { Component } from 'react';
 // --------------------------------
 
 // *******************************************
+// Interface Imports
+// -------------------------------------------
+import { asFoodItem } from '../../../../interface';
+// --------------------------------
+
+// *******************************************
 // Style Imports
 // -------------------------------------------
 import { Fill, Text } from '../../../../styles';
@@ -36,7 +42,7 @@ class Stock extends Component {
 
         const { width, height, xPos, yPos, active } = this.props;
 
-        const riceColorMain = (this.state.active) ? Fill.riceBlue : Fill.itemGreyC;
+        const riceColorMain = (this.props.active) ? Fill.riceBlue : Fill.itemGreyC;
 
         return (
             <svg x={xPos} y={yPos} width={width} height={height}  viewBox="0 0 249 126" onClick={this.onClick}>
@@ -83,4 +89,4 @@ Stock.defaultProps = {
     onClick: null
 }
 
-export default Stock;
+export default asFoodItem(Stock);

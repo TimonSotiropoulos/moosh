@@ -11,6 +11,12 @@ import React, { Component } from 'react';
 // --------------------------------
 
 // *******************************************
+// Interface Imports
+// -------------------------------------------
+import { asFoodItem } from '../../../../interface';
+// --------------------------------
+
+// *******************************************
 // Style Imports
 // -------------------------------------------
 import { Fill, Opacity } from '../../../../styles';
@@ -36,13 +42,13 @@ class Stock extends Component {
 
         const { width, height, xPos, yPos, active } = this.props;
 
-        const mainColor = (this.state.active) ? Fill.pastaRed : Fill.itemGreyC;
-        const altColor = (this.state.active) ? Fill.pastaYellowA : Fill.itemGreyB;
-        const altColorB = (this.state.active) ? Fill.pastaYellowB : Fill.itemGreyB;
-        const altColorC = (this.state.active) ? Fill.pastaYellowC : Fill.itemGreyB;
-        const altColorD = (this.state.active) ? Fill.pastaYellowD : Fill.itemGreyB;
-        const altColorE = (this.state.active) ? Fill.pastaYellowE : Fill.itemGreyB;
-        const altColorF = (this.state.active) ? Fill.pastaYellowF : Fill.itemGreyB;
+        const mainColor = (this.props.active) ? Fill.pastaRed : Fill.itemGreyC;
+        const altColor = (this.props.active) ? Fill.pastaYellowA : Fill.itemGreyB;
+        const altColorB = (this.props.active) ? Fill.pastaYellowB : Fill.itemGreyB;
+        const altColorC = (this.props.active) ? Fill.pastaYellowC : Fill.itemGreyB;
+        const altColorD = (this.props.active) ? Fill.pastaYellowD : Fill.itemGreyB;
+        const altColorE = (this.props.active) ? Fill.pastaYellowE : Fill.itemGreyB;
+        const altColorF = (this.props.active) ? Fill.pastaYellowF : Fill.itemGreyB;
 
         return (
             <svg x={xPos} y={yPos} width={width} height={height}  viewBox="0 0 249 126" onClick={this.onClick}>
@@ -147,4 +153,4 @@ Stock.defaultProps = {
     onClick: null
 }
 
-export default Stock;
+export default asFoodItem(Stock);

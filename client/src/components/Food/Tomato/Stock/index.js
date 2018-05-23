@@ -11,6 +11,12 @@ import React, { Component } from 'react';
 // --------------------------------
 
 // *******************************************
+// Interface Imports
+// -------------------------------------------
+import { asFoodItem } from '../../../../interface';
+// --------------------------------
+
+// *******************************************
 // Style Imports
 // -------------------------------------------
 import { Fill, MixBlend } from '../../../../styles';
@@ -36,16 +42,11 @@ class Stock extends Component {
 
         const { width, height, xPos, yPos, active } = this.props;
 
-        const orangeGreenA = (this.state.active) ? Fill.orangeGreenA : Fill.itemGreyB;
-        const orangeGreenB = (this.state.active) ? Fill.orangeGreenB : Fill.itemGreyC;
-        const orangeA = (this.state.active) ? Fill.orangeA : Fill.itemGreyC;
-        const orangeGreenC = (this.state.active) ? Fill.orangeGreenC : Fill.itemGreyA;
-        const orangeB = (this.state.active) ? Fill.orangeB : Fill.itemGreyB;
-
-        const tomatoRedA = (this.state.active) ? Fill.tomatoRedA : Fill.itemGreyB;
-        const tomatoRedB = (this.state.active) ? Fill.tomatoRedB : Fill.itemGreyC;
-        const tomatoGreen = (this.state.active) ? Fill.tomatoGreen : Fill.itemGreyA;
-        const tomatoBrownA = (this.state.active) ? Fill.tomatoBrownA : Fill.itemGreyC;
+        const tomatoRedA = (this.props.active) ? Fill.tomatoRedA : Fill.itemGreyB;
+        const tomatoRedB = (this.props.active) ? Fill.tomatoRedB : Fill.itemGreyC;
+        const tomatoGreen = (this.props.active) ? Fill.tomatoGreen : Fill.itemGreyA;
+        const tomatoBrownA = (this.props.active) ? Fill.tomatoBrownA : Fill.itemGreyC;
+        
         return (
             <svg xmlns="http://www.w3.org/2000/svg" x={75} y={890} width={433} height={525} viewBox="0 0 433.3 525.7" onClick={this.onClick}>
             <title>
@@ -192,4 +193,4 @@ Stock.defaultProps = {
     onClick: null
 }
 
-export default Stock;
+export default asFoodItem(Stock);

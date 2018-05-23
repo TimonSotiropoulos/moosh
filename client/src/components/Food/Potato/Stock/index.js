@@ -11,6 +11,12 @@ import React, { Component } from 'react';
 // --------------------------------
 
 // *******************************************
+// Interface Imports
+// -------------------------------------------
+import { asFoodItem } from '../../../../interface';
+// --------------------------------
+
+// *******************************************
 // Style Imports
 // -------------------------------------------
 import { Fill, MixBlend } from '../../../../styles';
@@ -36,12 +42,12 @@ class Stock extends Component {
 
         const { width, height, xPos, yPos, active } = this.props;
 
-        const potatoBrownA = (this.state.active) ? Fill.potatoBrownA : Fill.itemGreyC;
-        const potatoBrownB = (this.state.active) ? Fill.potatoBrownB : Fill.itemGreyB;
-        const potatoBrownC = (this.state.active) ? Fill.potatoBrownC : Fill.itemGreyC;
-        const potatoBrownD = (this.state.active) ? Fill.potatoBrownD : Fill.itemGreyB;
-        const potatoBrownE = (this.state.active) ? Fill.potatoBrownE : Fill.itemGreyC;
-        const potatoBrownF = (this.state.active) ? Fill.potatoBrownF : Fill.itemGreyB;
+        const potatoBrownA = (this.props.active) ? Fill.potatoBrownA : Fill.itemGreyC;
+        const potatoBrownB = (this.props.active) ? Fill.potatoBrownB : Fill.itemGreyB;
+        const potatoBrownC = (this.props.active) ? Fill.potatoBrownC : Fill.itemGreyC;
+        const potatoBrownD = (this.props.active) ? Fill.potatoBrownD : Fill.itemGreyB;
+        const potatoBrownE = (this.props.active) ? Fill.potatoBrownE : Fill.itemGreyC;
+        const potatoBrownF = (this.props.active) ? Fill.potatoBrownF : Fill.itemGreyB;
 
         return (
             <svg xmlns="http://www.w3.org/2000/svg" x={0} y={1265} width={496} height={157} viewBox="0 0 496.5 157.8" onClick={this.onClick}>
@@ -111,4 +117,4 @@ Stock.defaultProps = {
     onClick: null
 }
 
-export default Stock;
+export default asFoodItem(Stock);

@@ -11,6 +11,12 @@ import React, { Component } from 'react';
 // --------------------------------
 
 // *******************************************
+// Interface Imports
+// -------------------------------------------
+import { asFoodItem } from '../../../../interface';
+// --------------------------------
+
+// *******************************************
 // Style Imports
 // -------------------------------------------
 import { Fill, Text } from '../../../../styles';
@@ -36,11 +42,11 @@ class Stock extends Component {
 
         const { width, height, xPos, yPos, active } = this.props;
 
-        const mainColor = (this.state.active) ? Fill.chocoBarBrownA : Fill.itemGreyC;
-        const altColor = (this.state.active) ? Fill.chocoBarBrownB : Fill.itemGreyA;
-        const primeColor = (this.state.active) ? Fill.chocoBarBrownC : Fill.itemGreyB;
-        const subColor = (this.state.active) ? Fill.chocoBarLightBrownB : Fill.itemGreyC;
-        const subAltColor = (this.state.active) ? Fill.chocoBarLightBrownC : Fill.itemGreyB;
+        const mainColor = (this.props.active) ? Fill.chocoBarBrownA : Fill.itemGreyC;
+        const altColor = (this.props.active) ? Fill.chocoBarBrownB : Fill.itemGreyA;
+        const primeColor = (this.props.active) ? Fill.chocoBarBrownC : Fill.itemGreyB;
+        const subColor = (this.props.active) ? Fill.chocoBarLightBrownB : Fill.itemGreyC;
+        const subAltColor = (this.props.active) ? Fill.chocoBarLightBrownC : Fill.itemGreyB;
 
         return (
             <svg x={xPos} y={yPos} width={width} height={height}  viewBox="0 0 249 126" onClick={this.onClick}>
@@ -144,4 +150,4 @@ Stock.defaultProps = {
     onClick: null
 }
 
-export default Stock;
+export default asFoodItem(Stock);

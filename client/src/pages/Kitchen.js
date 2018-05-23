@@ -10,6 +10,7 @@
 // Module Imports
 // -------------------------------------------
 import React, { Component, Fragment } from 'react';
+import { connect } from 'react-redux';
 import { withRouter } from 'react-router';
 // --------------------------------
 
@@ -22,7 +23,8 @@ import { Window, Background, Button, Title, Interface, Blender, Moosh, Food } fr
 // *******************************************
 // Constant Imports
 // -------------------------------------------
-import { Routes } from '../constants';
+import { Routes, FOOD } from '../constants';
+import * as UTILS from '../utilities';
 // --------------------------------
 
 
@@ -35,30 +37,27 @@ class Kitchen extends Component {
         super(props);
 
         this.shelfSpaces = [
-            // Bottom Shelve
-            {xPos: 80, yPos: 483},
-            {xPos: 200, yPos: 483},
-            {xPos: 320, yPos: 483},
-            {xPos: 440, yPos: 483},
             {xPos: 560, yPos: 483},
+            {xPos: 440, yPos: 483},
             {xPos: 680, yPos: 483},
-            {xPos: 800, yPos: 483},
-            {xPos: 920, yPos: 483},
-            // Top Shelve
-            {xPos: 560, yPos: 198},
-            {xPos: 680, yPos: 198},
-            {xPos: 800, yPos: 198},
-            {xPos: 920, yPos: 198},
-            {xPos: 1040, yPos: 198},
-            {xPos: 1160, yPos: 198},
+            {xPos: 200, yPos: 483},
+            {xPos: 80, yPos: 483},
             {xPos: 1280, yPos: 198},
+            {xPos: 1160, yPos: 198},
             {xPos: 1400, yPos: 198},
             {xPos: 1520, yPos: 198},
+            {xPos: 800, yPos: 483},
             {xPos: 1640, yPos: 198},
-            {xPos: 1760, yPos: 198},
+            {xPos: 920, yPos: 483},
+            {xPos: 320, yPos: 483},
+            {xPos: 560, yPos: 198},
+            {xPos: 680, yPos: 198},
+            {xPos: 1040, yPos: 198},
+            {xPos: 920, yPos: 198},
+            {xPos: 800, yPos: 198},
             {xPos: 1875, yPos: 198},
+            {xPos: 1760, yPos: 198},
         ];
-
     }
 
     navigateToLink = (route) => {
@@ -68,19 +67,18 @@ class Kitchen extends Component {
 
     _renderKitchenItems = () => {
 
-        const onClick = () => {
-            console.log("We are clickling that item fewl!");
-        }
+        const { trolley, basket } = this.props;
 
-        const shelveItems = this.shelfSpaces.map((coords) => {
-            const index = Math.round(Math.random());
-            if (index === 0) {
-                return <Food.Apple.Single xPos={coords.xPos} yPos={coords.yPos} onClick={onClick} />
-            } else {
-                return <Food.Eggs.Single xPos={coords.xPos} yPos={coords.yPos} onClick={onClick} />
+        const selectedItems = UTILS.GENERAL.combineArrays(trolley.items, basket.items);
+
+        const shelveItems = selectedItems.map((itemKey, index) => {
+            const coords = this.shelfSpaces[index];
+            const props = {
+                xPos: coords.xPos,
+                yPos: coords.yPos
             }
-
-        })
+            return FOOD.GET_ELEMENT(itemKey, props);
+        });
 
         return (
             <Fragment>
@@ -91,7 +89,6 @@ class Kitchen extends Component {
     }
 
     render() {
-        console.log(Food);
         return (
             <Window>
                 <Background.Kitchen />
@@ -105,5 +102,12 @@ class Kitchen extends Component {
     }
 }
 
-export default withRouter(Kitchen);
+const mapStateToProps = (state) => {
+    return {
+        trolley: state.trolley,
+        basket: state.basket
+    };
+}
+
+export default withRouter(connect(mapStateToProps, null)(Kitchen));
 // --------------------------------

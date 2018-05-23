@@ -11,6 +11,12 @@ import React, { Component } from 'react';
 // --------------------------------
 
 // *******************************************
+// Interface Imports
+// -------------------------------------------
+import { asFoodItem } from '../../../../interface';
+// --------------------------------
+
+// *******************************************
 // Style Imports
 // -------------------------------------------
 import { Fill, Opacity } from '../../../../styles';
@@ -36,11 +42,11 @@ class Stock extends Component {
 
         const { width, height, xPos, yPos, active } = this.props;
 
-        const tofuYellowA = (this.state.active) ? Fill.tofuYellowA : Fill.itemGreyA;
-        const tofuGreenA = (this.state.active) ? Fill.tofuGreenA : Fill.itemGreyB;
-        const tofuGreenB = (this.state.active) ? Fill.tofuGreenB : Fill.itemGreyC;
-        const tofuGreenC = (this.state.active) ? Fill.tofuGreenC : Fill.itemGreyB;
-        const tofuGreenD = (this.state.active) ? Fill.tofuGreenD : Fill.itemGreyA;
+        const tofuYellowA = (this.props.active) ? Fill.tofuYellowA : Fill.itemGreyA;
+        const tofuGreenA = (this.props.active) ? Fill.tofuGreenA : Fill.itemGreyB;
+        const tofuGreenB = (this.props.active) ? Fill.tofuGreenB : Fill.itemGreyC;
+        const tofuGreenC = (this.props.active) ? Fill.tofuGreenC : Fill.itemGreyB;
+        const tofuGreenD = (this.props.active) ? Fill.tofuGreenD : Fill.itemGreyA;
 
         return (
             <svg x={xPos} y={yPos} width={width} height={height}  viewBox="0 0 249 126" onClick={this.onClick}>
@@ -132,4 +138,4 @@ Stock.defaultProps = {
     onClick: null
 }
 
-export default Stock;
+export default asFoodItem(Stock);

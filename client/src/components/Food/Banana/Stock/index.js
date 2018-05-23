@@ -11,6 +11,12 @@ import React, { Component } from 'react';
 // --------------------------------
 
 // *******************************************
+// Interface Imports
+// -------------------------------------------
+import { asFoodItem } from '../../../../interface';
+// --------------------------------
+
+// *******************************************
 // Style Imports
 // -------------------------------------------
 import { Fill, Text } from '../../../../styles';
@@ -36,14 +42,14 @@ class Stock extends Component {
 
         const { width, height, xPos, yPos, active } = this.props;
 
-        const bananaYellowA = (this.state.active) ? Fill.bananaYellowA : Fill.itemGreyB;
-        const bananaYellowB = (this.state.active) ? Fill.bananaYellowB : Fill.itemGreyC;
-        const bananaBlackA = (this.state.active) ? Fill.bananaBlackA : Fill.itemGreyC;
-        const bananaGreenA = (this.state.active) ? Fill.bananaGreenA : Fill.itemGreyC;
-        const bananaGreenB = (this.state.active) ? Fill.bananaGreenB : Fill.itemGreyB;
-        const bananaBrownA = (this.state.active) ? Fill.bananaBrownA : Fill.itemGreyB;
-        const bananaBrownB = (this.state.active) ? Fill.bananaBrownB : Fill.itemGreyC;
-        const bananaGreenC = (this.state.active) ? Fill.bananaGreenC : Fill.itemGreyC;
+        const bananaYellowA = (this.props.active) ? Fill.bananaYellowA : Fill.itemGreyB;
+        const bananaYellowB = (this.props.active) ? Fill.bananaYellowB : Fill.itemGreyC;
+        const bananaBlackA = (this.props.active) ? Fill.bananaBlackA : Fill.itemGreyC;
+        const bananaGreenA = (this.props.active) ? Fill.bananaGreenA : Fill.itemGreyC;
+        const bananaGreenB = (this.props.active) ? Fill.bananaGreenB : Fill.itemGreyB;
+        const bananaBrownA = (this.props.active) ? Fill.bananaBrownA : Fill.itemGreyB;
+        const bananaBrownB = (this.props.active) ? Fill.bananaBrownB : Fill.itemGreyC;
+        const bananaGreenC = (this.props.active) ? Fill.bananaGreenC : Fill.itemGreyC;
 
         return (
             <svg x={972} y={675} width={320} height={280} viewBox="0 0 320 280" onClick={this.onClick}>
@@ -123,4 +129,4 @@ Stock.defaultProps = {
     onClick: null
 }
 
-export default Stock;
+export default asFoodItem(Stock);

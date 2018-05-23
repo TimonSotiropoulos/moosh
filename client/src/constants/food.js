@@ -74,7 +74,7 @@ export const GET_ELEMENT = (itemKey, props) => {
         case KEYS.CHIPS:
             return <Food.Chips.Single {...props} />;
         case KEYS.CHOCOBAR:
-            return <Food.Chocobar.Single {...props} />;
+            return <Food.ChocoBar.Single {...props} />;
         case KEYS.CUPCAKE:
             return <Food.Cupcake.Single {...props} />;
         case KEYS.EGGS:

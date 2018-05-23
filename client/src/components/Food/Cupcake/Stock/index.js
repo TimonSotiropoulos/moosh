@@ -11,6 +11,12 @@ import React, { Component } from 'react';
 // --------------------------------
 
 // *******************************************
+// Interface Imports
+// -------------------------------------------
+import { asFoodItem } from '../../../../interface';
+// --------------------------------
+
+// *******************************************
 // Style Imports
 // -------------------------------------------
 import { Fill, Opacity } from '../../../../styles';
@@ -36,12 +42,12 @@ class Stock extends Component {
 
         const { width, height, xPos, yPos, active } = this.props;
 
-        const mainColor = (this.state.active) ? Fill.cupcakePinkA : Fill.itemGreyC;
-        const altColor = (this.state.active) ? Fill.cupcakePinkB : Fill.itemGreyA;
-        const primeColor = (this.state.active) ? Fill.cupcakePinkC : Fill.itemGreyB;
-        const subColor = (this.state.active) ? Fill.cupcakePinkD : Fill.itemGreyC;
-        const subAltColor = (this.state.active) ? Fill.cupcakeGreen : Fill.itemGreyB;
-        const primeAltColor = (this.state.active) ? Fill.cupcakeOrange : Fill.itemGreyB;
+        const mainColor = (this.props.active) ? Fill.cupcakePinkA : Fill.itemGreyC;
+        const altColor = (this.props.active) ? Fill.cupcakePinkB : Fill.itemGreyA;
+        const primeColor = (this.props.active) ? Fill.cupcakePinkC : Fill.itemGreyB;
+        const subColor = (this.props.active) ? Fill.cupcakePinkD : Fill.itemGreyC;
+        const subAltColor = (this.props.active) ? Fill.cupcakeGreen : Fill.itemGreyB;
+        const primeAltColor = (this.props.active) ? Fill.cupcakeOrange : Fill.itemGreyB;
 
         return (
             <svg x={xPos} y={yPos} width={width} height={height}  viewBox="0 0 249 126" onClick={this.onClick}>
@@ -92,4 +98,4 @@ Stock.defaultProps = {
     onClick: null
 }
 
-export default Stock;
+export default asFoodItem(Stock);
