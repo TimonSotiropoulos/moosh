@@ -57,12 +57,12 @@ const asFoodItem = (WrappedComponent) => {
                 switch (target) {
                     case FOOD.TARGETS.BASKET:
                         if (UTILS.GENERAL.itemIsInArray(this.props[target].items, itemKey)) {
-                            this.props.removeItemFromBasket(itemKey);
+                            this.props.removeLastItemFromBasket(itemKey);
                         }
                         break;
                     case FOOD.TARGETS.TROLLEY:
                         if (UTILS.GENERAL.itemIsInArray(this.props[target].items, itemKey)) {
-                            this.props.removeItemFromTrolley(itemKey);
+                            this.props.removeLastItemFromTrolley(itemKey);
                         }
                         break;
                     default:
@@ -91,9 +91,9 @@ const asFoodItem = (WrappedComponent) => {
 
     return connect(mapStateToProps, {
         addItemToBasket: ACTIONS.BASKET.addItemToBasket,
-        removeItemFromBasket: ACTIONS.BASKET.removeItemFromBasket,
+        removeLastItemFromBasket: ACTIONS.BASKET.removeLastItemFromBasket,
         addItemToTrolley: ACTIONS.TROLLEY.addItemToTrolley,
-        removeItemFromTrolley: ACTIONS.TROLLEY.removeItemFromTrolley,
+        removeLastItemFromTrolley: ACTIONS.TROLLEY.removeLastItemFromTrolley,
         addItemToBlender: ACTIONS.BLENDER.addItemToBlender
     })(FoodItemManager);
 }
