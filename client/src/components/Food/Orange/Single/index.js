@@ -13,7 +13,7 @@ import React, { Component, Fragment } from 'react';
 // *******************************************
 // Style Imports
 // -------------------------------------------
-import { Fill, Text } from '../../../../styles';
+import { Fill, MixBlend } from '../../../../styles';
 // --------------------------------
 
 class Single extends Component {
@@ -27,26 +27,26 @@ class Single extends Component {
 
         return (
             <svg xmlns="http://www.w3.org/2000/svg" x={xPos} y={yPos} width={125} height={125} viewBox="0 0 50 50" onClick={onClick}>
-                <polygon className={[Fill.transparent].join(" ")} points="0,0 0,50, 50,50, 50,0" />
-                <svg xmlns="http://www.w3.org/2000/svg" x={0} y={10} viewBox="0 0 114.3 67.2">
-                    <title>
-                        Single_Eggs
-                    </title>
-                    <g id="Layer_2" data-name="Layer 2">
-                        <g id="Layer_1-2" data-name="Layer 1">
-                            <path class={[Fill.eggBrown].join(" ")} d="M52.6,26.89c0,15.39-9.45,27.87-21.12,27.87S10.36,42.28,10.36,26.89,19.82,0,31.48,0,52.6,11.49,52.6,26.89Z"/>
-                            <path class={[Fill.eggBrownShade].join(" ")} d="M31.52,0V54.75c11.64,0,21.08-12.49,21.08-27.86S43.17,0,31.52,0Z"/>
-                            <path class={[Fill.eggBrown].join(" ")} d="M103.93,26.89c0,15.39-9.47,27.87-21.13,27.87S61.69,42.28,61.69,26.89,71.15,0,82.8,0,103.93,11.49,103.93,26.89Z"/>
-                            <path class={[Fill.eggBrownShade].join(" ")} d="M82.83,0V54.75c11.64,0,21.1-12.49,21.1-27.87S94.47,0,82.83,0Z"/>
-                            <path class={[Fill.itemGreyA].join(" ")} d="M109.84,24.69H4.63a1.34,1.34,0,0,0-1.33,2L18.77,64.63a3.74,3.74,0,0,0,3,2,115.09,115.09,0,0,0,23.09,0,3.77,3.77,0,0,0,3-2L53,51.93h0a10.47,10.47,0,0,1,4.43-.87c3,0,4.08.85,4.1.86l5.18,12.7a3.69,3.69,0,0,0,3,2,152.54,152.54,0,0,0,23.1,0,3.66,3.66,0,0,0,3-2l15.47-37.94A1.34,1.34,0,0,0,109.84,24.69Z"/>
-                            <path class={[Fill.itemGreyB].join(" ")} d="M109.84,24.69H57.9V51.1a7.14,7.14,0,0,1,3.59.83l5.18,12.7a3.69,3.69,0,0,0,3,2,152.54,152.54,0,0,0,23.1,0,3.66,3.66,0,0,0,3-2l15.47-37.94A1.34,1.34,0,0,0,109.84,24.69Z"/>
-                            <path class={[Fill.itemGreyC].join(" ")} d="M114.35,27.26a1.5,1.5,0,0,1-1.5,1.5H1.51A1.51,1.51,0,0,1,0,27.26V26.2a1.51,1.51,0,0,1,1.51-1.51H112.86a1.51,1.51,0,0,1,1.5,1.51Z"/>
-                        </g>
+            <polygon className={[Fill.transparent].join(" ")} points="0,0 0,50, 50,50, 50,0" />
+            <svg xmlns="http://www.w3.org/2000/svg" x={5} y={5} width={34} viewBox="0 0 83 99.2">
+            <title>
+                Single_Orange
+            </title>
+            <g>
+                <g id="Layer_2" data-name="Layer 2">
+                    <g id="Layer_1-2" data-name="Layer 1">
+                        <path class={[Fill.orangeGreenA].join(" ")} d="M42.34,32.42a28,28,0,0,0,23.15-8.79A26.66,26.66,0,0,0,71.78.1,28,28,0,0,0,48.66,8.91,26.66,26.66,0,0,0,42.34,32.42Z"/>
+                        <path class={[Fill.orangeGreenB, MixBlend.multiply].join(" ")} d="M42.34,32.41a27.94,27.94,0,0,0,23.15-8.78A26.67,26.67,0,0,0,71.79.11L61.66,11.43l6.33.85-8.44,1.27Z"/>
+                        <path class={[Fill.orangeA].join(" ")} d="M83,57.74A41.48,41.48,0,1,1,41.47,16.26,41.28,41.28,0,0,1,83,57.74Z"/>
+                        <path class={[Fill.orangeGreenC, MixBlend.multiply].join(" ")} d="M76.57,79.85a41.38,41.38,0,0,1-27,18.57c-7.21-10.67-8.09-26.23-8.09-33.33Z"/>
+                        <path class={[Fill.orangeB].join(" ")} d="M20.11 40.49A3.1 3.1 0 1 1 17 37.4 3.1 3.1 0 0 1 20.11 40.49zM24.14 47.48a1.38 1.38 0 1 1-1.38-1.38A1.38 1.38 0 0 1 24.14 47.48zM30.87 27.5a2.12 2.12 0 1 1-2.12-2.12A2.11 2.11 0 0 1 30.87 27.5z"/>
                     </g>
-                </svg>
-            </svg>
-        )
-    }
+                </g>
+            </g>
+        </svg>
+    </svg>
+)
+}
 }
 
 Single.defaultProps = {

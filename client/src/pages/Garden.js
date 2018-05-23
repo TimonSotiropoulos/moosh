@@ -63,7 +63,7 @@ class Garden extends Component {
         }
 
         const basketItems = this.basketItemsBack.map((coords) => {
-            return <Food.Avocado.Single xPos={coords.xPos} yPos={coords.yPos} onClick={onClick} />
+            return <Food.Tuna.Single xPos={coords.xPos} yPos={coords.yPos} onClick={onClick} />
 
         })
 
