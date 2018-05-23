@@ -25,17 +25,60 @@ class Single extends Component {
         return (
             <svg xmlns="http://www.w3.org/2000/svg" x={xPos} y={yPos} width={125} height={125} viewBox="0 0 50 50" onClick={onClick}>
             <polygon className={[Fill.transparent].join(" ")} points="0,0 0,50, 50,50, 50,0" />
-            <svg xmlns="http://www.w3.org/2000/svg" x={0} y={0} viewBox="0 0 115.3 126.7">
+            <svg xmlns="http://www.w3.org/2000/svg" x={7} y={10} width={35} viewBox="0 0 83.7 69.2">
             <title>
-                Single_Cereal
+                Single_BrownRoll
             </title>
             <g id="Layer_2" data-name="Layer 2">
                 <g id="Layer_1-2" data-name="Layer 1">
-                    <path class={[Fill.cerealBrown].join(" ")} d="M0 0H28.2V126.7H0z"/>
-                    <path class={[Fill.cerealBrownShade].join(" ")} d="M28.2 0H115.3V126.7H28.2z"/>
-                    <path class={[Fill.cerealBrownLight].join(" ")} d="M5.8 28.7H22.5V98.10000000000001H5.8z"/>
-                    <path class={[Fill.cerealBrownLighter].join(" ")} d="M57.83 61.59c1.17.21 3.09 3 2.58 5.91s-2.53 5-4.47 4.65-3.1-3-2.58-5.92S56.66 61.38 57.83 61.59zM65.45 54c1.17.21 3.1 3 2.57 5.91s-2.52 5-4.47 4.65-3.12-3-2.59-5.91S64.27 53.79 65.45 54zM71.15 57c-1.94-.35-3.09-3-2.57-5.92A6.44 6.44 0 0 1 71 47.21L76.18 42a.6.6 0 0 1 .85.84l-3.67 3.67a5 5 0 0 1 2 2.83l6.81-6.81a.59.59 0 0 1 .84 0 .58.58 0 0 1 0 .84l-7.36 7.36a5.78 5.78 0 0 1-.06 1.58C75.1 55.23 73.09 57.31 71.15 57zM71.56 75.29c.21 1.17-1.73 4-4.65 4.48S61.33 79.15 61 77.2s1.75-3.95 4.67-4.47S71.35 74.13 71.56 75.29zM79.15 67.71c.21 1.17-1.73 3.95-4.65 4.47s-5.57-.63-5.91-2.58 1.73-3.95 4.65-4.47S78.94 66.54 79.15 67.71zM82.42 57.48l7.36-7.36a.6.6 0 1 1 .84.84l-6.81 6.81a5 5 0 0 1 2.83 2l3.66-3.66a.6.6 0 0 1 .84.84l-5.21 5.2a6.38 6.38 0 0 1-3.84 2.4c-2.92.52-5.57-.62-5.92-2.57s1.73-3.95 4.65-4.47A5.8 5.8 0 0 1 82.42 57.48z"/>
-                    <path class={[Fill.cerealBrownLighter].join(" ")} d="M85.46 46.85L89.36 43a.6.6 0 0 1 .84.84l-3.91 3.91a6.17 6.17 0 0 1-1.55 5.77c-2.08 2.11-4.91 2.7-6.32 1.31s-.86-4.22 1.22-6.33A6.12 6.12 0 0 1 85.46 46.85zM77.55 55.6a1.19 1.19 0 0 1 0 1.68l-27 27a1.18 1.18 0 0 1-1.67 0 1.2 1.2 0 0 1 0-1.69l27-27A1.19 1.19 0 0 1 77.55 55.6z"/>
+                    <path class={[Fill.rollBrown].join(" ")} d="M83.74,38.08a4.11,4.11,0,0,1,0,.42c0,.34,0,.68,0,1s0,.38,0,.56-.07.63-.1.94,0,.33-.06.51c-.07.35-.12.7-.19,1,0,.12,0,.25-.06.37a22.44,22.44,0,0,1-.81,2.9.55.55,0,0,1,0,.09c-.17.45-.34.9-.53,1.35a.8.8,0,0,1,0,.14C77.8,56.94,67.75,64.51,55,67.63a1,1,0,0,1-.29.08h-.14a55,55,0,0,1-12.67,1.46,55.5,55.5,0,0,1-12.54-1.42h-.07l-.66-.16C13.29,63.79,1.93,53.61.23,41.3c0,0,0-.06,0-.1-.06-.49-.13-1-.15-1.48a.11.11,0,0,1,0-.06c0-.51-.05-1-.05-1.56,0-.14,0-.28,0-.42,0-.34,0-.68,0-1s0-.38.05-.56.06-.62.1-.93,0-.34.06-.51c.06-.35.11-.7.19-1,0-.12,0-.25.07-.37.15-.72.32-1.43.55-2.14.07-.25.16-.51.25-.76a.38.38,0,0,1,0-.07c.16-.46.34-.91.52-1.36,0,0,0-.09.05-.14C5.94,19.23,16,11.67,28.77,8.54a1.17,1.17,0,0,1,.29-.08h.14a55.85,55.85,0,0,1,25.21,0h.09c.21,0,.43.1.66.15C68.86,12,79.41,20.52,82.67,31.11a23.62,23.62,0,0,1,.83,3.76.26.26,0,0,1,0,.1,13.59,13.59,0,0,1,.15,1.48.11.11,0,0,1,0,.06c0,.26,0,.53,0,.78S83.74,37.81,83.74,38.08Z"/>
+                    <path class={[Fill.rollBrown].join(" ")} d="M81.88,40.26c.18-.45.36-.89.52-1.35a.37.37,0,0,1,0-.08,23.85,23.85,0,0,0,.8-2.9c0-.12,0-.25.07-.37.07-.35.12-.69.18-1,0-.17,0-.34.07-.51s.07-.62.1-.93,0-.37,0-.56,0-.67,0-1c0-.14,0-.28,0-.43,0-.52,0-1-.05-1.56a.19.19,0,0,0,0-.06c0-.5-.09-1-.15-1.49a.54.54,0,0,1,0-.1C81.81,15.56,70.45,5.38,55.15,1.58l-.66-.16h-.08a56,56,0,0,0-25.21,0h-.14a1.41,1.41,0,0,0-.29.07C16,4.66,5.94,12.23,1.92,21.79l-.05.13c-.19.45-.36.9-.52,1.35l0,.08a24.33,24.33,0,0,0-.8,2.9l-.07.37c-.07.35-.13.69-.18,1,0,.18,0,.35-.07.51s-.07.62-.1.93,0,.37,0,.56,0,.67,0,1c0,.15,0,.28,0,.43,0,.52,0,1,.06,1.56a.36.36,0,0,0,0,.06c0,.5.09,1,.15,1.49a.8.8,0,0,1,0,.09C1.93,46.62,13.29,56.8,28.6,60.6l.66.16h.09a55.3,55.3,0,0,0,12.53,1.42,55.41,55.41,0,0,0,12.67-1.45l.14,0a1.46,1.46,0,0,0,.28-.07C67.75,57.52,77.8,49.94,81.83,40.4Z"/>
+                    <circle class={[Fill.rollOffWhite].join(" ")} cx="67.7" cy="28.4" r="1.9"/>
+                    <circle class={[Fill.rollOffWhite].join(" ")} cx="39" cy="27.6" r="1"/>
+                    <circle class={[Fill.rollOffWhite].join(" ")} cx="50.3" cy="14.6" r="2.3"/>
+                    <circle class={[Fill.rollOffWhite].join(" ")} cx="31.3" cy="15.9" r="1.8"/>
+                    <circle class={[Fill.rollOffWhite].join(" ")} cx="14.9" cy="22.6" r="1.4"/>
+                    <circle class={[Fill.rollOffWhite].join(" ")} cx="19.6" cy="27.6" r="1"/>
+                    <circle class={[Fill.rollOffWhite].join(" ")} cx="8" cy="36.3" r="1.6"/>
+                    <circle class={[Fill.rollOffWhite].join(" ")} cx="20.5" cy="40.2" r=".6"/>
+                    <circle class={[Fill.rollOffWhite].join(" ")} cx="37" cy="37.9" r="1.8"/>
+                    <path class={[Fill.rollOffWhite].join(" ")} d="M54.36,41.84a1.79,1.79,0,1,1-1.79-1.79A1.79,1.79,0,0,1,54.36,41.84Z"/>
+                    <circle class={[Fill.rollOffWhite].join(" ")} cx="55.8" cy="31.8" r="1.8"/>
+                    <circle class={[Fill.rollOffWhite].join(" ")} cx="65.8" cy="36.2" r="1.4"/>
+                    <circle class={[Fill.rollOffWhite].join(" ")} cx="61.2" cy="24" r="1.7"/>
+                    <circle class={[Fill.rollOffWhite].join(" ")} cx="67.2" cy="13.2" r="1.7"/>
+                    <circle class={[Fill.rollOffWhite].join(" ")} cx="53.9" cy="6.8" r="1.8"/>
+                    <circle class={[Fill.rollOffWhite].join(" ")} cx="77.3" cy="26.5" r="1.6"/>
+                    <circle class={[Fill.rollOffWhite].join(" ")} cx="74.2" cy="32.4" r="1"/>
+                    <circle class={[Fill.rollOffWhite].join(" ")} cx="46.9" cy="34.6" r="1.1"/>
+                    <circle class={[Fill.rollOffWhite].join(" ")} cx="29.4" cy="44.8" r="1.6"/>
+                    <circle class={[Fill.rollOffWhite].join(" ")} cx="46.9" cy="45.7" r="1.6"/>
+                    <circle class={[Fill.rollOffWhite].join(" ")} cx="39" cy="48.4" r="1.6"/>
+                    <circle class={[Fill.rollOffWhite].join(" ")} cx="27" cy="24.8" r="1.6"/>
+                    <circle class={[Fill.rollOffWhite].join(" ")} cx="25.4" cy="34.3" r="1.2"/>
+                    <circle class={[Fill.rollOffWhite].join(" ")} cx="21.1" cy="13" r="2.1"/>
+                    <circle class={[Fill.rollOffWhite].join(" ")} cx="34.1" cy="7.8" r="1.9"/>
+                    <circle class={[Fill.rollOffWhite].join(" ")} cx="41.9" cy="7.2" r="1.3"/>
+                    <circle class={[Fill.rollOffWhite].join(" ")} cx="41.4" cy="15.2" r="1"/>
+                    <circle class={[Fill.rollOffWhite].join(" ")} cx="45.8" cy="17.8" r="1"/>
+                    <circle class={[Fill.rollOffWhite].join(" ")} cx="34.1" cy="23.2" r="1"/>
+                    <circle class={[Fill.rollOffWhite].join(" ")} cx="16.3" cy="33.6" r="1"/>
+                    <circle class={[Fill.rollOffWhite].join(" ")} cx="22.1" cy="19.3" r="1"/>
+                    <circle class={[Fill.rollOffWhite].join(" ")} cx="15.9" cy="15.9" r="1"/>
+                    <circle class={[Fill.rollOffWhite].join(" ")} cx="11" cy="17.8" r="1"/>
+                    <circle class={[Fill.rollOffWhite].join(" ")} cx="27" cy="6.8" r="1"/>
+                    <circle class={[Fill.rollOffWhite].join(" ")} cx="60.2" cy="12.3" r="1"/>
+                    <circle class={[Fill.rollOffWhite].join(" ")} cx="66.2" cy="20.3" r="1"/>
+                    <circle class={[Fill.rollOffWhite].join(" ")} cx="73.8" cy="39.6" r="1"/>
+                    <circle class={[Fill.rollOffWhite].join(" ")} cx="64.3" cy="48.4" r="1"/>
+                    <circle class={[Fill.rollOffWhite].join(" ")} cx="44.8" cy="51.7" r="1"/>
+                    <circle class={[Fill.rollOffWhite].join(" ")} cx="31" cy="51.7" r="1"/>
+                    <circle class={[Fill.rollOffWhite].join(" ")} cx="22.1" cy="47.2" r="1"/>
+                    <circle class={[Fill.rollOffWhite].join(" ")} cx="12" cy="27.1" r="1"/>
+                    <circle class={[Fill.rollOffWhite].join(" ")} cx="60.2" cy="40" r="1"/>
+                    <circle class={[Fill.rollOffWhite].join(" ")} cx="75.1" cy="19.7" r="1"/>
+                    <circle class={[Fill.rollOffWhite].join(" ")} cx="7.2" cy="25.7" r="1.4"/>
+                    <circle class={[Fill.rollOffWhite].join(" ")} cx="48.5" cy="23.2" r="1.7"/>
                 </g>
             </g>
         </svg>
