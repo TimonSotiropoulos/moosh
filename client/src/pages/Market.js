@@ -61,7 +61,9 @@ class Market extends Component {
             const coords = this.trolleyItems[index];
             const props = {
                 xPos: coords.xPos,
-                yPos: coords.yPos
+                yPos: coords.yPos,
+                actionType: FOOD.REMOVE_ITEM,
+                target: FOOD.TARGETS.TROLLEY,
             }
             return FOOD.GET_ELEMENT(itemKey, props);
         });

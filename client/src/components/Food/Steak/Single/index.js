@@ -11,6 +11,12 @@ import React, { Component, Fragment } from 'react';
 // --------------------------------
 
 // *******************************************
+// Interface Imports
+// -------------------------------------------
+import { asFoodItem } from '../../../../interface';
+// --------------------------------
+
+// *******************************************
 // Style Imports
 // -------------------------------------------
 import { Fill, MixBlend, Opacity } from '../../../../styles';
@@ -59,4 +65,4 @@ Single.defaultProps = {
     yPos: 0
 }
 
-export default Single;
+export default asFoodItem(Single);

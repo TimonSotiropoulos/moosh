@@ -68,7 +68,9 @@ class Garden extends Component {
             const coords = this.basketItemsBack[index];
             const props = {
                 xPos: coords.xPos,
-                yPos: coords.yPos
+                yPos: coords.yPos,
+                actionType: FOOD.REMOVE_ITEM,
+                target: FOOD.TARGETS.BASKET,
             }
             return FOOD.GET_ELEMENT(itemKey, props);
         });
@@ -91,7 +93,9 @@ class Garden extends Component {
             const coords = this.basketItemsFront[index - 7];
             const props = {
                 xPos: coords.xPos,
-                yPos: coords.yPos
+                yPos: coords.yPos,
+                actionType: FOOD.REMOVE_ITEM,
+                target: FOOD.TARGETS.BASKET,
             }
             return FOOD.GET_ELEMENT(itemKey, props);
         });
