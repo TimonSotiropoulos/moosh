@@ -10,6 +10,7 @@
 // Module Imports
 // -------------------------------------------
 import React, { Component, Fragment } from 'react';
+import { connect } from 'react-redux';
 import { withRouter } from 'react-router';
 // --------------------------------
 
@@ -22,6 +23,7 @@ import { Window, Background, Dropdown, Button, Title, Moosh, SpeechBubble } from
 // *******************************************
 // Constant Imports
 // -------------------------------------------
+import ACTIONS from '../actions';
 import { Routes } from '../constants';
 // --------------------------------
 
@@ -43,7 +45,8 @@ class Intro extends Component {
         this.state = {
             scene: 0,
             validated: true,
-            postcode: ""
+            postcode: "",
+            age: ""
         }
         this.LAST_KEY_VALID = false;
     }
@@ -55,6 +58,12 @@ class Intro extends Component {
     }
 
     _goToNextScene = () => {
+        if (this.state.scene === 0) {
+            this.props.setAge(this.state.age);
+        }
+        if (this.state.scene === 1 && this.state.postcode !== "") {
+            this.props.setPostcode(this.state.postcode);
+        }
         this.setState({
             scene: this.state.scene + 1
         });
@@ -173,5 +182,10 @@ class Intro extends Component {
     }
 }
 
-export default withRouter(Intro);
+
+
+export default withRouter(connect(null, {
+    setAge: ACTIONS.APP.setAge,
+    setPostcode: ACTIONS.APP.setPostcode,
+})(Intro));
 // --------------------------------

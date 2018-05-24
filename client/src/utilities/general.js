@@ -161,3 +161,17 @@ export const getCurrentMonth = (input, inputRange, outputRange) => {
     var month = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November",  "December"];
     return month[d.getMonth()];
 }
+
+/**
+ * @function generateRandomString
+ * generates and returns a random GUID like string
+ * @returns {String} String - A random string
+ */
+export const generateRandomString = () => {
+  const s4 = () => {
+    return Math.floor((1 + Math.random()) * 0x10000)
+      .toString(16)
+      .substring(1);
+  }
+  return s4() + s4() + '-' + s4() + '-' + s4() + '-' + s4() + '-' + s4() + s4() + s4();
+}

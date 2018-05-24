@@ -15,6 +15,7 @@ import { routerReducer } from 'react-router-redux';
 // *******************************************
 // Reducer Imports
 // -------------------------------------------
+import app from './app';
 import basket from './basket';
 import blender from './blender';
 import trolley from './trolley';
@@ -23,6 +24,7 @@ import report from './report';
 
 export default combineReducers({
   router: routerReducer,
+  app,
   basket,
   blender,
   trolley,

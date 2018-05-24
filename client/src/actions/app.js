@@ -13,6 +13,19 @@ import { Routes } from '../constants';
 // *******************************************
 // Action Definitions
 // -------------------------------------------
+export const setAge = (age) => {
+    return {
+        type: ACTIONS.TYPES.SET_AGE,
+        age
+    }
+}
+
+export const setPostcode = (postcode) => {
+    return {
+        type: ACTIONS.TYPES.SET_POSTCODE,
+        postcode
+    }
+}
 
 export const resetApp = (blenderContent) => {
     return dispatch => {
@@ -21,7 +34,5 @@ export const resetApp = (blenderContent) => {
         });
         dispatch(push(Routes.Market));
     }
-
 }
-
 // --------------------------------
