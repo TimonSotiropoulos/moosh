@@ -16,7 +16,7 @@ import { withRouter } from 'react-router';
 // *******************************************
 // Component Imports
 // -------------------------------------------
-import { Window, Background, Button, Title, Text, Moosh } from '../components';
+import { Window, Background, Button, Title, Text, Moosh, Face } from '../components';
 // --------------------------------
 
 // *******************************************
@@ -41,6 +41,10 @@ class Score extends Component {
             <Window>
                 <Background.Score />
                 <Text />
+                <Button.NewDay />
+                <Face.Happy.Active xPos={200} yPos={200} active={false} />
+                <Face.Happy.Active width={100} height={100} />
+                <Face.Happy.Inactive xPos={400} yPos={400} />
             </Window>
         );
     }
