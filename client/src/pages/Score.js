@@ -10,6 +10,7 @@
 // Module Imports
 // -------------------------------------------
 import React, { Component, Fragment } from 'react';
+import { connect } from 'react-redux';
 import { withRouter } from 'react-router';
 // --------------------------------
 
@@ -22,7 +23,7 @@ import { Window, Background, Button, Title, ScoreHeading, Moosh, Face } from '..
 // *******************************************
 // Constant Imports
 // -------------------------------------------
-import { Routes } from '../constants';
+import { Routes, Scoring } from '../constants';
 // --------------------------------
 
 // *******************************************
@@ -73,101 +74,124 @@ class Score extends Component {
     }
 
     _renderPortionsScore = () => {
+        const { report } = this.props;
 
         return (
             <Fragment>
                 <text x={300} y={370} className={[Text.scoreSubheading].join(" ")}>Portions</text>
-                {this._renderSadFaceType(510, 420, this.MEDIUM_FACE_SIZE, true)}
-                {this._renderNeutralFaceType(350, 420, this.MEDIUM_FACE_SIZE, false)}
-                {this._renderHappyFaceType(190, 420, this.MEDIUM_FACE_SIZE, false)}
+                {this._renderSadFaceType(510, 420, this.MEDIUM_FACE_SIZE, (report.portions === Scoring.LOW))}
+                {this._renderNeutralFaceType(350, 420, this.MEDIUM_FACE_SIZE, (report.portions === Scoring.MEDIUM))}
+                {this._renderHappyFaceType(190, 420, this.MEDIUM_FACE_SIZE, (report.portions === Scoring.HIGH))}
             </Fragment>
         );
     }
 
     _renderSugarScore = () => {
+        const { report } = this.props;
 
         return (
             <Fragment>
                 <text x={915} y={370} className={[Text.scoreSubheading].join(" ")}>Sugar</text>
-                {this._renderSadFaceType(1110, 420, this.MEDIUM_FACE_SIZE, true)}
-                {this._renderNeutralFaceType(950, 420, this.MEDIUM_FACE_SIZE, false)}
-                {this._renderHappyFaceType(790, 420, this.MEDIUM_FACE_SIZE, false)}
+                {this._renderSadFaceType(1110, 420, this.MEDIUM_FACE_SIZE, (report.sugar === Scoring.LOW))}
+                {this._renderNeutralFaceType(950, 420, this.MEDIUM_FACE_SIZE, (report.sugar === Scoring.MEDIUM))}
+                {this._renderHappyFaceType(790, 420, this.MEDIUM_FACE_SIZE, (report.sugar === Scoring.HIGH))}
             </Fragment>
         );
     }
 
     _renderWaterScore = () => {
+        const { report } = this.props;
         return (
             <Fragment>
                 <text x={1500} y={370} className={[Text.scoreSubheading].join(" ")}>Water</text>
-                {this._renderSadFaceType(1710, 420, this.MEDIUM_FACE_SIZE, true)}
-                {this._renderNeutralFaceType(1550, 420, this.MEDIUM_FACE_SIZE, false)}
-                {this._renderHappyFaceType(1390, 420, this.MEDIUM_FACE_SIZE, false)}
+                {this._renderSadFaceType(1710, 420, this.MEDIUM_FACE_SIZE, (report.water === Scoring.LOW))}
+                {this._renderNeutralFaceType(1550, 420, this.MEDIUM_FACE_SIZE, (report.water === Scoring.MEDIUM))}
+                {this._renderHappyFaceType(1390, 420, this.MEDIUM_FACE_SIZE, (report.water === Scoring.HIGH))}
             </Fragment>
         );
     }
 
     _renderVegetablesScores = () => {
+        const { report } = this.props;
         return (
             <Fragment>
                 <text x={515} y={730} className={[Text.vegeScore].join(" ")}>Vegetables</text>
-                {this._renderSadFaceType(390, 675, this.SMALL_FACE_SIZE, true)}
-                {this._renderNeutralFaceType(295, 675, this.SMALL_FACE_SIZE, false)}
-                {this._renderHappyFaceType(200, 675, this.SMALL_FACE_SIZE, false)}
+                {this._renderSadFaceType(390, 675, this.SMALL_FACE_SIZE, (report.vegetables === Scoring.LOW))}
+                {this._renderNeutralFaceType(295, 675, this.SMALL_FACE_SIZE, (report.vegetables === Scoring.MEDIUM))}
+                {this._renderHappyFaceType(200, 675, this.SMALL_FACE_SIZE, (report.vegetables === Scoring.HIGH))}
             </Fragment>
         );
     }
 
     _renderFruitScores = () => {
+        const { report } = this.props;
         return (
             <Fragment>
                 <text x={515} y={830} className={[Text.fruitScore].join(" ")}>Fruit</text>
-                {this._renderSadFaceType(390, 775, this.SMALL_FACE_SIZE, true)}
-                {this._renderNeutralFaceType(295, 775, this.SMALL_FACE_SIZE, false)}
-                {this._renderHappyFaceType(200, 775, this.SMALL_FACE_SIZE, false)}
+                {this._renderSadFaceType(390, 775, this.SMALL_FACE_SIZE, (report.fruit === Scoring.LOW))}
+                {this._renderNeutralFaceType(295, 775, this.SMALL_FACE_SIZE, (report.fruit === Scoring.MEDIUM))}
+                {this._renderHappyFaceType(200, 775, this.SMALL_FACE_SIZE, (report.fruit === Scoring.HIGH))}
             </Fragment>
         );
     }
 
     _renderGrainScores = () => {
+        const { report } = this.props;
         return (
             <Fragment>
                 <text x={515} y={930} className={[Text.grainScore].join(" ")}>Bread, pasta</text>
-                {this._renderSadFaceType(390, 875, this.SMALL_FACE_SIZE, true)}
-                {this._renderNeutralFaceType(295, 875, this.SMALL_FACE_SIZE, false)}
-                {this._renderHappyFaceType(200, 875, this.SMALL_FACE_SIZE, false)}
+                {this._renderSadFaceType(390, 875, this.SMALL_FACE_SIZE, (report.grains === Scoring.LOW))}
+                {this._renderNeutralFaceType(295, 875, this.SMALL_FACE_SIZE, (report.grains === Scoring.MEDIUM))}
+                {this._renderHappyFaceType(200, 875, this.SMALL_FACE_SIZE, (report.grains === Scoring.HIGH))}
             </Fragment>
         );
     }
 
     _renderMeatScores = () => {
+        const { report } = this.props;
         return (
             <Fragment>
                 <text x={515} y={1030} className={[Text.meatScore].join(" ")}>Meat, fish, tofu, eggs</text>
-                {this._renderSadFaceType(390, 975, this.SMALL_FACE_SIZE, true)}
-                {this._renderNeutralFaceType(295, 975, this.SMALL_FACE_SIZE, false)}
-                {this._renderHappyFaceType(200, 975, this.SMALL_FACE_SIZE, false)}
+                {this._renderSadFaceType(390, 975, this.SMALL_FACE_SIZE, (report.protein === Scoring.LOW))}
+                {this._renderNeutralFaceType(295, 975, this.SMALL_FACE_SIZE, (report.protein === Scoring.MEDIUM))}
+                {this._renderHappyFaceType(200, 975, this.SMALL_FACE_SIZE, (report.protein === Scoring.HIGH))}
             </Fragment>
         );
     }
 
     _renderDairyScores = () => {
+        const { report } = this.props;
         return (
             <Fragment>
                 <text x={515} y={1130} className={[Text.dairyScore].join(" ")}>Milk, cheese</text>
-                {this._renderSadFaceType(390, 1075, this.SMALL_FACE_SIZE, true)}
-                {this._renderNeutralFaceType(295, 1075, this.SMALL_FACE_SIZE, false)}
-                {this._renderHappyFaceType(200, 1075, this.SMALL_FACE_SIZE, false)}
+                {this._renderSadFaceType(390, 1075, this.SMALL_FACE_SIZE, (report.dairy === Scoring.LOW))}
+                {this._renderNeutralFaceType(295, 1075, this.SMALL_FACE_SIZE, (report.dairy === Scoring.MEDIUM))}
+                {this._renderHappyFaceType(200, 1075, this.SMALL_FACE_SIZE, (report.dairy === Scoring.HIGH))}
             </Fragment>
         );
     }
 
     _renderOverallBalance = () => {
+        const { report } = this.props;
+
+        const xPos = 1350;
+        const yPos = 720;
+
+        let face;
+        if (report.balance === Scoring.LOW) {
+            face = this._renderSadFaceType(1350, 720, this.LARGE_FACE_SIZE, true);
+        }
+        if (report.balance === Scoring.MEDIUM) {
+            face = this._renderNeutralFaceType(1350, 720, this.LARGE_FACE_SIZE, true);
+        }
+        if (report.balance === Scoring.HIGH) {
+            face = this._renderHappyFaceType(1350, 720, this.LARGE_FACE_SIZE, true);
+        }
 
         return (
             <Fragment>
                 <text x={1230} y={1075} className={[Text.overallScore].join(" ")}>Overall Balance</text>
-                {this._renderHappyFaceType(1350, 720, this.LARGE_FACE_SIZE, true)}
+                {face}
             </Fragment>
         );
     }
@@ -192,5 +216,13 @@ class Score extends Component {
     }
 }
 
-export default withRouter(Score);
+const mapStateToProps = (state) => {
+    return {
+        report: state.report
+    };
+}
+
+export default withRouter(connect(mapStateToProps, {
+
+})(Score));
 // --------------------------------

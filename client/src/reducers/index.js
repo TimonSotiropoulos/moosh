@@ -18,11 +18,13 @@ import { routerReducer } from 'react-router-redux';
 import basket from './basket';
 import blender from './blender';
 import trolley from './trolley';
+import report from './report';
 // --------------------------------
 
 export default combineReducers({
   router: routerReducer,
   basket,
   blender,
-  trolley
+  trolley,
+  report
 });
