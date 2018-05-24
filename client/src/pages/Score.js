@@ -23,6 +23,7 @@ import { Window, Background, Button, Title, ScoreHeading, Moosh, Face } from '..
 // *******************************************
 // Constant Imports
 // -------------------------------------------
+import ACTIONS from '../actions';
 import { Routes, Scoring } from '../constants';
 // --------------------------------
 
@@ -201,7 +202,7 @@ class Score extends Component {
             <Window>
                 <Background.Score />
                 <ScoreHeading />
-                <Button.NewDay />
+                <Button.NewDay onClick={this.props.resetApp} />
                 {this._renderPortionsScore()}
                 {this._renderSugarScore()}
                 {this._renderWaterScore()}
@@ -223,6 +224,6 @@ const mapStateToProps = (state) => {
 }
 
 export default withRouter(connect(mapStateToProps, {
-
+    resetApp: ACTIONS.APP.resetApp
 })(Score));
 // --------------------------------

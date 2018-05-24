@@ -12,7 +12,7 @@ import { push } from 'react-router-redux';
 // *******************************************
 // Constant Imports
 // -------------------------------------------
-import { Routes, FOOD, Scoring, Outcomes  } from '../constants';
+import { Routes, FOOD, Scoring, Outcomes } from '../constants';
 // --------------------------------
 
 // *******************************************
@@ -62,19 +62,32 @@ export const createReportFromFood = (blenderContent) => {
 
         const totalItems = vegetables.length + fruit.length + grains.length + protein.length + dairy.length + sometimes.length;
 
-        const vegetablesRatio = Math.round(vegetables.length/totalItems);
-        const fruitRatio = Math.round(fruit.length/totalItems);
-        const grainsRatio = Math.round(grains.length/totalItems);
-        const proteinRatio = Math.round(protein.length/totalItems);
-        const dairyRatio = Math.round(dairy.length/totalItems);
+        const vegetablesRatio = Math.round((vegetables.length/totalItems) * 7);
+        const fruitRatio = Math.round((fruit.length/totalItems) * 7);
+        const grainsRatio = Math.round((grains.length/totalItems) * 7);
+        const proteinRatio = Math.round((protein.length/totalItems) * 7);
+        const dairyRatio = Math.round((dairy.length/totalItems) * 7);
 
         const { balanceScore, vegetableScore, fruitScore, grainsScore, proteinScore, dairyScore } = rateBalance(vegetablesRatio, fruitRatio, grainsRatio, proteinRatio, dairyRatio);
 
+        const portionsScore = ratePortions(totalItems);
+        const sugarScore = rateSugar(sometimes);
+
+        const ratios = {
+            vegetables: vegetablesRatio,
+            fruit: fruitRatio,
+            grains: grainsRatio,
+            protein: proteinRatio,
+            dairy: dairyRatio,
+        }
+
+        const outcomeScore = detemineOutcome(balanceScore, vegetableScore, fruitScore, grainsScore, proteinScore, dairyScore, portionsScore, sugarScore, ratios);
+
         const scores = {
-            outcome: Outcomes.PARTY,
+            outcome: outcomeScore,
             balance: balanceScore,
-            portions: ratePortions(totalItems),
-            sugar: rateSugar(sometimes),
+            portions: portionsScore,
+            sugar: sugarScore,
             water: (water.length > 0) ? Scoring.HIGH : Scoring.LOW,
             vegetables: vegetableScore,
             fruit: fruitScore,
@@ -91,20 +104,76 @@ export const createReportFromFood = (blenderContent) => {
     }
 }
 
+const detemineOutcome = (balanceScore, vegetableScore, fruitScore, grainsScore, proteinScore, dairyScore, portionsScore, sugarScore, ratios) => {
+
+    //  Currently No egg Outcome?
+
+
+    if (sugarScore === Scoring.LOW) {
+        return Outcomes.HYPER;
+    }
+
+    if (portionsScore === Scoring.LOW) {
+        return Outcomes.SLEEP;
+    }
+
+    if (balanceScore === Scoring.HIGH &&
+        vegetableScore === Scoring.HIGH &&
+        fruitScore === Scoring.HIGH &&
+        grainsScore === Scoring.HIGH &&
+        proteinScore === Scoring.HIGH &&
+        dairyScore === Scoring.HIGH &&
+        portionsScore === Scoring.HIGH &&
+        sugarScore === Scoring.HIGH) {
+        return Outcomes.DISCO;
+    }
+
+    if (balanceScore === Scoring.HIGH &&
+        portionsScore === Scoring.HIGH &&
+        sugarScore === Scoring.HIGH) {
+            return Outcomes.PARTY;
+        }
+
+    let highestValue = 0;
+    let highestCategory;
+
+    Object.keys(ratios).forEach((category) => {
+        if (ratios[category] > highestValue) {
+            highestValue = ratios[category];
+            highestCategory = category
+        }
+    });
+
+    switch (highestCategory) {
+        case "vegetables":
+            return Outcomes.BROCCOLI;
+        case "fruit":
+            return Outcomes.FART;
+        case "grains":
+            return Outcomes.POOP;
+        case "protein":
+            return Outcomes.COW;
+        case "dairy":
+            return Outcomes.VOMIT;
+        default:
+            return Outcomes.SLEEP;
+    }
+}
+
 const ratePortions = (totalItems) => {
     if (totalItems >= 0 && totalItems <= 2) {
         return Scoring.LOW;
     }
-    if (totalItems >= 3 && totalItems <= 5) {
+    if (totalItems >= 3 && totalItems < 5) {
         return Scoring.MEDIUM;
     }
-    if (totalItems >= 5 && totalItems <= 9) {
+    if (totalItems >= 5 && totalItems <= 10) {
         return Scoring.HIGH;
     }
-    if (totalItems >= 10 && totalItems <= 12) {
+    if (totalItems >= 11 && totalItems <= 13) {
         return Scoring.MEDIUM;
     }
-    if (totalItems >= 13) {
+    if (totalItems >= 14) {
         return Scoring.LOW;
     }
 }

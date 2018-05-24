@@ -36,6 +36,8 @@ export default (state = initialState, action) => {
             return {
                 ...action.scores
             };
+        case ACTIONS.TYPES.RESET_APP:
+            return initialState;
         default:
             return state
     }

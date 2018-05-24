@@ -10,6 +10,7 @@ import * as TROLLEY from './trolley';
 import * as BASKET from './basket';
 import * as BLENDER from './blender';
 import * as REPORT from './report';
+import * as APP from './app';
 // --------------------------------
 
 const createAsyncAction = (KEY) => {
@@ -31,11 +32,13 @@ const TYPES = {
     REMOVE_LAST_ITEM_FROM_BASKET: "REMOVE_LAST_ITEM_FROM_BASKET",
     ADD_ITEM_TO_BLENDER: "ADD_ITEM_TO_BLENDER",
     REMOVE_ITEM_FROM_BLENDER: "REMOVE_ITEM_FROM_BLENDER",
-    CREATE_REPORT: "CREATE_REPORT"
+    CREATE_REPORT: "CREATE_REPORT",
+    RESET_APP: "RESET_APP"
 }
 
 const ACTIONS = {
     TYPES,
+    APP,
     TROLLEY,
     BASKET,
     BLENDER,
