@@ -22,7 +22,7 @@ import * as Face_ from './Face';
 // -------------------------------------------
 export {default as Window} from './Window';
 export {default as Title} from './Title';
-export {default as Text} from './Text';
+export {default as ScoreHeading} from './ScoreHeading';
 export {default as Trolley} from './Trolley';
 export {default as Blender} from './Blender';
 export {default as Interface} from './Interface';
