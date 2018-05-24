@@ -11,6 +11,7 @@ import * as Routes_ from './routes';
 import * as Dimensions_ from './dimensions';
 import * as FOOD_ from './food';
 import * as Scoring_ from './scoring';
+import * as Outcomes_ from './outcomes';
 // --------------------------------
 
 // *******************************************
@@ -20,4 +21,5 @@ export const Routes = Routes_;
 export const Dimensions = Dimensions_;
 export const FOOD = FOOD_;
 export const Scoring = Scoring_;
+export const Outcomes = Outcomes_;
 // --------------------------------

@@ -6,12 +6,13 @@
 // Action Type Imports
 // -------------------------------------------
 import ACTIONS from './index';
+import { push } from 'react-router-redux';
 // --------------------------------
 
 // *******************************************
 // Constant Imports
 // -------------------------------------------
-import { FOOD, Scoring } from '../constants';
+import { Routes, FOOD, Scoring, Outcomes  } from '../constants';
 // --------------------------------
 
 // *******************************************
@@ -20,69 +21,74 @@ import { FOOD, Scoring } from '../constants';
 
 export const createReportFromFood = (blenderContent) => {
 
-    let vegetables = [];
-    let fruit = [];
-    let grains = [];
-    let protein = [];
-    let dairy = [];
-    let sometimes = [];
-    let water = [];
+    return dispatch => {
 
-    blenderContent.forEach((itemKey) => {
-        switch(FOOD.TYPES[itemKey]) {
-            case FOOD.TYPE_DEFS.VEGETABLES:
-                vegetables.push(itemKey);
-                break;
-            case FOOD.TYPE_DEFS.FRUIT:
-                fruit.push(itemKey);
-                break;
-            case FOOD.TYPE_DEFS.GRAINS:
-                grains.push(itemKey);
-                break;
-            case FOOD.TYPE_DEFS.PROTEIN:
-                protein.push(itemKey);
-                break;
-            case FOOD.TYPE_DEFS.DAIRY:
-                dairy.push(itemKey);
-                break;
-            case FOOD.TYPE_DEFS.SOMETIMES:
-                sometimes.push(itemKey);
-                break;
-            case FOOD.TYPE_DEFS.WATER:
-                water.push(itemKey);
-                break;
-            default:
-                console.log("Type def not found for item key: " + itemKey);
-                break;
-        }
-    })
+        let vegetables = [];
+        let fruit = [];
+        let grains = [];
+        let protein = [];
+        let dairy = [];
+        let sometimes = [];
+        let water = [];
 
-    const totalItems = vegetables.length + fruit.length + grains.length + protein.length + dairy.length + sometimes.length;
+        blenderContent.forEach((itemKey) => {
+            switch(FOOD.TYPES[itemKey]) {
+                case FOOD.TYPE_DEFS.VEGETABLES:
+                    vegetables.push(itemKey);
+                    break;
+                case FOOD.TYPE_DEFS.FRUIT:
+                    fruit.push(itemKey);
+                    break;
+                case FOOD.TYPE_DEFS.GRAINS:
+                    grains.push(itemKey);
+                    break;
+                case FOOD.TYPE_DEFS.PROTEIN:
+                    protein.push(itemKey);
+                    break;
+                case FOOD.TYPE_DEFS.DAIRY:
+                    dairy.push(itemKey);
+                    break;
+                case FOOD.TYPE_DEFS.SOMETIMES:
+                    sometimes.push(itemKey);
+                    break;
+                case FOOD.TYPE_DEFS.WATER:
+                    water.push(itemKey);
+                    break;
+                default:
+                    console.log("Type def not found for item key: " + itemKey);
+                    break;
+            }
+        })
 
-    const vegetablesRatio = Math.round(vegetables.length/totalItems);
-    const fruitRatio = Math.round(fruit.length/totalItems);
-    const grainsRatio = Math.round(grains.length/totalItems);
-    const proteinRatio = Math.round(protein.length/totalItems);
-    const dairyRatio = Math.round(dairy.length/totalItems);
+        const totalItems = vegetables.length + fruit.length + grains.length + protein.length + dairy.length + sometimes.length;
 
-    const { balanceScore, vegetableScore, fruitScore, grainsScore, proteinScore, dairyScore } = rateBalance(vegetablesRatio, fruitRatio, grainsRatio, proteinRatio, dairyRatio);
+        const vegetablesRatio = Math.round(vegetables.length/totalItems);
+        const fruitRatio = Math.round(fruit.length/totalItems);
+        const grainsRatio = Math.round(grains.length/totalItems);
+        const proteinRatio = Math.round(protein.length/totalItems);
+        const dairyRatio = Math.round(dairy.length/totalItems);
 
-    const scores = {
-        balance: balanceScore,
-        portions: ratePortions(totalItems),
-        sugar: rateSugar(sometimes),
-        water: (water.length > 0) ? Scoring.HIGH : Scoring.LOW,
-        vegetables: vegetableScore,
-        fruit: fruitScore,
-        grains: grainsScore,
-        protein: proteinScore,
-        dairy: dairyScore,
-    };
+        const { balanceScore, vegetableScore, fruitScore, grainsScore, proteinScore, dairyScore } = rateBalance(vegetablesRatio, fruitRatio, grainsRatio, proteinRatio, dairyRatio);
 
-    return {
-        type: ACTIONS.TYPES.CREATE_REPORT,
-        scores
-    };
+        const scores = {
+            outcome: Outcomes.PARTY,
+            balance: balanceScore,
+            portions: ratePortions(totalItems),
+            sugar: rateSugar(sometimes),
+            water: (water.length > 0) ? Scoring.HIGH : Scoring.LOW,
+            vegetables: vegetableScore,
+            fruit: fruitScore,
+            grains: grainsScore,
+            protein: proteinScore,
+            dairy: dairyScore,
+        };
+
+        dispatch(push(Routes.Result));
+        dispatch({
+            type: ACTIONS.TYPES.CREATE_REPORT,
+            scores
+        });
+    }
 }
 
 const ratePortions = (totalItems) => {

@@ -7,13 +7,14 @@
 // -------------------------------------------
 import ACTIONS from '../actions';
 import * as UTILS from '../utilities';
-import { Scoring } from '../constants';
+import { Scoring, Outcomes } from '../constants';
 // --------------------------------
 
 // *******************************************
 // Initial State Definition
 // -------------------------------------------
 const initialState = {
+    outcome: Outcomes.PARTY,
     balance: Scoring.LOW,
     portions: Scoring.LOW,
     sugar: Scoring.LOW,
