@@ -67,8 +67,8 @@ class Kitchen extends Component {
     }
 
     createReport = () => {
-        const { blender, createReportFromFood } = this.props;
-        createReportFromFood(blender.items);
+        const { app, blender, createReportFromFood } = this.props;
+        createReportFromFood(blender.items, app);
     }
 
     _renderKitchenItems = () => {
@@ -118,6 +118,7 @@ class Kitchen extends Component {
 
 const mapStateToProps = (state) => {
     return {
+        app: state.app,
         trolley: state.trolley,
         basket: state.basket,
         blender: state.blender

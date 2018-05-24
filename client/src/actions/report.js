@@ -7,6 +7,8 @@
 // -------------------------------------------
 import ACTIONS from './index';
 import { push } from 'react-router-redux';
+import CONFIG from '../config.js';
+import axios from 'axios';
 // --------------------------------
 
 // *******************************************
@@ -19,7 +21,7 @@ import { Routes, FOOD, Scoring, Outcomes } from '../constants';
 // Action Definitions
 // -------------------------------------------
 
-export const createReportFromFood = (blenderContent) => {
+export const createReportFromFood = (blenderContent, appData) => {
 
     return dispatch => {
 
@@ -101,6 +103,24 @@ export const createReportFromFood = (blenderContent) => {
             type: ACTIONS.TYPES.CREATE_REPORT,
             scores
         });
+
+        // Create report data for zapier
+        const body = {
+            sessionID: appData.sessionID,
+            age: appData.age,
+            postcode: appData.postcode,
+            vegetables: vegetables.length,
+            fruit: fruit.length,
+            grains: grains.length,
+            protein: protein.length,
+            dairy: dairy.length,
+            sugarScore: sugarScore,
+            balanceScore: balanceScore,
+            portionsScore: portionsScore
+        }
+
+        saveReportToSpreadsheet(body);
+
     }
 }
 
@@ -271,6 +291,31 @@ const targetTwoRatio = (ratio) => {
         return Scoring.MEDIUM;
     }
     return Scoring.LOW;
+}
+
+const saveReportToSpreadsheet = (body) => {
+
+    const params = {
+        method: "POST",
+        headers: {
+            'Content-Type': 'application/x-www-form-urlencoded'
+        },
+        withCredentials: false,
+        data: body
+    }
+
+    console.log("SENDING API REPONSE");
+    console.log(body);
+
+    axios(CONFIG.ZAPIER_API, params)
+    .then((response) => {
+        console.log(response);
+        console.log("Saved Response Sueccessfulyl");
+    })
+    .catch((err) => {
+        console.log("Error sending zapier response");
+        console.log(err);
+    });
 }
 
 // --------------------------------
