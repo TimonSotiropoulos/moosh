@@ -58,6 +58,8 @@ class Garden extends Component {
     }
 
     navToKitchen = () => {
+        const { basket, sendItemsToKitchen } = this.props;
+        sendItemsToKitchen("BASKET", basket.items);
         this.navigateToLink(Routes.Kitchen);
     }
 
@@ -112,7 +114,7 @@ class Garden extends Component {
     }
 
     render() {
-        const { basket, removeLastItemFromBasket } = this.props;
+        const { basket, gardenItems, removeLastItemFromBasket } = this.props;
         return (
             <Window>
                 <Background.Garden.Background />
@@ -138,7 +140,7 @@ class Garden extends Component {
                     disableLinks={(basket.items.length > 0)}
                     currentRoute={Routes.Garden}
                     undoClick={removeLastItemFromBasket}
-                    counter={basket.items.length}
+                    counter={basket.items.length + gardenItems.length}
                     navigateToLink={this.navigateToLink}
                     nextButtonClick={this.navToKitchen}  />
             </Window>
@@ -148,11 +150,13 @@ class Garden extends Component {
 
 const mapStateToProps = (state) => {
     return {
+        gardenItems: state.kitchen.gardenItems,
         basket: state.basket
     };
 }
 
 export default withRouter(connect(mapStateToProps, {
-    removeLastItemFromBasket: ACTIONS.BASKET.removeLastItemFromBasket
+    removeLastItemFromBasket: ACTIONS.BASKET.removeLastItemFromBasket,
+    sendItemsToKitchen: ACTIONS.KITCHEN.sendItemsToKitchen
 })(Garden));
 // --------------------------------

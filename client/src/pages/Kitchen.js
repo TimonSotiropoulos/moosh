@@ -73,9 +73,9 @@ class Kitchen extends Component {
 
     _renderKitchenItems = () => {
 
-        const { trolley, basket } = this.props;
+        const { kitchen } = this.props;
 
-        const selectedItems = UTILS.GENERAL.combineArrays(trolley.items, basket.items);
+        const selectedItems = UTILS.GENERAL.combineArrays(kitchen.marketItems, kitchen.gardenItems);
 
         const shelveItems = selectedItems.map((itemKey, index) => {
             const coords = this.shelfSpaces[index];
@@ -119,8 +119,7 @@ class Kitchen extends Component {
 const mapStateToProps = (state) => {
     return {
         app: state.app,
-        trolley: state.trolley,
-        basket: state.basket,
+        kitchen: state.kitchen,
         blender: state.blender
     };
 }

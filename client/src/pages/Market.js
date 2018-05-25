@@ -56,6 +56,8 @@ class Market extends Component {
     }
 
     navToGarden = () => {
+        const { trolley, sendItemsToKitchen } = this.props;
+        sendItemsToKitchen("TROLLEY", trolley.items);
         this.navigateToLink(Routes.Garden);
     }
 
@@ -82,7 +84,7 @@ class Market extends Component {
     }
 
     render() {
-        const { trolley, removeLastItemFromTrolley } = this.props;
+        const { trolley, marketItems, removeLastItemFromTrolley } = this.props;
 
         return (
             <Window>
@@ -113,7 +115,7 @@ class Market extends Component {
                     disableLinks={(trolley.items.length > 0)}
                     currentRoute={Routes.Market}
                     undoClick={removeLastItemFromTrolley}
-                    counter={trolley.items.length}
+                    counter={trolley.items.length + marketItems.length}
                     navigateToLink={this.navigateToLink}
                     nextButtonClick={this.navToGarden} />
             </Window>
@@ -123,11 +125,13 @@ class Market extends Component {
 
 const mapStateToProps = (state) => {
     return {
+        marketItems: state.kitchen.marketItems,
         trolley: state.trolley
     };
 }
 
 export default withRouter(connect(mapStateToProps, {
-    removeLastItemFromTrolley: ACTIONS.TROLLEY.removeLastItemFromTrolley
+    removeLastItemFromTrolley: ACTIONS.TROLLEY.removeLastItemFromTrolley,
+    sendItemsToKitchen: ACTIONS.KITCHEN.sendItemsToKitchen
 })(Market));
 // --------------------------------

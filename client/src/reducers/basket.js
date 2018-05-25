@@ -43,6 +43,8 @@ export default (state = initialState, action) => {
             return {
                 items: UTILS.GENERAL.removeFinalItemFromArray(state.items)
             }
+        case ACTIONS.TYPES.SEND_ITEMS_TO_KITCHEN:
+            return initialState;
         case ACTIONS.TYPES.RESET_APP:
             return initialState;
         default:

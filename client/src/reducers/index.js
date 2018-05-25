@@ -20,6 +20,7 @@ import basket from './basket';
 import blender from './blender';
 import trolley from './trolley';
 import report from './report';
+import kitchen from './kitchen';
 // --------------------------------
 
 export default combineReducers({
@@ -28,5 +29,6 @@ export default combineReducers({
   basket,
   blender,
   trolley,
+  kitchen,
   report
 });

@@ -26,7 +26,7 @@ const asFoodItem = (WrappedComponent) => {
         }
 
         onClick = () => {
-            const { itemKey, actionType, target } = this.props;
+            const { itemKey, actionType, kitchen, target } = this.props;
 
             if (!itemKey || !actionType || !target) {
                 console.log("Missing required props");
@@ -36,12 +36,12 @@ const asFoodItem = (WrappedComponent) => {
             if (actionType === FOOD.ADD_ITEM) {
                 switch (target) {
                     case FOOD.TARGETS.BASKET:
-                        if (UTILS.GENERAL.itemIsNotInArray(this.props[target].items, itemKey) && this.props[target].items.length < 10) {
+                        if (UTILS.GENERAL.itemIsNotInArray(this.props[target].items, itemKey) && (this.props[target].items.length + kitchen.gardenItems.length) < 10) {
                             this.props.addItemToBasket(itemKey);
                         }
                         break;
                     case FOOD.TARGETS.TROLLEY:
-                        if (UTILS.GENERAL.itemIsNotInArray(this.props[target].items, itemKey) && this.props[target].items.length < 10) {
+                        if (UTILS.GENERAL.itemIsNotInArray(this.props[target].items, itemKey) && (this.props[target].items.length + kitchen.marketItems.length) < 10) {
                             this.props.addItemToTrolley(itemKey);
                         }
                         break;
@@ -58,12 +58,12 @@ const asFoodItem = (WrappedComponent) => {
                 switch (target) {
                     case FOOD.TARGETS.BASKET:
                         if (UTILS.GENERAL.itemIsInArray(this.props[target].items, itemKey)) {
-                            this.props.removeLastItemFromBasket(itemKey);
+                            this.props.removeItemFromBasket(itemKey);
                         }
                         break;
                     case FOOD.TARGETS.TROLLEY:
                         if (UTILS.GENERAL.itemIsInArray(this.props[target].items, itemKey)) {
-                            this.props.removeLastItemFromTrolley(itemKey);
+                            this.props.removeItemFromTrolley(itemKey);
                         }
                         break;
                     default:
@@ -76,9 +76,35 @@ const asFoodItem = (WrappedComponent) => {
 
         render () {
 
-            const itemIsNotInArray = (this.props[this.props.target]) ? UTILS.GENERAL.itemIsNotInArray(this.props[this.props.target].items, this.props.itemKey) : true;
+            let kitchenItems = [];
+            if (this.props.target === FOOD.TARGETS.TROLLEY) {
+                kitchenItems = this.props.kitchen.marketItems;
+            }
+
+            if (this.props.target === FOOD.TARGETS.BASKET) {
+                kitchenItems = this.props.kitchen.gardenItems;
+            }
+
+            let itemIsNotInArray;
+            let onClick;
+
+            if (this.props.target === FOOD.TARGETS.BLENDER) {
+                itemIsNotInArray = true;
+                onClick = this.onClick;
+            } else if (UTILS.GENERAL.itemIsNotInArray(this.props[this.props.target].items, this.props.itemKey) &&
+                UTILS.GENERAL.itemIsNotInArray(kitchenItems, this.props.itemKey)) {
+                itemIsNotInArray = true;
+                onClick = this.onClick;
+            } else if (UTILS.GENERAL.itemIsInArray(this.props[this.props.target].items, this.props.itemKey)) {
+                itemIsNotInArray = false;
+                onClick = this.onClick;
+            } else {
+                itemIsNotInArray = false;
+                onClick = undefined;
+            }
+
             return (
-                <WrappedComponent active={itemIsNotInArray} onClick={this.onClick} {...this.props} />
+                <WrappedComponent active={itemIsNotInArray} onClick={onClick} {...this.props} />
             );
         }
     }
@@ -86,15 +112,16 @@ const asFoodItem = (WrappedComponent) => {
     const mapStateToProps = (state) => {
         return {
             [FOOD.TARGETS.TROLLEY]: state.trolley,
-            [FOOD.TARGETS.BASKET]: state.basket
+            [FOOD.TARGETS.BASKET]: state.basket,
+            kitchen: state.kitchen
         };
     }
 
     return connect(mapStateToProps, {
         addItemToBasket: ACTIONS.BASKET.addItemToBasket,
-        removeLastItemFromBasket: ACTIONS.BASKET.removeLastItemFromBasket,
+        removeItemFromBasket: ACTIONS.BASKET.removeItemFromBasket,
         addItemToTrolley: ACTIONS.TROLLEY.addItemToTrolley,
-        removeLastItemFromTrolley: ACTIONS.TROLLEY.removeLastItemFromTrolley,
+        removeItemFromTrolley: ACTIONS.TROLLEY.removeItemFromTrolley,
         addItemToBlender: ACTIONS.BLENDER.addItemToBlender
     })(FoodItemManager);
 }
