@@ -84,7 +84,7 @@ export const createReportFromFood = (blenderContent, appData) => {
             dairy: dairyRatio,
         }
 
-        const outcomeScore = detemineOutcome(balanceScore, vegetableScore, fruitScore, grainsScore, proteinScore, dairyScore, portionsScore, sugarScore, ratios);
+        const outcomeScore = detemineOutcome(balanceScore, vegetableScore, fruitScore, grainsScore, proteinScore, dairyScore, portionsScore, sugarScore, ratios, totalItems);
 
         const scores = {
             outcome: outcomeScore,
@@ -126,13 +126,17 @@ export const createReportFromFood = (blenderContent, appData) => {
     }
 }
 
-const detemineOutcome = (balanceScore, vegetableScore, fruitScore, grainsScore, proteinScore, dairyScore, portionsScore, sugarScore, ratios) => {
+const detemineOutcome = (balanceScore, vegetableScore, fruitScore, grainsScore, proteinScore, dairyScore, portionsScore, sugarScore, ratios, totalItems) => {
 
     //  Currently No egg Outcome?
 
 
     if (sugarScore === Scoring.LOW) {
         return Outcomes.HYPER;
+    }
+
+    if (totalItems >= 20) {
+        return Outcomes.VOMIT;
     }
 
     if (portionsScore === Scoring.LOW) {
@@ -156,6 +160,8 @@ const detemineOutcome = (balanceScore, vegetableScore, fruitScore, grainsScore, 
             return Outcomes.PARTY;
         }
 
+
+
     let highestValue = 0;
     let highestCategory;
 
@@ -174,9 +180,9 @@ const detemineOutcome = (balanceScore, vegetableScore, fruitScore, grainsScore, 
         case "grains":
             return Outcomes.POOP;
         case "protein":
-            return Outcomes.COW;
+            return Outcomes.EGG;
         case "dairy":
-            return Outcomes.VOMIT;
+            return Outcomes.COW;
         default:
             return Outcomes.SLEEP;
     }
