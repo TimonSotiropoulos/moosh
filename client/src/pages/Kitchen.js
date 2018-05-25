@@ -59,6 +59,11 @@ class Kitchen extends Component {
             {xPos: 1875, yPos: 198},
             {xPos: 1760, yPos: 198},
         ];
+
+        this.state = {
+            hideInterface: false,
+            blended: false,
+        }
     }
 
     navigateToLink = (route) => {
@@ -69,6 +74,19 @@ class Kitchen extends Component {
     createReport = () => {
         const { app, blender, createReportFromFood } = this.props;
         createReportFromFood(blender.items, app);
+    }
+
+    startBlending = () => {
+        this.setState({
+            hideInterface: true
+        });
+    }
+
+    completeBlending = () => {
+        console.log("BLENDING STARTED");
+        this.setState({
+            blended: true
+        });
     }
 
     _renderKitchenItems = () => {
@@ -82,7 +100,7 @@ class Kitchen extends Component {
             const props = {
                 xPos: coords.xPos,
                 yPos: coords.yPos,
-                actionType: FOOD.ADD_ITEM,
+                actionType: (this.state.hideInterface) ? undefined : FOOD.ADD_ITEM,
                 target: FOOD.TARGETS.BLENDER
             }
             return Food.GET_ELEMENT(itemKey, props);
@@ -102,10 +120,12 @@ class Kitchen extends Component {
             <Window>
                 <Background.Kitchen />
                 {this._renderKitchenItems()}
-                <Blender items={blender.items} />
+                <Blender items={blender.items} startBlending={this.startBlending} completeBlending={this.completeBlending} />
                 <Moosh.Market />
-                <Food.Water.Single itemKey={FOOD.KEYS.WATER} actionType={FOOD.ADD_ITEM} target={FOOD.TARGETS.BLENDER} />
+                <Food.Water.Single itemKey={FOOD.KEYS.WATER} actionType={(this.state.hideInterface) ? undefined : FOOD.ADD_ITEM} target={FOOD.TARGETS.BLENDER} />
                 <Interface
+                    showFeedButton={this.state.blended}
+                    hideInterface={this.state.hideInterface}
                     currentRoute={Routes.Kitchen}
                     undoClick={removeItemFromBlender}
                     counter={blender.items.length}

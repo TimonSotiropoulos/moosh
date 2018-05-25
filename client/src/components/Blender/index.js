@@ -37,6 +37,11 @@ class Blender extends Component {
             {xPos: 68, yPos: 25, width: 185},
             {xPos: 68, yPos: 5, width: 195},
         ];
+
+        this.state = {
+            blender: "IDLE", // or "BLENDING" or "COMPLETE"
+            blendStep: -1
+        }
     }
 
     _renderBlenderOffButton = () => {
@@ -51,10 +56,72 @@ class Blender extends Component {
         return { colorA: Fill.blenderGreenA, colorB: Fill.blenderGreenB, colorC: Fill.blenderGreenC };
     }
 
+    _startBlending = () => {
+
+        if (this.state.blender === "COMPLETE" ||
+            this.props.items.length == 0) {
+            return null;
+        }
+
+
+        this.props.startBlending();
+        this.setState({
+            blender: "BLENDING",
+            blendStep: 0
+        }, () => {
+            setTimeout(() => {
+                this.setState({
+                    blendStep: 1
+                }, () => {
+                    setTimeout(() => {
+                        this.setState({
+                            blendStep: 2
+                        }, () => {
+                            setTimeout(() => {
+                                this.setState({
+                                    blendStep: 3
+                                }, () => {
+                                    setTimeout(() => {
+                                        this.setState({
+                                            blendStep: 4
+                                        }, () => {
+                                            setTimeout(() => {
+                                                this.setState({
+                                                    blender: "COMPLETE",
+                                                    blendStep: 5
+                                                }, () => {
+                                                    this.props.completeBlending();
+                                                });
+                                            }, 1000)
+                                        });
+                                    }, 1000)
+                                });
+                            }, 1000)
+                        });
+                    }, 1000)
+                });
+            }, 1000)
+        });
+    }
+
     _renderBlenderButton = () => {
-        const blenderColorFunc = this._renderBlenderOffButton;
-        // const blenderColorFunc = this._renderBlenderActiveButton;
-        // const blenderColorFunc = this._renderBlenderComplete;
+
+        let blenderColorFunc;
+        switch (this.state.blender) {
+            case "IDLE":
+                blenderColorFunc = this._renderBlenderOffButton;
+                break;
+            case "BLENDING":
+                blenderColorFunc = this._renderBlenderActiveButton;
+                break;
+            case "COMPLETE":
+                blenderColorFunc = this._renderBlenderComplete;
+                break;
+            default:
+                blenderColorFunc = this._renderBlenderOffButton;
+                break;
+
+        }
 
         const { colorA, colorB, colorC } = blenderColorFunc();
         return (
@@ -63,19 +130,24 @@ class Blender extends Component {
                 <circle class={[colorB].join(" ")} cx="162" cy="389.4" r="23.4"/>
                 <circle class={[colorC].join(" ")} cx="162" cy="389.4" r="15.3"/>
                 <rect class={[Opacity._04, MixBlend.multiply].join(" ")} x="159.9" y="374" width="4" height="30.7" rx="1.1" ry="1.1"/>
+                <rect class={[Fill.transparent].join(" ")} x="100.9" y="344" width="130" height="130" onClick={this._startBlending}  />
             </Fragment>
         );
     }
 
     _renderBlenderContents = () => {
-        
+
         const { items } = this.props;
         const blenderSegments = (items.length > 10) ? items.slice(0, 10) : items;
 
         const blenderElements = blenderSegments.map((itemKey, index) => {
+
+            let blendPoint = this.state.blendStep;
+            const indexPoint = Math.floor((index+1)/2);
+
             const coords = this.blenderPoints[index];
-            const color = FOOD.BLENDER_COLORS[itemKey];
-            return <rect class={[color].join(" ")} x={coords.xPos} y={coords.yPos} width={coords.width} height="25" rx="20" ry="0"/>;
+            const color = (indexPoint > blendPoint) ? FOOD.BLENDER_COLORS[itemKey] : Fill.cerealBrown;
+            return <rect class={[color].join(" ")} x={coords.xPos} y={coords.yPos} width={coords.width} height="25" />;
         })
 
         return (
@@ -89,7 +161,7 @@ class Blender extends Component {
         const { width, height, xPos, yPos } = this.props;
 
         return (
-            <svg xmlns="http://www.w3.org/2000/svg" width={width} height={height} x={1150} y={497} viewBox="0 0 306.4 467.4" style={{pointerEvents: "none"}}>
+            <svg xmlns="http://www.w3.org/2000/svg" width={width} height={height} x={1150} y={497} viewBox="0 0 306.4 467.4">
             <title>
                 Blender
             </title>
@@ -110,12 +182,11 @@ class Blender extends Component {
                         <path class={[Fill.blenderBlueB].join(" ")} d="M284.88,431.26H39L55,316A26.74,26.74,0,0,1,81.52,293H242.4A26.74,26.74,0,0,1,268.89,316Z"/>
                         <path class={[Fill.blenderBlackB].join(" ")} d="M39 431.3H284.8V455.40000000000003H39z"/>
                         <rect class={[Fill.blenderBlueC].join(" ")} x="77" y="314.5" width="170" height="29.2" rx="4" ry="4"/>
-                        {this._renderBlenderButton()}
                         <rect class={[Fill.blenderBlueD].join(" ")} x="90.4" y="323.4" width="24.8" height="11.7" rx="2" ry="2"/>
                         <rect class={[Fill.blenderBlueD].join(" ")} x="129.8" y="323.3" width="24.8" height="11.7" rx="2" ry="2"/>
                         <rect class={[Fill.blenderBlueD].join(" ")} x="169.2" y="323.2" width="24.8" height="11.7" rx="2" ry="2"/>
                         <rect class={[Fill.blenderBlueD].join(" ")} x="208.5" y="323.1" width="24.8" height="11.7" rx="2" ry="2"/>
-
+                        {this._renderBlenderButton()}
                     </g>
                 </g>
             </g>
