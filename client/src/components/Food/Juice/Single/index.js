@@ -31,7 +31,7 @@ class Single extends Component {
         return (
             <svg xmlns="http://www.w3.org/2000/svg" x={xPos} y={yPos} width={125} height={125} viewBox="0 0 50 50" onClick={onClick}>
             <polygon className={[Fill.transparent].join(" ")} points="0,0 0,50, 50,50, 50,0" />
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 62.4 91.8">
+            <svg xmlns="http://www.w3.org/2000/svg" x={5} y={20} width={45} height={50} viewBox="0 0 90.4 141.8">
             <title>
                 Single_Juice
             </title>

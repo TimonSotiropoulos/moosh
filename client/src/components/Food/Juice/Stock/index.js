@@ -49,7 +49,7 @@ class Stock extends Component {
         return (
             <svg x={xPos} y={yPos} width={width} height={height}  viewBox="0 0 249 126" onClick={this.onClick}>
                 <rect x="0" y="0" width="300" height="200" className={[Fill.transparent].join(" ")}></rect>
-                <svg xmlns="http://www.w3.org/2000/svg" y={41} viewBox="0 0 210.9 91.8">
+                <svg xmlns="http://www.w3.org/2000/svg" x={38} y={90} width={180} height={70} viewBox="0 0 210.9 91.8">
                   <title>
                     Juice
                   </title>
