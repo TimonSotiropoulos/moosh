@@ -25,6 +25,7 @@ import { Window, Background, Button, Title, Interface, Food, Basket, Moosh } fro
 // -------------------------------------------
 import ACTIONS from '../actions';
 import { Routes, FOOD } from '../constants';
+import * as UTILS from '../utilities';
 // --------------------------------
 
 // *******************************************
@@ -34,6 +35,24 @@ class Garden extends Component {
 
     constructor(props) {
         super(props);
+
+        this.frontGardenKeys = [
+            FOOD.KEYS.GRAPE,
+            FOOD.KEYS.TOMATO,
+            FOOD.KEYS.BROCCOLI,
+            FOOD.KEYS.CARROT,
+            FOOD.KEYS.LETTUCE
+        ];
+
+        this.backGardenKeys = [
+            FOOD.KEYS.APPLE,
+            FOOD.KEYS.ORANGE,
+            FOOD.KEYS.POTATO,
+            FOOD.KEYS.BANANA,
+            FOOD.KEYS.CHERRY,
+            FOOD.KEYS.AVOCADO,
+            FOOD.KEYS.PINEAPPLE
+        ];
 
         this.basketItemsBack = [
             {xPos: 935, yPos: 1085},
@@ -113,24 +132,46 @@ class Garden extends Component {
         );
     }
 
+    _renderGardenStock = (itemKeys) => {
+        const { basket } = this.props;
+
+        const elements = itemKeys.map((itemKey) => {
+            const actionType = (UTILS.GENERAL.itemIsInArray(basket.items, itemKey)) ? FOOD.REMOVE_ITEM : FOOD.ADD_ITEM;
+            const props = {
+                itemKey,
+                actionType,
+                target: FOOD.TARGETS.BASKET
+            }
+            return Food.GET_STOCK_ELEMENT(itemKey, props);
+        })
+
+        return (
+            <Fragment>
+                {elements}
+            </Fragment>
+        );
+    }
+
     render() {
         const { basket, gardenItems, removeLastItemFromBasket } = this.props;
         return (
             <Window>
                 <Background.Garden.Background />
-                <Food.Grape.Stock itemKey={FOOD.KEYS.GRAPE} actionType={FOOD.ADD_ITEM} target={FOOD.TARGETS.BASKET} />
+                {/* <Food.Grape.Stock itemKey={FOOD.KEYS.GRAPE} actionType={FOOD.ADD_ITEM} target={FOOD.TARGETS.BASKET} />
                 <Food.Tomato.Stock itemKey={FOOD.KEYS.TOMATO} actionType={FOOD.ADD_ITEM} target={FOOD.TARGETS.BASKET} />
                 <Food.Broccoli.Stock itemKey={FOOD.KEYS.BROCCOLI} actionType={FOOD.ADD_ITEM} target={FOOD.TARGETS.BASKET} />
                 <Food.Carrot.Stock itemKey={FOOD.KEYS.CARROT} actionType={FOOD.ADD_ITEM} target={FOOD.TARGETS.BASKET} />
-                <Food.Lettuce.Stock itemKey={FOOD.KEYS.LETTUCE} actionType={FOOD.ADD_ITEM} target={FOOD.TARGETS.BASKET} />
+                <Food.Lettuce.Stock itemKey={FOOD.KEYS.LETTUCE} actionType={FOOD.ADD_ITEM} target={FOOD.TARGETS.BASKET} /> */}
+                {this._renderGardenStock(this.frontGardenKeys)}
                 <Background.Garden.Foreground />
-                <Food.Apple.Stock itemKey={FOOD.KEYS.APPLE} actionType={FOOD.ADD_ITEM} target={FOOD.TARGETS.BASKET} />
+                {this._renderGardenStock(this.backGardenKeys)}
+                {/* <Food.Apple.Stock itemKey={FOOD.KEYS.APPLE} actionType={FOOD.ADD_ITEM} target={FOOD.TARGETS.BASKET} />
                 <Food.Orange.Stock itemKey={FOOD.KEYS.ORANGE} actionType={FOOD.ADD_ITEM} target={FOOD.TARGETS.BASKET} />
                 <Food.Potato.Stock itemKey={FOOD.KEYS.POTATO} actionType={FOOD.ADD_ITEM} target={FOOD.TARGETS.BASKET} />
                 <Food.Banana.Stock itemKey={FOOD.KEYS.BANANA} actionType={FOOD.ADD_ITEM} target={FOOD.TARGETS.BASKET} />
                 <Food.Cherry.Stock itemKey={FOOD.KEYS.CHERRY} actionType={FOOD.ADD_ITEM} target={FOOD.TARGETS.BASKET} />
                 <Food.Avocado.Stock itemKey={FOOD.KEYS.AVOCADO} actionType={FOOD.ADD_ITEM} target={FOOD.TARGETS.BASKET} />
-                <Food.Pineapple.Stock itemKey={FOOD.KEYS.PINEAPPLE} actionType={FOOD.ADD_ITEM} target={FOOD.TARGETS.BASKET} />
+                <Food.Pineapple.Stock itemKey={FOOD.KEYS.PINEAPPLE} actionType={FOOD.ADD_ITEM} target={FOOD.TARGETS.BASKET} /> */}
                 <Basket.Handle />
                 {this._renderBackBasketItems()}
                 <Basket.Main />

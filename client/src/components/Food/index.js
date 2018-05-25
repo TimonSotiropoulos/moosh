@@ -150,5 +150,75 @@ export const GET_ELEMENT = (itemKey, props) => {
     }
 }
 
+export const GET_STOCK_ELEMENT = (itemKey, props) => {
+    switch (itemKey) {
+        case FOOD.KEYS.APPLE:
+            return <Apple.Stock itemKey={itemKey} {...props} />;
+        case FOOD.KEYS.AVOCADO:
+            return <Avocado.Stock itemKey={itemKey} {...props} />;
+        case FOOD.KEYS.BACON:
+            return <Bacon.Stock itemKey={itemKey} {...props} />;
+        case FOOD.KEYS.BANANA:
+            return <Banana.Stock itemKey={itemKey} {...props} />;
+        case FOOD.KEYS.BREAD:
+            return <Bread.Stock itemKey={itemKey} {...props} />;
+        case FOOD.KEYS.BROCCOLI:
+            return <Broccoli.Stock itemKey={itemKey} {...props} />;
+        case FOOD.KEYS.CARROT:
+            return <Carrot.Stock itemKey={itemKey} {...props} />;
+        case FOOD.KEYS.CEREAL:
+            return <Cereal.Stock itemKey={itemKey} {...props} />;
+        case FOOD.KEYS.CHEESE:
+            return <Cheese.Stock itemKey={itemKey} {...props} />;
+        case FOOD.KEYS.CHERRY:
+            return <Cherry.Stock itemKey={itemKey} {...props} />;
+        case FOOD.KEYS.CHIPS:
+            return <Chips.Stock itemKey={itemKey} {...props} />;
+        case FOOD.KEYS.CHOCOBAR:
+            return <ChocoBar.Stock itemKey={itemKey} {...props} />;
+        case FOOD.KEYS.CUPCAKE:
+            return <Cupcake.Stock itemKey={itemKey} {...props} />;
+        case FOOD.KEYS.EGGS:
+            return <Eggs.Stock itemKey={itemKey} {...props} />;
+        case FOOD.KEYS.GRAPE:
+            return <Grape.Stock itemKey={itemKey} {...props} />;
+        case FOOD.KEYS.ICECREAM:
+            return <IceCream.Stock itemKey={itemKey} {...props} />;
+        case FOOD.KEYS.JUICE:
+            return <Juice.Stock itemKey={itemKey} {...props} />;
+        case FOOD.KEYS.LETTUCE:
+            return <Lettuce.Stock itemKey={itemKey} {...props} />;
+        case FOOD.KEYS.MILK:
+            return <Milk.Stock itemKey={itemKey} {...props} />;
+        case FOOD.KEYS.ORANGE:
+            return <Orange.Stock itemKey={itemKey} {...props} />;
+        case FOOD.KEYS.PASTA:
+            return <Pasta.Stock itemKey={itemKey} {...props} />;
+        case FOOD.KEYS.PINEAPPLE:
+            return <Pineapple.Stock itemKey={itemKey} {...props} />;
+        case FOOD.KEYS.POTATO:
+            return <Potato.Stock itemKey={itemKey} {...props} />;
+        case FOOD.KEYS.RICE:
+            return <Rice.Stock itemKey={itemKey} {...props} />;
+        case FOOD.KEYS.ROLL:
+            return <Roll.Stock itemKey={itemKey} {...props} />;
+        case FOOD.KEYS.SODA:
+            return <Soda.Stock itemKey={itemKey} {...props} />;
+        case FOOD.KEYS.STEAK:
+            return <Steak.Stock itemKey={itemKey} {...props} />;
+        case FOOD.KEYS.TOFU:
+            return <Tofu.Stock itemKey={itemKey} {...props} />;
+        case FOOD.KEYS.TOMATO:
+            return <Tomato.Stock itemKey={itemKey} {...props} />;
+        case FOOD.KEYS.TUNA:
+            return <Tuna.Stock itemKey={itemKey} {...props} />;
+        case FOOD.KEYS.WATER:
+            return <Water.Stock itemKey={itemKey} {...props} />;
+        case FOOD.KEYS.YOGHURT:
+            return <Yoghurt.Stock itemKey={itemKey} {...props} />;
+        default:
+            return <Yoghurt.Stock itemKey={itemKey} {...props} />;
+    }
+}
 
 // --------------------------------

@@ -25,6 +25,7 @@ import { Window, Background, Button, Interface, Title, Food, Moosh, Trolley } fr
 // -------------------------------------------
 import ACTIONS from '../actions';
 import { Routes, FOOD } from '../constants';
+import * as UTILS from '../utilities';
 // --------------------------------
 
 
@@ -35,6 +36,28 @@ class Market extends Component {
 
     constructor(props) {
         super(props);
+
+        this.marketKeys = [
+            FOOD.KEYS.EGGS,
+            FOOD.KEYS.CEREAL,
+            FOOD.KEYS.JUICE,
+            FOOD.KEYS.SODA,
+            FOOD.KEYS.TUNA,
+            FOOD.KEYS.RICE,
+            FOOD.KEYS.CHOCOBAR,
+            FOOD.KEYS.CUPCAKE,
+            FOOD.KEYS.CHIPS,
+            FOOD.KEYS.ROLL,
+            FOOD.KEYS.PASTA,
+            FOOD.KEYS.BREAD,
+            FOOD.KEYS.TOFU,
+            FOOD.KEYS.STEAK,
+            FOOD.KEYS.BACON,
+            FOOD.KEYS.MILK,
+            FOOD.KEYS.YOGHURT,
+            FOOD.KEYS.CHEESE,
+            FOOD.KEYS.ICECREAM
+        ];
 
         this.trolleyItems = [
             {xPos: 1050, yPos: 1160},
@@ -83,31 +106,33 @@ class Market extends Component {
 
     }
 
+    _renderMarketStock = () => {
+        const { trolley } = this.props;
+
+        const elements = this.marketKeys.map((itemKey) => {
+            const actionType = (UTILS.GENERAL.itemIsInArray(trolley.items, itemKey)) ? FOOD.REMOVE_ITEM : FOOD.ADD_ITEM;
+            const props = {
+                itemKey,
+                actionType,
+                target: FOOD.TARGETS.TROLLEY
+            }
+            return Food.GET_STOCK_ELEMENT(itemKey, props);
+        })
+
+        return (
+            <Fragment>
+                {elements}
+            </Fragment>
+        );
+    }
+
     render() {
         const { trolley, marketItems, removeLastItemFromTrolley } = this.props;
 
         return (
             <Window>
                 <Background.Market />
-                <Food.Eggs.Stock itemKey={FOOD.KEYS.EGGS} actionType={FOOD.ADD_ITEM} target={FOOD.TARGETS.TROLLEY} />
-                <Food.Cereal.Stock itemKey={FOOD.KEYS.CEREAL} actionType={FOOD.ADD_ITEM} target={FOOD.TARGETS.TROLLEY} />
-                <Food.Juice.Stock itemKey={FOOD.KEYS.JUICE} actionType={FOOD.ADD_ITEM} target={FOOD.TARGETS.TROLLEY} />
-                <Food.Soda.Stock itemKey={FOOD.KEYS.SODA} actionType={FOOD.ADD_ITEM} target={FOOD.TARGETS.TROLLEY} />
-                <Food.Tuna.Stock itemKey={FOOD.KEYS.TUNA} actionType={FOOD.ADD_ITEM} target={FOOD.TARGETS.TROLLEY} />
-                <Food.Rice.Stock itemKey={FOOD.KEYS.RICE} actionType={FOOD.ADD_ITEM} target={FOOD.TARGETS.TROLLEY} />
-                <Food.ChocoBar.Stock itemKey={FOOD.KEYS.CHOCOBAR} actionType={FOOD.ADD_ITEM} target={FOOD.TARGETS.TROLLEY} />
-                <Food.Cupcake.Stock itemKey={FOOD.KEYS.CUPCAKE} actionType={FOOD.ADD_ITEM} target={FOOD.TARGETS.TROLLEY} />
-                <Food.Chips.Stock itemKey={FOOD.KEYS.CHIPS} actionType={FOOD.ADD_ITEM} target={FOOD.TARGETS.TROLLEY} />
-                <Food.Roll.Stock itemKey={FOOD.KEYS.ROLL} actionType={FOOD.ADD_ITEM} target={FOOD.TARGETS.TROLLEY} />
-                <Food.Pasta.Stock itemKey={FOOD.KEYS.PASTA} actionType={FOOD.ADD_ITEM} target={FOOD.TARGETS.TROLLEY} />
-                <Food.Bread.Stock itemKey={FOOD.KEYS.BREAD} actionType={FOOD.ADD_ITEM} target={FOOD.TARGETS.TROLLEY} />
-                <Food.Tofu.Stock itemKey={FOOD.KEYS.TOFU} actionType={FOOD.ADD_ITEM} target={FOOD.TARGETS.TROLLEY} />
-                <Food.Steak.Stock itemKey={FOOD.KEYS.STEAK} actionType={FOOD.ADD_ITEM} target={FOOD.TARGETS.TROLLEY} />
-                <Food.Bacon.Stock itemKey={FOOD.KEYS.BACON} actionType={FOOD.ADD_ITEM} target={FOOD.TARGETS.TROLLEY} />
-                <Food.Milk.Stock itemKey={FOOD.KEYS.MILK} actionType={FOOD.ADD_ITEM} target={FOOD.TARGETS.TROLLEY} />
-                <Food.Yoghurt.Stock itemKey={FOOD.KEYS.YOGHURT} actionType={FOOD.ADD_ITEM} target={FOOD.TARGETS.TROLLEY} />
-                <Food.Cheese.Stock itemKey={FOOD.KEYS.CHEESE} actionType={FOOD.ADD_ITEM} target={FOOD.TARGETS.TROLLEY} />
-                <Food.IceCream.Stock itemKey={FOOD.KEYS.ICECREAM} actionType={FOOD.ADD_ITEM} target={FOOD.TARGETS.TROLLEY} />
+                {this._renderMarketStock()}
                 <Moosh.Market />
                 {this._renderTrolleyItems()}
                 <Trolley />
