@@ -74,6 +74,7 @@ export const createReportFromFood = (blenderContent, appData) => {
 
         const portionsScore = ratePortions(totalItems);
         const sugarScore = rateSugar(sometimes);
+        const waterScore = rateWater(water);
 
         const ratios = {
             vegetables: vegetablesRatio,
@@ -90,7 +91,7 @@ export const createReportFromFood = (blenderContent, appData) => {
             balance: balanceScore,
             portions: portionsScore,
             sugar: sugarScore,
-            water: (water.length > 0) ? Scoring.HIGH : Scoring.LOW,
+            water: waterScore,
             vegetables: vegetableScore,
             fruit: fruitScore,
             grains: grainsScore,
@@ -177,6 +178,18 @@ const detemineOutcome = (balanceScore, vegetableScore, fruitScore, grainsScore, 
             return Outcomes.VOMIT;
         default:
             return Outcomes.SLEEP;
+    }
+}
+
+const rateWater = (totalItems) => {
+    if (totalItems >= 0 && totalItems <= 3) {
+        return Scoring.LOW;
+    }
+    if (totalItems >= 4 && totalItems <= 6) {
+        return Scoring.MEDIUM;
+    }
+    if (totalItems >= 7) {
+        return Scoring.HIGH;
     }
 }
 
