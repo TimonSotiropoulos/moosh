@@ -34,11 +34,12 @@ class ToKitchen extends Component {
 
     render() {
 
-        const { onClick } = this.props;
+        const { showButtonOutline, onClick } = this.props;
         const x = (2048/2 - 250);
+        const buttonOutline = (this.props.showButtonOutline) ? Components.buttonOutline : undefined;
         return (
             <svg x={1210} y={1380} width={840} height={80} viewBox='0 0 350 120'>
-              <g className={Components.button} onClick={onClick}>
+              <g className={[Components.button, buttonOutline].join(" ")} onClick={onClick}>
                 <rect  rx="60" x="20" y="0" width="720" height="120" />
                 <text className={[Text.buttonToKitchen].join(" ")} x={75} y={78}>Send Items to Kitchen</text>
                 {this._renderArrow()}

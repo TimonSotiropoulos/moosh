@@ -32,8 +32,23 @@ import { Animation, Fill } from '../../styles';
 
 class Interface extends Component {
 
+    constructor(props) {
+        super(props);
+        this.state = {
+            showButtonOutline: false
+        }
+    }
+
     navigateToLink = (route) => {
-        this.props.navigateToLink(route);
+        const { disableLinks } = this.props;
+        if (disableLinks) {
+            this.setState({
+                showButtonOutline: true
+            });
+        } else {
+            this.props.navigateToLink(route);
+        }
+
     }
 
     _renderNextButton = () => {
@@ -42,7 +57,7 @@ class Interface extends Component {
             case Routes.Kitchen:
                 return (<Button.KitchenFeedMoosh onClick={nextButtonClick} />)
             default:
-                return (<Button.ToKitchen onClick={nextButtonClick} />)
+                return (<Button.ToKitchen showButtonOutline={this.state.showButtonOutline} onClick={nextButtonClick} />)
         }
     }
 

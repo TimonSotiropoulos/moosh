@@ -135,6 +135,7 @@ class Garden extends Component {
                 {this._renderFrontBasketItems()}
                 <Moosh.Market />
                 <Interface
+                    disableLinks={(basket.items.length > 0)}
                     currentRoute={Routes.Garden}
                     undoClick={removeLastItemFromBasket}
                     counter={basket.items.length}

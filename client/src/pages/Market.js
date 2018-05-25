@@ -83,6 +83,7 @@ class Market extends Component {
 
     render() {
         const { trolley, removeLastItemFromTrolley } = this.props;
+
         return (
             <Window>
                 <Background.Market />
@@ -109,6 +110,7 @@ class Market extends Component {
                 {this._renderTrolleyItems()}
                 <Trolley />
                 <Interface
+                    disableLinks={(trolley.items.length > 0)}
                     currentRoute={Routes.Market}
                     undoClick={removeLastItemFromTrolley}
                     counter={trolley.items.length}
