@@ -116,6 +116,7 @@ export const createReportFromFood = (blenderContent, appData) => {
             protein: protein.length,
             dairy: dairy.length,
             sugarScore: sugarScore,
+            water: water.length,
             balanceScore: balanceScore,
             portionsScore: portionsScore
         }
