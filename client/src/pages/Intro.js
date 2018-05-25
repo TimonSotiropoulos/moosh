@@ -93,6 +93,14 @@ class Intro extends Component {
         }
     }
 
+    _handleChangeAge = (event) => {
+        if (this.LAST_KEY_VALID) {
+            this.setState({
+                age: event.target.value
+            });
+        }
+    }
+
     _isKeyNumber = (event) => {
         var charCode = (event.which) ? event.which : event.keyCode
         if (charCode > 31 && (charCode < 48 || charCode > 57)) {;
@@ -111,10 +119,22 @@ class Intro extends Component {
                 <text x={150} y={1370} className={[Text.footerText].join(" ")}>
                     Hi Moosh, I'm
                 </text>
+                <foreignObject x={540} y={1300} width={600} height={100}>
+                    <input
+                        inputMode={"numeric"}
+                        value={this.state.age}
+                        className={[Text.formInput].join(" ")}
+                        style={{width: 225, height: 100, paddingLeft: 40, borderRadius: 50, backgroundColor: 'white'}}
+                        placeholder={"Age"}
+                        onKeyDown={this._isKeyNumber}
+                        onChange={this._handleChangeAge}
+                        type={"text"} />
+                </foreignObject>
                 <text x={800} y={1370} className={[Text.footerText].join(" ")}>
                     years old.
                 </text>
-                <Dropdown.Age updateValue={this.updateValue} error={!this.state.validated} inputKey={"age"} value={this.state.age} />
+
+                {/* <Dropdown.Age updateValue={this.updateValue} error={!this.state.validated} inputKey={"age"} value={this.state.age} /> */}
                 <Button.Next onClick={this._validateAgeQuestion}/>
             </Fragment>
         );
