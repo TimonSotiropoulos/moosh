@@ -304,9 +304,6 @@ const saveReportToSpreadsheet = (body) => {
         data: body
     }
 
-    console.log("SENDING API REPONSE");
-    console.log(body);
-
     axios(CONFIG.ZAPIER_API, params)
     .then((response) => {
         console.log(response);
