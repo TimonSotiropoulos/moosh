@@ -37,10 +37,15 @@ class Counter extends Component {
     }
 
     render () {
+        const { value } = this.props;
+
+        const backgroundColor = (value >= 10) ? Fill.lightRed : Fill.white;
+        const textStyle = (value >= 10) ? Text.interfaceCounterFull : Text.interfaceCounter;
+
         return (
             <svg x={300} y={40} width={100} height={100} viewPort={"0 0 100 100"}>
-                <circle cx="50" cy="50" r="40" className={[Fill.white].join(" ")}/>
-                <text x={this.getTextX()} y={65} className={[Text.interfaceCounter].join(" ")}>{this.props.value}</text>
+                <circle cx="50" cy="50" r="40" className={[backgroundColor].join(" ")}/>
+                <text x={this.getTextX()} y={65} className={[textStyle].join(" ")}>{this.props.value}</text>
             </svg>
         )
     }
