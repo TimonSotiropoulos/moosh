@@ -109,13 +109,25 @@ class Age extends Component {
                                 {css}
                             </style>
                         </defs>
+                      <g class={"dropdown-option"} onClick={this._selectOption.bind(null, 7)}>
+                        <rect  rx="60" ry="60" x="0" y="0" width={this.props.width} height="120">
+                        </rect>
+                        <text class={Text.dropdownSelection} x={this.props.width/2 - 20} y={78}>7</text>
+                      </g>
+                    </svg>
+                    <svg x={20} y={125} viewbox='0 0 120 120'>
+                        <defs>
+                            <style>
+                                {css}
+                            </style>
+                        </defs>
                       <g class={"dropdown-option"} onClick={this._selectOption.bind(null, 8)}>
                         <rect  rx="60" ry="60" x="0" y="0" width={this.props.width} height="120">
                         </rect>
                         <text class={Text.dropdownSelection} x={this.props.width/2 - 20} y={78}>8</text>
                       </g>
                     </svg>
-                    <svg x={20} y={125} viewbox='0 0 120 120'>
+                    <svg x={20} y={250} viewbox='0 0 120 120'>
                         <defs>
                             <style>
                                 {css}
@@ -125,6 +137,18 @@ class Age extends Component {
                         <rect  rx="60" ry="60" x="0" y="0" width={this.props.width} height="120">
                         </rect>
                         <text class={Text.dropdownSelection} x={this.props.width/2 - 20} y={78}>9</text>
+                      </g>
+                    </svg>
+                    <svg x={20} y={375} viewbox='0 0 120 120'>
+                        <defs>
+                            <style>
+                                {css}
+                            </style>
+                        </defs>
+                      <g class={"dropdown-option"} onClick={this._selectOption.bind(null, 10)}>
+                        <rect  rx="60" ry="60" x="0" y="0" width={this.props.width} height="120">
+                        </rect>
+                        <text class={Text.dropdownSelection} x={this.props.width/2 - 20} y={78}>10</text>
                       </g>
                     </svg>
                 </Fragment>
@@ -137,25 +161,25 @@ class Age extends Component {
 
         if (this.props.value) {
             return (
-                <text class={Text.dropdownSelection} x={100} y={328}>{this.props.value}</text>
+                <text class={Text.dropdownSelection} x={100} y={578}>{this.props.value}</text>
             );
         }
         // No Selection State
         return (
-            <text class={Text.dropdownPlaceholder} x={50} y={328}>Age</text>
+            <text class={Text.dropdownPlaceholder} x={50} y={578}>Age</text>
         );
     }
 
     _renderArrow = () => {
         if (this.state.open) {
             return (
-                <svg x={180} y={295} width={100} height={100}>
+                <svg x={180} y={545} width={100} height={100}>
                     <polygon points="0,0 30,0 15,25"/>
                 </svg>
             );
         }
         return (
-            <svg x={180} y={290} width={100} height={100}>
+            <svg x={180} y={540} width={100} height={100}>
                 <polygon points="15,5 30,30 0,30"/>
             </svg>
         );
@@ -168,7 +192,7 @@ class Age extends Component {
         const rectBorderStyle = (this.props.error) ? {strokeWidth: "6px", stroke: '#f15f64'} : {};
 
         return (
-            <svg x={520} y={1040} viewbox='0 0 800 120'>
+            <svg x={520} y={790} viewbox='0 0 800 250'>
                 <defs>
                     <style>
                         {css}
@@ -176,7 +200,7 @@ class Age extends Component {
                 </defs>
                 {this._renderOptions()}
               <g class={"dropdown"} onClick={this._toggleOptions}>
-                <rect  rx="60" ry="60" x="20" y="250" width={this.props.width} height="120" style={rectBorderStyle}>
+                <rect  rx="60" ry="60" x="20" y="500" width={this.props.width} height="120" style={rectBorderStyle}>
                 </rect>
                 {this._renderText()}
               </g>
