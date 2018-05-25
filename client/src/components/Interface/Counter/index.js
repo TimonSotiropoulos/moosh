@@ -12,6 +12,7 @@ import React, { Component } from 'react';
 // Style Imports
 // -------------------------------------------
 import { Fill, Text } from '../../../styles';
+import { Routes } from '../../../constants';
 // --------------------------------
 
 class Counter extends Component {
@@ -39,8 +40,8 @@ class Counter extends Component {
     render () {
         const { value } = this.props;
 
-        const backgroundColor = (value >= 10) ? Fill.lightRed : Fill.white;
-        const textStyle = (value >= 10) ? Text.interfaceCounterFull : Text.interfaceCounter;
+        const backgroundColor = (value >= 10 && this.props.currentRoute !== Routes.Kitchen) ? Fill.lightRed : Fill.white;
+        const textStyle = (value >= 10 && this.props.currentRoute !== Routes.Kitchen) ? Text.interfaceCounterFull : Text.interfaceCounter;
 
         return (
             <svg x={300} y={40} width={100} height={100} viewPort={"0 0 100 100"}>

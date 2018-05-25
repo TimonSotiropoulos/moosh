@@ -14,7 +14,7 @@ import { Scoring, Outcomes } from '../constants';
 // Initial State Definition
 // -------------------------------------------
 const initialState = {
-    outcome: Outcomes.PARTY,
+    outcome: Outcomes.VOMIT,
     balance: Scoring.LOW,
     portions: Scoring.LOW,
     sugar: Scoring.LOW,

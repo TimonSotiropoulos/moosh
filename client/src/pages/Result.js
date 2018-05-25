@@ -9,7 +9,7 @@
 // *******************************************
 // Module Imports
 // -------------------------------------------
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router';
 // --------------------------------
@@ -17,7 +17,7 @@ import { withRouter } from 'react-router';
 // *******************************************
 // Component Imports
 // -------------------------------------------
-import { Window, Background, Button, Title, Moosh } from '../components';
+import { Window, Background, Blurgh, Button, Title, Moosh } from '../components';
 // --------------------------------
 
 // *******************************************
@@ -67,7 +67,12 @@ class Result extends Component {
                 return <Moosh.Sleep />
                 break;
             case Outcomes.VOMIT:
-                return <Moosh.Vomit />
+                return (
+                    <Fragment>
+                        <Moosh.Vomit />
+                        <Blurgh />
+                    </Fragment>
+                );
                 break;
             default:
                 return null;

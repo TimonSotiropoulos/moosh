@@ -42,7 +42,7 @@ class Vomit extends Component {
         const { width, height, xPos, yPos } = this.props;
 
         return (
-            <svg xmlns="http://www.w3.org/2000/svg" width={938} height={958} x={500} y={240} viewBox="0 0 938.9 998.1">
+            <svg xmlns="http://www.w3.org/2000/svg" width={938} height={958} x={250} y={240} viewBox="0 0 938.9 998.1">
             <defs>
                 <style>
                     {`.vomit-moosh-cls-6{fill:#48395f}.vomit-moosh-cls-1{isolation:isolate}.vomit-moosh-cls-2{fill:#05ab8c}.vomit-moosh-cls-3{fill:#008f76}.vomit-moosh-cls-4,.vomit-moosh-cls-7{fill:#005b49}.vomit-moosh-cls-4{opacity:.7}.vomit-moosh-cls-5{fill:#55676f}.vomit-moosh-cls-11,.vomit-moosh-cls-5,.vomit-moosh-cls-9{opacity:.3}.vomit-moosh-cls-6{fill:none}.vomit-moosh-cls-7{opacity:.5}.vomit-moosh-cls-8{fill:#944f90}.vomit-moosh-cls-10,.vomit-moosh-cls-11,.vomit-moosh-cls-12,.vomit-moosh-cls-9{fill:#231f20;stroke:#231f20;stroke-miterlimit:10;mix-blend-mode:multiply}.vomit-moosh-cls-10,.vomit-moosh-cls-9{stroke-width:6.9px}.vomit-moosh-cls-10,.vomit-moosh-cls-12{opacity:.1}.vomit-moosh-cls-11,.vomit-moosh-cls-12{stroke-width:6.46px}.vomit-moosh-cls-13{fill:#f8f9f4}.vomit-moosh-cls-14{fill:#fff}.vomit-moosh-cls-15{fill:#007661}.vomit-moosh-cls-16{fill:#c3d155}`}

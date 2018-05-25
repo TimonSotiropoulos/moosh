@@ -71,7 +71,7 @@ class Interface extends Component {
         return (
             <Fragment>
                 {(hideInterface) ? null : <Button.Undo onClick={undoClick} />}
-                {(hideInterface) ? null : <Counter value={this.props.counter} />}
+                {(hideInterface) ? null : <Counter value={this.props.counter} currentRoute={currentRoute} />}
                 {(hideInterface) ? null : <Link link={Routes.Garden} active={currentRoute === Routes.Garden} onClick={this.navigateToLink} />}
                 {(hideInterface) ? null : <Link link={Routes.Kitchen} active={currentRoute === Routes.Kitchen} onClick={this.navigateToLink} />}
                 {(hideInterface) ? null : <Link link={Routes.Market} active={currentRoute === Routes.Market} onClick={this.navigateToLink} />}
