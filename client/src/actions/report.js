@@ -74,7 +74,7 @@ export const createReportFromFood = (blenderContent, appData) => {
 
         const portionsScore = ratePortions(totalItems);
         const sugarScore = rateSugar(sometimes);
-        const waterScore = rateWater(water);
+        const waterScore = rateWater(water.length);
 
         const ratios = {
             vegetables: vegetablesRatio,
