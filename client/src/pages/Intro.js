@@ -48,7 +48,7 @@ class Intro extends Component {
             postcode: "",
             age: ""
         }
-        this.LAST_KEY_VALID = false;
+        // this.LAST_KEY_VALID = false;
     }
 
     updateValue = (key, value) => {
@@ -86,7 +86,7 @@ class Intro extends Component {
     }
 
     _handleChange = (event) => {
-        if (this.LAST_KEY_VALID) {
+        if (!isNaN(event.target.value) && event.target.value.length <= 4) {
             this.setState({
                 postcode: event.target.value
             });
@@ -94,22 +94,22 @@ class Intro extends Component {
     }
 
     _handleChangeAge = (event) => {
-        if (this.LAST_KEY_VALID) {
+        if (!isNaN(event.target.value) && event.target.value.length <= 3) {
             this.setState({
                 age: event.target.value
             });
         }
     }
 
-    _isKeyNumber = (event) => {
-        var charCode = (event.which) ? event.which : event.keyCode
-        if (charCode > 31 && (charCode < 48 || charCode > 57)) {;
-            this.LAST_KEY_VALID = false;
-            return false;
-        }
-        this.LAST_KEY_VALID = true;
-        return true;
-    }
+    // _isKeyNumber = (event) => {
+    //     var charCode = (event.which) ? event.which : event.keyCode
+    //     if (charCode > 31 && (charCode < 48 || charCode > 57)) {;
+    //         this.LAST_KEY_VALID = false;
+    //         return false;
+    //     }
+    //     this.LAST_KEY_VALID = true;
+    //     return true;
+    // }
 
     _renderAgeQuestion = () => {
         return (
@@ -126,7 +126,7 @@ class Intro extends Component {
                         className={[Text.formInput].join(" ")}
                         style={{width: 225, height: 100, paddingLeft: 40, borderRadius: 50, backgroundColor: 'white'}}
                         placeholder={"Age"}
-                        onKeyDown={this._isKeyNumber}
+
                         onChange={this._handleChangeAge}
                         type={"text"} />
                 </foreignObject>
@@ -156,7 +156,6 @@ class Intro extends Component {
                         className={[Text.formInput].join(" ")}
                         style={{width: 225, height: 100, paddingLeft: 40, borderRadius: 50, backgroundColor: 'white'}}
                         placeholder={""}
-                        onKeyDown={this._isKeyNumber}
                         onChange={this._handleChange}
                         type={"text"} />
                 </foreignObject>
